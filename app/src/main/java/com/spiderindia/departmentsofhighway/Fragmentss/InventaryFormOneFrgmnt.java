@@ -273,6 +273,8 @@ public class InventaryFormOneFrgmnt extends Fragment implements AdapterView.OnIt
         final ArrayAdapter<String> BridgeTypelist_adapter = new ArrayAdapter<String>(getActivity(),R.layout.custom_spinner, BridgeTypelist);
         BridgeTypelist_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         bridgeTypeSpinner.setAdapter(BridgeTypelist_adapter);
+        int position = Integer.parseInt(dataItem.getBRIDGETYPE());
+        bridgeTypeSpinner.setSelection(position);
 
         ArrayList<String> Controllinglist = new ArrayList<>();
 
@@ -287,6 +289,8 @@ public class InventaryFormOneFrgmnt extends Fragment implements AdapterView.OnIt
         final ArrayAdapter<String> Controllinglist_adapter = new ArrayAdapter<String>(getActivity(),R.layout.custom_spinner, Controllinglist);
         Controllinglist_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         controllingSpinner.setAdapter(Controllinglist_adapter);
+        int position1 = Integer.parseInt(dataItem.getOWNERSHIPOFRIVER());
+        controllingSpinner.setSelection(position1);
 
         ArrayList<String> flowofRiverlist = new ArrayList<>();
 
@@ -299,6 +303,9 @@ public class InventaryFormOneFrgmnt extends Fragment implements AdapterView.OnIt
         final ArrayAdapter<String> flowofRiverlist_adapter = new ArrayAdapter<String>(getActivity(),R.layout.custom_spinner, flowofRiverlist);
         flowofRiverlist_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         flowofRiverSpinner.setAdapter(flowofRiverlist_adapter);
+
+        int position2 = Integer.parseInt(dataItem.getFLOWOFRIVER());
+        flowofRiverSpinner.setSelection(position2);
     }
 
     private void saveDetails() {

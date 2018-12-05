@@ -216,6 +216,9 @@ public class InventaryFormFourFrgmnt extends Fragment implements AdapterView.OnI
         abutmentList_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         abutmentSpinner.setAdapter(abutmentList_adapter);
 
+        int position = Integer.parseInt(dataItem.getABUTMENTFOUNDATION());
+        abutmentSpinner.setSelection(position);
+
         ArrayList<String> bankProtectionList = new ArrayList<>();
 
         bankProtectionList.add("Select");
@@ -229,6 +232,9 @@ public class InventaryFormFourFrgmnt extends Fragment implements AdapterView.OnI
         bankProtectionList_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         bankProtectionSpinner.setAdapter(bankProtectionList_adapter);
 
+        int position1 = Integer.parseInt(dataItem.getBANKPROTECTIONTYPE());
+        bankProtectionSpinner.setSelection(position1);
+
         ArrayList<String> approachList = new ArrayList<>();
 
         approachList.add("Select");
@@ -240,6 +246,9 @@ public class InventaryFormFourFrgmnt extends Fragment implements AdapterView.OnI
         final ArrayAdapter<String> approachList_adapter = new ArrayAdapter<String>(getActivity(),R.layout.custom_spinner, approachList);
         approachList_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         approachSpinner.setAdapter(approachList_adapter);
+
+        int position2 = Integer.parseInt(dataItem.getAPPROACHTYPE());
+        approachSpinner.setSelection(position2);
 
         ArrayList<String> floorProtectionList = new ArrayList<>();
 
@@ -253,6 +262,9 @@ public class InventaryFormFourFrgmnt extends Fragment implements AdapterView.OnI
         floorProtectionList_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         floorProtectionSpinner.setAdapter(floorProtectionList_adapter);
 
+        int position3 = Integer.parseInt(dataItem.getFLOORPROTECTION());
+        floorProtectionSpinner.setSelection(position3);
+
         ArrayList<String> typeOfSubstructureList = new ArrayList<>();
 
         typeOfSubstructureList.add("Select");
@@ -264,6 +276,9 @@ public class InventaryFormFourFrgmnt extends Fragment implements AdapterView.OnI
         final ArrayAdapter<String> typeOfSubstructureList_adapter = new ArrayAdapter<String>(getActivity(),R.layout.custom_spinner, typeOfSubstructureList);
         typeOfSubstructureList_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         typeOfSucstructureSpinner.setAdapter(typeOfSubstructureList_adapter);
+
+        int position4 = Integer.parseInt(dataItem.getTYPEOFSUBSTRUCTURE());
+        typeOfSucstructureSpinner.setSelection(position4);
 
 
     }

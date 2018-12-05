@@ -196,10 +196,11 @@ public class ConditionFormOneFrgmnt extends Fragment implements AdapterView.OnIt
         shapeOfPierList_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         shapeOfPierSpinner.setAdapter(shapeOfPierList_adapter);
 
+        int position = Integer.parseInt(dataItem.getSHAPEOFPIER());
+        shapeOfPierSpinner.setSelection(position);
     }
 
     private void saveDetails() {
-
 
       //  shapePier=shapePierEdtTxt.getText().toString();
         brdgeAngle=brdgeAngleEdtTxt.getText().toString();

@@ -863,8 +863,6 @@ public class MaintenanceFormOneFrgmnt extends Fragment {
                 adapter_type.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 typeSpinr.setAdapter(adapter_type);
 
-                componentSpinr.setSelection(Integer.parseInt(componentSpinrId));
-                typeSpinr.setSelection(Integer.parseInt(typeSpinrId));
 
                 yearEdtTxt.setText(year);
                 amountEdtTxt.setText(amount);

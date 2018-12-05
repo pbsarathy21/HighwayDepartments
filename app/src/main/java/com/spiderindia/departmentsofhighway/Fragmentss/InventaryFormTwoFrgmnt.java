@@ -213,6 +213,10 @@ public class InventaryFormTwoFrgmnt extends Fragment implements AdapterView.OnIt
         loadingList_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         loadingSpinner.setAdapter(loadingList_adapter);
 
+        int position = Integer.parseInt(dataItem.getLOADING());
+        loadingSpinner.setSelection(position);
+
+
         ArrayList<String> slabList = new ArrayList<>();
 
         slabList.add("Select");
@@ -226,6 +230,9 @@ public class InventaryFormTwoFrgmnt extends Fragment implements AdapterView.OnIt
         final ArrayAdapter<String> slabList_adapter = new ArrayAdapter<String>(getActivity(),R.layout.custom_spinner, slabList);
         slabList_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         slabSpinner.setAdapter(slabList_adapter);
+
+        int position1 = Integer.parseInt(dataItem.getSLABDESIGN());
+        slabSpinner.setSelection(position1);
 
 
     }

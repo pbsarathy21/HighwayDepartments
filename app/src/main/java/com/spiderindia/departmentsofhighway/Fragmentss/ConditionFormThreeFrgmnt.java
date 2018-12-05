@@ -25,6 +25,7 @@ import android.widget.Spinner;
 
 import com.spiderindia.departmentsofhighway.HomeActivity;
 import com.spiderindia.departmentsofhighway.JSON.Config;
+import com.spiderindia.departmentsofhighway.ModelClasses.ModelBridgeResponse.DataItem;
 import com.spiderindia.departmentsofhighway.R;
 import com.spiderindia.departmentsofhighway.SqLiteDb.MyDataBaseHandler;
 import com.spiderindia.departmentsofhighway.Utils.CustomFontCheckBox;
@@ -35,6 +36,8 @@ import java.util.HashMap;
  * A simple {@link Fragment} subclass.
  */
 public class ConditionFormThreeFrgmnt extends Fragment {
+
+    DataItem dataItem;
 
 
     public ConditionFormThreeFrgmnt() {
@@ -391,17 +394,29 @@ public class ConditionFormThreeFrgmnt extends Fragment {
                 adapter_leftCrack.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 leftCrackUpSSpinr.setAdapter(adapter_leftCrack);
 
+                int position = Integer.parseInt(dataItem.getSBSCRACKSUL());
+                leftCrackUpSSpinr.setSelection(position);
+
                 final ArrayAdapter<String> adapter_rightCrackUp = new ArrayAdapter<String>(getActivity(), R.layout.custom_spinner, rightCrackUpSSpinrArr);
                 adapter_rightCrackUp.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 rightCrackUpSSpinr.setAdapter(adapter_rightCrackUp);
+
+                int position1 = Integer.parseInt(dataItem.getSBSCRACKSUR());
+                rightCrackUpSSpinr.setSelection(position1);
 
                 final ArrayAdapter<String> adapter_leftCrackDown = new ArrayAdapter<String>(getActivity(), R.layout.custom_spinner, leftCrackDownSSpinrArr);
                 adapter_leftCrackDown.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 leftCrackDownSSpinr.setAdapter(adapter_leftCrackDown);
 
+                int position2 = Integer.parseInt(dataItem.getSBSCRACKSDL());
+                leftCrackDownSSpinr.setSelection(position2);
+
                 final ArrayAdapter<String> adapter_rightCrackDown = new ArrayAdapter<String>(getActivity(), R.layout.custom_spinner, rightCrackDownSSpinrArr);
                 adapter_rightCrackDown.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 rightCrackDownSSpinr.setAdapter(adapter_rightCrackDown);
+
+                int position3 = Integer.parseInt(dataItem.getSBSCRACKSDR());
+                rightCrackDownSSpinr.setSelection(position3);
 
 
                 leftCrackUpSSpinr.setSelection(Integer.parseInt(leftCrackUpSSpinrId));

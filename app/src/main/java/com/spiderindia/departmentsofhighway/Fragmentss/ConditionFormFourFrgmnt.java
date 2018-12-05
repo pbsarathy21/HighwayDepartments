@@ -23,6 +23,7 @@ import android.widget.ProgressBar;
 import android.widget.Spinner;
 
 import com.spiderindia.departmentsofhighway.HomeActivity;
+import com.spiderindia.departmentsofhighway.ModelClasses.ModelBridgeResponse.DataItem;
 import com.spiderindia.departmentsofhighway.R;
 import com.spiderindia.departmentsofhighway.SqLiteDb.MyDataBaseHandler;
 
@@ -32,6 +33,8 @@ import java.util.HashMap;
  * A simple {@link Fragment} subclass.
  */
 public class ConditionFormFourFrgmnt extends Fragment {
+
+    DataItem dataItem;
 
 
     public ConditionFormFourFrgmnt() {
@@ -344,6 +347,8 @@ public class ConditionFormFourFrgmnt extends Fragment {
                 adapter_leftCrack.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 spallingSpnrSuperS.setAdapter(adapter_leftCrack);
 
+                int position = Integer.parseInt(dataItem.getHANDRAILSSPALLING());
+                spallingSpnrSuperS.setSelection(position);
 
                 if(crackedId.equalsIgnoreCase("1"))
                     crackedChkBx.setChecked(true);

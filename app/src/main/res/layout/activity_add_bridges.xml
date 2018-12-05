@@ -1,0 +1,753 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.spiderindia.departmentsofhighway.AddBridgesActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/screen_bg_hash_color">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <include
+                android:id="@+id/tool_bar"
+                layout="@layout/toolbar_common">
+            </include>
+        </LinearLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:orientation="vertical">
+
+<!--
+                        <Spinner
+                            android:id="@+id/type_spnr_maint"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_marginTop="2dp"
+                            android:background="@drawable/rounded_corner_with_bottom_shadow"
+                            android:gravity="center|start"
+                            android:popupBackground="@color/white"
+                            android:theme="@android:style/Theme.Holo.Light" />
+-->
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/edt_txt_mar_btm"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <com.spiderindia.departmentsofhighway.Utils.CustomTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="CIRCLE"
+                                android:textColor="@color/txt_common_color"
+                                android:textAllCaps="true"
+                                android:textSize="@dimen/common_header_txt_s"/>
+
+
+                            <Spinner
+                                android:id="@+id/circle_spiner"
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:layout_marginTop="2dp"
+                                android:background="@drawable/rounded_corner_with_bottom_shadow"
+                                android:gravity="center_vertical"
+                                android:popupBackground="@color/white"
+                                android:theme="@android:style/Theme.Holo.Light" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/edt_txt_mar_btm"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <com.spiderindia.departmentsofhighway.Utils.CustomTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="DIVISION"
+                                android:textColor="@color/txt_common_color"
+                                android:textAllCaps="true"
+                                android:textSize="@dimen/common_header_txt_s"/>
+
+                            <Spinner
+                                android:id="@+id/division_spiner"
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:layout_marginTop="2dp"
+                                android:background="@drawable/rounded_corner_with_bottom_shadow"
+                                android:gravity="center|start"
+                                android:popupBackground="@color/white"
+                                android:theme="@android:style/Theme.Holo.Light" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/edt_txt_mar_btm"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <com.spiderindia.departmentsofhighway.Utils.CustomTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="SUB DIVISION"
+                                android:textColor="@color/txt_common_color"
+                                android:textAllCaps="true"
+                                android:textSize="@dimen/common_header_txt_s"/>
+
+
+                            <Spinner
+                                android:id="@+id/sub_division_spiner"
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:layout_marginTop="2dp"
+                                android:background="@drawable/rounded_corner_with_bottom_shadow"
+                                android:gravity="center|start"
+                                android:popupBackground="@color/white"
+                                android:theme="@android:style/Theme.Holo.Light" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/edt_txt_mar_btm"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <com.spiderindia.departmentsofhighway.Utils.CustomTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="ROAD"
+                                android:textColor="@color/txt_common_color"
+                                android:textAllCaps="true"
+                                android:textSize="@dimen/common_header_txt_s"/>
+
+
+                            <Spinner
+                                android:id="@+id/road_spiner"
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:layout_marginTop="2dp"
+                                android:background="@drawable/rounded_corner_with_bottom_shadow"
+                                android:gravity="center|start"
+                                android:popupBackground="@color/white"
+                                android:theme="@android:style/Theme.Holo.Light" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/edt_txt_mar_btm"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <com.spiderindia.departmentsofhighway.Utils.CustomTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="LINK ID"
+                                android:textColor="@color/txt_common_color"
+                                android:textAllCaps="true"
+                                android:textSize="@dimen/common_header_txt_s"/>
+
+
+                            <Spinner
+                                android:id="@+id/link_id_spnr"
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:layout_marginTop="5dp"
+                                android:background="@drawable/rounded_corner_with_bottom_shadow"
+                                android:gravity="center|start"
+                                android:popupBackground="@color/white"
+                                android:theme="@android:style/Theme.Holo.Light" />
+
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/edt_txt_mar_btm"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <com.spiderindia.departmentsofhighway.Utils.CustomTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Bridge"
+                                android:textColor="@color/txt_common_color"
+                                android:textAllCaps="true"
+                                android:textSize="@dimen/common_header_txt_s"/>
+
+
+                            <Spinner
+                                android:id="@+id/brdg_spnr"
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:layout_marginTop="5dp"
+                                android:background="@drawable/rounded_corner_with_bottom_shadow"
+                                android:gravity="center|start"
+                                android:popupBackground="@color/white"
+                                android:theme="@android:style/Theme.Holo.Light" />
+
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/edt_txt_mar_btm"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+
+                            <Button
+                                android:id="@+id/newBridgeBttn"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="New Bridge"
+                                android:textColor="@color/txt_common_color"
+                                android:textAllCaps="true"
+                                android:textSize="@dimen/common_header_txt_s"
+                                android:padding="10dp"
+                                android:background="@drawable/rounded_corner_with_bottom_shadow"
+                                android:layout_gravity="center|end"
+                                android:layout_marginRight="15dp"/>
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/brdg_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/edt_txt_mar_btm"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:visibility="gone">
+
+                            <com.spiderindia.departmentsofhighway.Utils.CustomTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Bridge Name"
+                                android:textColor="@color/txt_common_color"
+                                android:textAllCaps="true"
+                                android:textSize="@dimen/common_header_txt_s"/>
+
+
+
+                            <EditText
+                                android:id="@+id/brdgName_edtTxt"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/rounded_corner_with_bottom_shadow"
+                                android:text=""
+                                android:minHeight="@dimen/edt_txt_min_h"
+                                android:textAlignment="textStart"
+                                android:textSize="@dimen/text_hint_size_capture_screen"
+                                android:layout_marginTop="2dp"
+                                android:paddingLeft="5dp"
+                                android:paddingRight="5dp"
+                                android:gravity="start" />
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/edt_txt_mar_btm"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <com.spiderindia.departmentsofhighway.Utils.CustomTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="DESCRIPTION"
+                                android:textColor="@color/txt_common_color"
+                                android:textAllCaps="true"
+                                android:textSize="@dimen/common_header_txt_s"/>
+
+
+
+                            <EditText
+                                android:id="@+id/descrp_edtTxt"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/rounded_corner_with_bottom_shadow"
+                                android:text=""
+                                android:minHeight="@dimen/edt_txt_descr_min_h"
+                                android:textAlignment="textStart"
+                                android:textSize="@dimen/text_hint_size_capture_screen"
+                                android:layout_marginTop="2dp"
+                                android:paddingLeft="5dp"
+                                android:paddingRight="5dp"
+                                android:gravity="start" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/edt_txt_mar_btm"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <com.spiderindia.departmentsofhighway.Utils.CustomTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="LOCATION"
+                                android:textColor="@color/txt_common_color"
+                                android:textAllCaps="true"
+                                android:textSize="@dimen/common_header_txt_s"/>
+
+
+
+                            <EditText
+                                android:id="@+id/location_edtTxt"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/rounded_corner_with_bottom_shadow"
+                                android:imeOptions="flagNavigateNext"
+                                android:minHeight="@dimen/edt_txt_min_h"
+                                android:singleLine="false"
+                                android:textSize="@dimen/text_hint_size_capture_screen"
+                                android:layout_marginTop="2dp"
+                                android:paddingLeft="5dp"
+                                android:paddingRight="5dp"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/edt_txt_mar_btm"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <com.spiderindia.departmentsofhighway.Utils.CustomTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="START CHAINAGE"
+                                android:textColor="@color/txt_common_color"
+                                android:textAllCaps="true"
+                                android:textSize="@dimen/common_header_txt_s"/>
+
+
+
+                            <EditText
+                                android:id="@+id/chainage_edtTxt"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="2dp"
+                                android:background="@drawable/rounded_corner_with_bottom_shadow"
+                                android:minHeight="@dimen/edt_txt_min_h"
+                                android:singleLine="false"
+                                android:textSize="@dimen/text_hint_size_capture_screen"
+                                android:layout_marginTop="2dp"
+                                android:paddingLeft="5dp"
+                                android:paddingRight="5dp"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/edt_txt_mar_btm"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <com.spiderindia.departmentsofhighway.Utils.CustomTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="BRIDGE NUMBER"
+                                android:textColor="@color/txt_common_color"
+                                android:textAllCaps="true"
+                                android:textSize="@dimen/common_header_txt_s"/>
+
+
+                            <EditText
+                                android:id="@+id/bridgeNo_edtTxt"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/rounded_corner_with_bottom_shadow"
+                                android:imeOptions="flagNavigateNext"
+                                android:inputType="number"
+                                android:minHeight="@dimen/edt_txt_min_h"
+                                android:singleLine="false"
+                                android:textSize="@dimen/text_hint_size_capture_screen"
+                                android:layout_marginTop="2dp"
+                                android:paddingLeft="5dp"
+                                android:paddingRight="5dp"/>
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/edt_txt_mar_btm"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <com.spiderindia.departmentsofhighway.Utils.CustomTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="BRIDGE"
+                                android:textColor="@color/txt_common_color"
+                                android:textAllCaps="true"
+                                android:textSize="@dimen/common_header_txt_s"/>
+
+
+                            <EditText
+                                android:id="@+id/bridge_edtTxt"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/rounded_corner_with_bottom_shadow"
+                                android:imeOptions="flagNavigateNext"
+                                android:minHeight="@dimen/edt_txt_min_h"
+                                android:singleLine="false"
+                                android:textSize="@dimen/text_hint_size_capture_screen"
+                                android:layout_marginTop="2dp"
+                                android:paddingLeft="5dp"
+                                android:paddingRight="5dp"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/edt_txt_mar_btm"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+                            <com.spiderindia.departmentsofhighway.Utils.CustomTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="YEAR OF CONSTRUCTION"
+                                android:textColor="@color/txt_common_color"
+                                android:textAllCaps="true"
+                                android:textSize="@dimen/common_header_txt_s"/>
+
+
+                            <EditText
+                                android:id="@+id/yr_of_constrctn_edtTxt"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/rounded_corner_with_bottom_shadow"
+                                android:imeOptions="flagNavigateNext"
+                                android:inputType="textEmailAddress"
+                                android:minHeight="@dimen/edt_txt_min_h"
+                                android:textSize="@dimen/text_hint_size_capture_screen"
+                                android:layout_marginTop="2dp"
+                                android:paddingLeft="5dp"
+                                android:paddingRight="5dp"
+                                android:focusable="false"
+                                android:focusableInTouchMode="false"
+                                android:singleLine="false"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/edt_txt_mar_btm"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <com.spiderindia.departmentsofhighway.Utils.CustomTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="CONSTRUCTION COST(Rs.LAKHS"
+                                android:textColor="@color/txt_common_color"
+                                android:textAllCaps="true"
+                                android:textSize="@dimen/common_header_txt_s"/>
+
+
+                            <EditText
+                                android:id="@+id/constrctn_cost_edtTxt"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/rounded_corner_with_bottom_shadow"
+                                android:imeOptions="flagNavigateNext"
+                                android:inputType="number"
+                                android:minHeight="@dimen/edt_txt_min_h"
+                                android:singleLine="false"
+                                android:textSize="@dimen/text_hint_size_capture_screen"
+                                android:layout_marginTop="2dp"
+                                android:paddingLeft="5dp"
+                                android:paddingRight="5dp"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/edt_txt_mar_btm"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <com.spiderindia.departmentsofhighway.Utils.CustomTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Construction survey date"
+                                android:textColor="@color/txt_common_color"
+                                android:textAllCaps="true"
+                                android:textSize="@dimen/common_header_txt_s"/>
+
+                            <EditText
+                                android:id="@+id/constrctn_survey_date_edtTxt"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/rounded_corner_with_bottom_shadow"
+                                android:imeOptions="flagNavigateNext"
+                                android:inputType="number"
+                                android:minHeight="@dimen/edt_txt_min_h"
+                                android:textSize="@dimen/text_hint_size_capture_screen"
+                                android:layout_marginTop="2dp"
+                                android:paddingLeft="5dp"
+                                android:paddingRight="5dp"
+                                android:focusable="false"
+                                android:focusableInTouchMode="false"
+                                android:singleLine="false"/>
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/edt_txt_mar_btm"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <com.spiderindia.departmentsofhighway.Utils.CustomTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Attach Document"
+                                android:textColor="#9f9e9e"
+                                android:textAllCaps="true"
+                                android:textSize="@dimen/common_header_txt_s"/>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+                                    <TextView
+                                        android:id="@+id/document_nam_Txt"
+                                        android:layout_width="170dp"
+                                        android:layout_height="35dp"
+                                        android:src="@mipmap/place_holder"
+                                        android:text="No File Choosen"
+                                        android:textColor="@color/black_"
+                                        android:gravity="center"/>
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="center">
+                                    <Button
+                                        android:id="@+id/choose_doc_bttn"
+                                        android:layout_width="120dp"
+                                        android:layout_height="45dp"
+                                        android:text="Choose Document"
+                                        android:background="@color/hash_color_bttn"
+                                        android:textColor="@color/hash_color_txt"
+                                        android:textAllCaps="false"
+                                        android:textSize="15sp"/>
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/edt_txt_mar_btm"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <com.spiderindia.departmentsofhighway.Utils.CustomTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Attach Photo 1"
+                                android:textColor="#9f9e9e"
+                                android:textAllCaps="true"
+                                android:textSize="@dimen/common_header_txt_s"/>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+                                    <ImageView
+                                        android:id="@+id/profile_img"
+                                        android:layout_width="170dp"
+                                        android:layout_height="130dp"
+                                        android:src="@mipmap/place_holder"
+                                        />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="center">
+                                    <Button
+                                        android:id="@+id/choose_File_bttn_doc"
+                                        android:layout_width="120dp"
+                                        android:layout_height="35dp"
+                                        android:text="Choose Photo"
+                                        android:background="@color/hash_color_bttn"
+                                        android:textColor="@color/hash_color_txt"
+                                        android:textAllCaps="false"
+                                        android:textSize="15sp"/>
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/edt_txt_mar_btm"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:visibility="visible">
+
+                            <com.spiderindia.departmentsofhighway.Utils.CustomTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Attach Photo 2"
+                                android:textColor="#9f9e9e"
+                                android:textAllCaps="true"
+                                android:textSize="@dimen/common_header_txt_s"/>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+                                    <ImageView
+                                        android:id="@+id/second_img"
+                                        android:layout_width="170dp"
+                                        android:layout_height="130dp"
+                                        android:src="@mipmap/place_holder"
+                                        />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="center">
+                                    <Button
+                                        android:id="@+id/choose_second_photo"
+                                        android:layout_width="120dp"
+                                        android:layout_height="35dp"
+                                        android:text="Choose Photo"
+                                        android:background="@color/hash_color_bttn"
+                                        android:textColor="@color/hash_color_txt"
+                                        android:textAllCaps="false"
+                                        android:textSize="15sp"/>
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/edt_txt_mar_btm"
+                            android:layout_marginTop="5dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+
+                            <Button
+                                android:id="@+id/add_brdg_next_bttn"
+                                android:layout_width="130dp"
+                                android:layout_height="40dp"
+                                android:background="@drawable/rounded_corner_for_login_bttn"
+                                android:text="Next"
+                                android:textAllCaps="false"
+                                android:textColor="@color/white"
+                                android:textSize="18sp" />
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </ScrollView>
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/progress_loading_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:id="@+id/process_Loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+</RelativeLayout>

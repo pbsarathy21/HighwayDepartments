@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "556353541936",
+    "firebase_url": "https://highway-1009f.firebaseio.com",
+    "project_id": "highway-1009f",
+    "storage_bucket": "highway-1009f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:556353541936:android:a80b865a2d41ab31",
+        "android_client_info": {
+          "package_name": "com.spiderindia.departmentsofhighway"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "556353541936-lk3h2k0hcovi7ahes8ctl45gebgkm7ih.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.spiderindia.departmentsofhighway",
+            "certificate_hash": "054b376fce51d787eb9f148932424fd0ad2c02bc"
+          }
+        },
+        {
+          "client_id": "556353541936-8gsrbndp7dn6mm2ot3qbfitel4vnhplb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWxlE2Y964wH_SWjK-0E4dOk5Noxvc2bU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "556353541936-8gsrbndp7dn6mm2ot3qbfitel4vnhplb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

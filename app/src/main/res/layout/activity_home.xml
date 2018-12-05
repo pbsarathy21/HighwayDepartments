@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.spiderindia.departmentsofhighway.HomeActivity">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/screen_bg_hash_color">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <include
+                android:id="@+id/tool_bar"
+                layout="@layout/toolbar_common">
+            </include>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:weightSum="10">
+
+<!--
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+
+                    <com.spiderindia.departmentsofhighway.Utils.CustomViewPager
+                        xmlns:android="http://schemas.android.com/apk/res/android"
+                        android:id="@+id/viewPager"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="50dp">
+
+                    </com.spiderindia.departmentsofhighway.Utils.CustomViewPager>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:minHeight="35dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_alignParentBottom="true">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <LinearLayout
+                            android:id="@+id/maintnce_ll"
+                            android:layout_width="175dp"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/bottom_bg"
+                            android:layout_marginLeft="235dp"
+                            android:gravity="center">
+
+                            <TextView
+                                android:id="@+id/maintance_txt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="MAINTANANCE"
+                                android:textColor="@color/light_white"
+                                android:singleLine="true"
+                                android:layout_gravity="center"
+                                android:textSize="@dimen/bottom_text_s" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/condition_ll"
+                            android:layout_width="160dp"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/bottom_bg"
+                            android:layout_marginLeft="115dp"
+                            android:gravity="center">
+                            <TextView
+                                android:id="@+id/condition_txt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="CONDITION"
+                                android:textColor="@color/light_white"
+                                android:singleLine="true"
+                                android:layout_gravity="center"
+                                android:textSize="@dimen/bottom_text_s" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/inventory_ll"
+                            android:layout_width="150dp"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/bottom_bg"
+                            android:gravity="center">
+
+                            <TextView
+                                android:id="@+id/inventory_txt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="INVENTORY"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/bottom_text_s"
+                                android:layout_gravity="center"/>
+
+                        </LinearLayout>
+
+
+                    </FrameLayout>
+                </LinearLayout>
+
+
+            </RelativeLayout>
+-->
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1.1">
+
+                <com.spiderindia.departmentsofhighway.Utils.CustomViewPager
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/viewPager"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                </com.spiderindia.departmentsofhighway.Utils.CustomViewPager>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="8.9"
+                android:layout_marginTop="4dp"
+                android:visibility="gone">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:id="@+id/maintnce_ll"
+                        android:layout_width="175dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bottom_bg"
+                        android:layout_marginLeft="235dp"
+                        android:gravity="center">
+
+                        <TextView
+                            android:id="@+id/maintance_txt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="MAINTANANCE"
+                            android:textColor="@color/light_white"
+                            android:singleLine="true"
+                            android:layout_gravity="center"
+                            android:textSize="@dimen/bottom_text_s" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/condition_ll"
+                        android:layout_width="160dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bottom_bg"
+                        android:layout_marginLeft="115dp"
+                        android:gravity="center">
+                        <TextView
+                            android:id="@+id/condition_txt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="CONDITION"
+                            android:textColor="@color/light_white"
+                            android:singleLine="true"
+                            android:layout_gravity="center"
+                            android:textSize="@dimen/bottom_text_s" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/inventory_ll"
+                        android:layout_width="150dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bottom_bg"
+                        android:gravity="center">
+
+                        <TextView
+                            android:id="@+id/inventory_txt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="INVENTORY"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/bottom_text_s"
+                            android:layout_gravity="center"/>
+
+                    </LinearLayout>
+
+
+                </FrameLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+<!--
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:weightSum="10">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1.1">
+
+                <com.spiderindia.departmentsofhighway.Utils.CustomViewPager
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/viewPager"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                </com.spiderindia.departmentsofhighway.Utils.CustomViewPager>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="8.9"
+                android:layout_marginTop="4dp">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:id="@+id/maintnce_ll"
+                        android:layout_width="175dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bottom_bg"
+                        android:layout_marginLeft="235dp"
+                        android:gravity="center">
+
+                        <TextView
+                            android:id="@+id/maintance_txt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="MAINTANANCE"
+                            android:textColor="@color/light_white"
+                            android:singleLine="true"
+                            android:layout_gravity="center"
+                            android:textSize="@dimen/bottom_text_s" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/condition_ll"
+                        android:layout_width="160dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bottom_bg"
+                        android:layout_marginLeft="115dp"
+                        android:gravity="center">
+                        <TextView
+                            android:id="@+id/condition_txt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="CONDITION"
+                            android:textColor="@color/light_white"
+                            android:singleLine="true"
+                            android:layout_gravity="center"
+                            android:textSize="@dimen/bottom_text_s" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/inventory_ll"
+                        android:layout_width="150dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bottom_bg"
+                        android:gravity="center">
+
+                        <TextView
+                            android:id="@+id/inventory_txt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="INVENTORY"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/bottom_text_s"
+                            android:layout_gravity="center"/>
+
+                    </LinearLayout>
+
+
+                </FrameLayout>
+
+
+                &lt;!&ndash;
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent">
+                                <LinearLayout
+                                    android:id="@+id/inventory_ll"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/bottom_bg_high"
+                                    android:gravity="center"
+                                    >
+
+                                    <TextView
+                                        android:id="@+id/inventory_txt"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="INVENTORY"
+                                        android:textColor="@color/white"
+                                        android:textSize="@dimen/bottom_text_s"
+                                        android:layout_gravity="center"/>
+                                </LinearLayout>
+
+
+
+                                <LinearLayout
+                                    android:id="@+id/condition_ll"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/bottom_bg"
+                                    android:gravity="center"
+                                    >
+
+                                    <TextView
+                                        android:id="@+id/condition_txt"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="CONDITION"
+                                        android:textColor="@color/light_white"
+                                        android:singleLine="true"
+                                        android:layout_gravity="center"
+                                        android:textSize="@dimen/bottom_text_s" />
+                                </LinearLayout>
+
+
+                                <LinearLayout
+                                    android:id="@+id/maintnce_ll"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/bottom_bg"
+                                    android:gravity="center">
+
+                                    <TextView
+                                        android:id="@+id/maintance_txt"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="MAINTANANCE"
+                                        android:textColor="@color/light_white"
+                                        android:singleLine="true"
+                                        android:layout_gravity="center"
+                                        android:textSize="@dimen/bottom_text_s" />
+                                </LinearLayout>
+
+                                </LinearLayout>
+                &ndash;&gt;
+
+            </LinearLayout>
+
+        </LinearLayout>
+-->
+
+    </LinearLayout>
+
+
+</RelativeLayout>

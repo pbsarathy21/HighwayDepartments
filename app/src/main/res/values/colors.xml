@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#0C8367</color>
+    <color name="colorPrimaryDark">#0C9986</color>
+    <color name="colorAccent">#0C9986</color>
+
+    <color name="status_color">#0c8267</color>
+    <!--<color name="status_color">#2f779f</color>-->
+
+    <color name="toolbar_start_color">#0d9b8d</color>
+    <color name="toolbar_end_color">#0c9979</color>
+    <color name="toolbar_color">#0C9986</color>
+    <color name="progress_bar_color">#0C9986</color>
+    <color name="app_common_color">#0C9986</color>
+    <color name="txt_common_color">#0C9986</color>
+    <color name="bttn_common_color">#0C9986</color>
+
+    <color name="white">#ffffff</color>
+    <color name="light_white">#bfbebe</color>
+   <!-- <color name="light_white">#d9d8d8</color>-->
+    <color name="hash_divider">#f2efef</color>
+    <color name="hash_color">#cac8c8</color>
+    <color name="hash_color_bttn">#cfcfcf</color>
+    <color name="hash_color_txt">#565656</color>
+    <color name="half_black">#747474</color>
+    <color name="black">#000000</color>
+    <color name="screen_bg_hash_color">#EBEBEB</color>
+
+
+    <color name="colorMainBackground">#E0F2F1</color>
+    <color name="screen_bg_color">#EDEDED</color>
+    <color name="black_">#403f3f</color>
+
+    <color name="orange">#F36523</color>
+    <color name="green">#00A652</color>
+    <color name="blue">#00ADEF</color>
+    <color name="hash">#767877</color>
+</resources>

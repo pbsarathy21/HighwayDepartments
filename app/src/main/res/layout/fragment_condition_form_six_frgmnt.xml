@@ -1,0 +1,230 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragmentss.ConditionFormSixFrgmnt">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="45dp"
+                android:text="Expension Joints"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sub_header_text_s"
+                android:textAllCaps="true"
+                android:background="@drawable/rounded_corner_for_login_bttn"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/common_header_mB"
+            android:layout_marginBottom="@dimen/common_header_mB"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <com.spiderindia.departmentsofhighway.Utils.CustomFontCheckBox
+                        android:id="@+id/wornout_chkBx_ventway"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Wronout"
+                        android:textColor="@color/txt_common_color"
+                        android:textSize="@dimen/common_header_txt_s"
+                        android:textAllCaps="true"
+                        android:layout_marginRight="15dp"
+                        android:textDirection="ltr"
+                        android:layoutDirection="rtl"/>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+                    <com.spiderindia.departmentsofhighway.Utils.CustomFontCheckBox
+                        android:id="@+id/bleed_chkBx_ventway"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Bleed"
+                        android:textColor="@color/txt_common_color"
+                        android:textSize="@dimen/common_header_txt_s"
+                        android:textAllCaps="true"
+                        android:layout_marginRight="15dp"
+                        android:textDirection="ltr"
+                        android:layoutDirection="rtl"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+                <com.spiderindia.departmentsofhighway.Utils.CustomFontCheckBox
+                    android:id="@+id/cracked_chkBx_ventway"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Cracked"
+                    android:textColor="@color/txt_common_color"
+                    android:textSize="@dimen/common_header_txt_s"
+                    android:textAllCaps="true"
+                    android:textDirection="ltr"
+                    android:layoutDirection="rtl"
+                    android:layout_marginRight="15dp"/>
+            </LinearLayout>
+
+
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="45dp"
+                android:text="VENTWAY / WATERWAY"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sub_header_text_s"
+                android:textAllCaps="true"
+                android:background="@drawable/rounded_corner_for_login_bttn"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/common_header_mB"
+            android:layout_marginBottom="@dimen/common_header_mB"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+                <com.spiderindia.departmentsofhighway.Utils.CustomFontCheckBox
+                    android:id="@+id/silted_chkBx_ventway"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="SILTED"
+                    android:textColor="@color/txt_common_color"
+                    android:textSize="@dimen/common_header_txt_s"
+                    android:textAllCaps="true"
+                    android:textDirection="ltr"
+                    android:layoutDirection="rtl"
+                    android:layout_marginRight="15dp"/>
+
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <com.spiderindia.departmentsofhighway.Utils.CustomFontCheckBox
+                    android:id="@+id/scour_chkBx_ventway"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="SCOUR"
+                    android:textColor="@color/txt_common_color"
+                    android:textSize="@dimen/common_header_txt_s"
+                    android:textAllCaps="true"
+                    android:textDirection="ltr"
+                    android:layoutDirection="rtl"
+                    android:layout_marginRight="15dp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/common_header_min_H"
+            android:orientation="vertical"
+            android:layout_marginTop="@dimen/nxn_prev_lay_mar_t"
+            android:gravity="center">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Button
+                    android:id="@+id/previous_bttn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:text="Previous"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/bottom_text_s"
+                    android:textAllCaps="true"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerInParent="true"
+                    android:background="@color/bttn_common_color"/>
+                <Button
+                    android:id="@+id/nxt_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:text="Next"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/bottom_text_s"
+                    android:textAllCaps="true"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerInParent="true"
+                    android:background="@color/bttn_common_color"/>
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/progress_loading_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:id="@+id/process_Loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+
+</RelativeLayout>

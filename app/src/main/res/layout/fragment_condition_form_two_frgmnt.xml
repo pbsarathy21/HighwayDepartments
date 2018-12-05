@@ -1,0 +1,605 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragmentss.ConditionFormTwoFrgmnt">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/screen_bg_hash_color">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_margin="15dp">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:minHeight="45dp"
+                            android:text="Foundation"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/sub_header_text_s"
+                            android:textAllCaps="true"
+                            android:background="@drawable/rounded_corner_for_login_bttn"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:minHeight="45dp"
+                            android:text="UP Stream Side"
+                            android:textColor="@color/half_black"
+                            android:textSize="20sp"
+                            android:textAllCaps="false"
+                            android:background="@null"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="10dp"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1">
+
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1">
+                                <Button
+                                    android:layout_width="match_parent"
+                                    android:layout_height="30dp"
+                                    android:text="Left"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/common_header_txt_s"
+                                    android:textAllCaps="false"
+                                    android:background="@drawable/rounded_corner_for_login_bttn"
+                                    android:layout_marginRight="4dp"/>
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:layout_marginLeft="4dp">
+                                <Button
+                                    android:layout_width="match_parent"
+                                    android:layout_height="30dp"
+                                    android:text="Right"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/common_header_txt_s"
+                                    android:textAllCaps="false"
+                                    android:background="@drawable/rounded_corner_for_login_bttn"/>
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="@dimen/common_header_mT">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:gravity="center_vertical">
+
+                                <com.spiderindia.departmentsofhighway.Utils.CustomTextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="CRACKS"
+                                    android:textColor="@color/txt_common_color"
+                                    android:textAllCaps="true"
+                                    android:textSize="@dimen/common_header_txt_s"/>
+
+
+
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center">
+
+                                <Spinner
+                                    android:id="@+id/crack_left_spnr"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="40dp"
+                                    android:background="@drawable/rounded_corner_with_bottom_shadow"
+                                    android:gravity="center_vertical"
+                                    android:popupBackground="@color/white"
+                                    android:theme="@android:style/Theme.Holo.Light" />
+
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_marginLeft="4dp"
+                                android:gravity="center">
+
+                                <Spinner
+                                    android:id="@+id/right_crack_spnr"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="40dp"
+                                    android:background="@drawable/rounded_corner_with_bottom_shadow"
+                                    android:gravity="center_vertical"
+                                    android:popupBackground="@color/white"
+                                    android:theme="@android:style/Theme.Holo.Light" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="@dimen/common_between_mT">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:gravity="center_vertical">
+
+
+                                <com.spiderindia.departmentsofhighway.Utils.CustomTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Settlement"
+                                    android:textColor="@color/txt_common_color"
+                                    android:textSize="@dimen/common_header_txt_s"
+                                    android:textAllCaps="true" />
+
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:layout_gravity="center_vertical">
+                                <CheckBox
+                                    android:id="@+id/left_setlemt_chkBx"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    />
+
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:layout_marginLeft="4dp"
+                                android:layout_gravity="center_vertical">
+
+                                <CheckBox
+                                    android:id="@+id/right_setlment_chkBx"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    />
+
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="@dimen/common_between_mT">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:gravity="center_vertical">
+
+
+                                <com.spiderindia.departmentsofhighway.Utils.CustomTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="SPALITY"
+                                    android:textColor="@color/txt_common_color"
+                                    android:textSize="@dimen/common_header_txt_s"
+                                    android:textAllCaps="true" />
+
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center">
+
+                                <Spinner
+                                    android:id="@+id/left_spality_spnr"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="40dp"
+                                    android:background="@drawable/rounded_corner_with_bottom_shadow"
+                                    android:gravity="center_vertical"
+                                    android:popupBackground="@color/white"
+                                    android:theme="@android:style/Theme.Holo.Light" />
+
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_marginLeft="4dp"
+                                android:gravity="center">
+
+                                <Spinner
+                                    android:id="@+id/right_spality_spnr"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="40dp"
+                                    android:background="@drawable/rounded_corner_with_bottom_shadow"
+                                    android:gravity="center_vertical"
+                                    android:popupBackground="@color/white"
+                                    android:theme="@android:style/Theme.Holo.Light" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <Button
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@null"
+                                android:minHeight="45dp"
+                                android:text="Down Stream Side"
+                                android:textAllCaps="false"
+                                android:textColor="@color/half_black"
+                                android:textSize="20sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:layout_marginTop="1dp">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:gravity="center_vertical">
+
+
+                                    <com.spiderindia.departmentsofhighway.Utils.CustomTextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="CRACKS"
+                                        android:textColor="@color/txt_common_color"
+                                        android:textSize="@dimen/common_header_txt_s"
+                                        android:textAllCaps="true" />
+
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="center">
+
+                                    <Spinner
+                                        android:id="@+id/left_crack_spnr_downS"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="40dp"
+                                        android:background="@drawable/rounded_corner_with_bottom_shadow"
+                                        android:gravity="center_vertical"
+                                        android:popupBackground="@color/white"
+                                        android:theme="@android:style/Theme.Holo.Light" />
+
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:layout_marginLeft="4dp"
+                                    android:gravity="center">
+
+                                    <Spinner
+                                        android:id="@+id/right_crack_spnr_downS"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="35dp"
+                                        android:background="@drawable/rounded_corner_with_bottom_shadow"
+                                        android:gravity="center_vertical"
+                                        android:popupBackground="@color/white"
+                                        android:theme="@android:style/Theme.Holo.Light" />
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:layout_marginTop="@dimen/common_header_mB">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:gravity="center_vertical">
+
+
+                                    <com.spiderindia.departmentsofhighway.Utils.CustomTextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Settlement"
+                                        android:textColor="@color/txt_common_color"
+                                        android:textSize="@dimen/common_header_txt_s"
+                                        android:textAllCaps="true" />
+
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:layout_gravity="center_vertical">
+                                    <CheckBox
+                                        android:id="@+id/left_setlemnt_chkBx_downS"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        />
+
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:layout_marginLeft="4dp"
+                                    android:layout_gravity="center_vertical">
+
+                                    <CheckBox
+                                        android:id="@+id/right_setlemnt_chkBx_downS"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        />
+
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:layout_marginTop="@dimen/common_header_mB">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:gravity="center_vertical">
+
+
+                                    <com.spiderindia.departmentsofhighway.Utils.CustomTextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="SPALITY"
+                                        android:textColor="@color/txt_common_color"
+                                        android:textSize="@dimen/common_header_txt_s"
+                                        android:textAllCaps="true" />
+
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="center">
+
+                                    <Spinner
+                                        android:id="@+id/left_spality_spnr_downS"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="35dp"
+                                        android:background="@drawable/rounded_corner_with_bottom_shadow"
+                                        android:gravity="center_vertical"
+                                        android:popupBackground="@color/white"
+                                        android:theme="@android:style/Theme.Holo.Light" />
+
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:layout_marginLeft="4dp"
+                                    android:gravity="center">
+
+                                    <Spinner
+                                        android:id="@+id/right_spality_spnr_downS"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="35dp"
+                                        android:background="@drawable/rounded_corner_with_bottom_shadow"
+                                        android:gravity="center_vertical"
+                                        android:popupBackground="@color/white"
+                                        android:theme="@android:style/Theme.Holo.Light" />
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <Button
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@null"
+                                android:text="Piers(No)"
+                                android:textAllCaps="false"
+                                android:textColor="@color/half_black"
+                                android:textSize="20sp" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:gravity="center_vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1">
+                                <com.spiderindia.departmentsofhighway.Utils.CustomFontCheckBox
+                                    android:id="@+id/scour_chkBx"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Scour"
+                                    android:textColor="@color/txt_common_color"
+                                    android:textSize="@dimen/common_header_txt_spin_s"
+                                    android:textAllCaps="true"
+                                    android:textDirection="ltr"
+                                    android:layoutDirection="rtl"
+                                    />
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1">
+                                <com.spiderindia.departmentsofhighway.Utils.CustomFontCheckBox
+                                    android:id="@+id/spalled_chkBx"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Spalled"
+                                    android:textColor="@color/txt_common_color"
+                                    android:textSize="@dimen/common_header_txt_spin_s"
+                                    android:textAllCaps="true"
+                                    android:textDirection="ltr"
+                                    android:layoutDirection="rtl"
+                                    />
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1">
+
+                                <com.spiderindia.departmentsofhighway.Utils.CustomFontCheckBox
+                                    android:id="@+id/cracked_chkBx"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Cracked"
+                                    android:textColor="@color/txt_common_color"
+                                    android:textSize="@dimen/common_header_txt_spin_s"
+                                    android:textAllCaps="true"
+                                    android:textDirection="ltr"
+                                    android:layoutDirection="rtl" />
+
+                            </LinearLayout>
+
+
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="@dimen/common_header_min_H"
+                        android:orientation="vertical"
+                        android:layout_marginTop="@dimen/nxn_prev_lay_mar_t"
+                        android:gravity="center">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <Button
+                                android:id="@+id/previous_bttn"
+                                android:layout_width="wrap_content"
+                                android:layout_height="35dp"
+                                android:text="Previous"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/bottom_text_s"
+                                android:textAllCaps="true"
+                                android:paddingLeft="8dp"
+                                android:paddingRight="8dp"
+                                android:layout_alignParentLeft="true"
+                                android:layout_centerInParent="true"
+                                android:background="@color/bttn_common_color"/>
+                            <Button
+                                android:id="@+id/nxt_btn"
+                                android:layout_width="wrap_content"
+                                android:layout_height="35dp"
+                                android:text="Next"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/bottom_text_s"
+                                android:textAllCaps="true"
+                                android:paddingLeft="8dp"
+                                android:paddingRight="8dp"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerInParent="true"
+                                android:background="@color/bttn_common_color"/>
+                        </RelativeLayout>
+
+
+                    </LinearLayout>
+                </LinearLayout>
+            </ScrollView>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/progress_loading_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:id="@+id/process_Loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+
+
+
+
+</RelativeLayout>

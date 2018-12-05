@@ -1,0 +1,262 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragmentss.MaintenanceFormOneFrgmnt">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@color/screen_bg_hash_color"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="15dp"
+            android:orientation="vertical">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="45dp"
+                        android:text="maintenance history"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/sub_header_text_s"
+                        android:textAllCaps="true"
+                        android:background="@drawable/rounded_corner_for_login_bttn"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:minHeight="@dimen/common_header_min_H"
+                        android:orientation="vertical">
+
+                        <com.spiderindia.departmentsofhighway.Utils.CustomTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Year"
+                            android:textAllCaps="true"
+                            android:textColor="@color/txt_common_color"
+                            android:textSize="@dimen/common_header_txt_s" />
+
+
+                        <EditText
+                            android:id="@+id/year_edttxt_maint"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="1dp"
+                            android:background="@drawable/rounded_corner_with_bottom_shadow"
+                            android:focusable="false"
+                            android:focusableInTouchMode="false"
+                            android:minHeight="@dimen/edt_txt_min_h"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="5dp"
+                            android:singleLine="false"
+                            android:textSize="@dimen/text_hint_size_capture_screen" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/edt_txt_mar_btm"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <com.spiderindia.departmentsofhighway.Utils.CustomTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Type"
+                            android:textAllCaps="true"
+                            android:textColor="@color/txt_common_color"
+                            android:textSize="@dimen/common_header_txt_s" />
+
+
+                        <Spinner
+                            android:id="@+id/type_spnr_maint"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_marginTop="2dp"
+                            android:background="@drawable/rounded_corner_with_bottom_shadow"
+                            android:gravity="center|start"
+                            android:popupBackground="@color/white"
+                            android:theme="@android:style/Theme.Holo.Light" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/edt_txt_mar_btm"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <com.spiderindia.departmentsofhighway.Utils.CustomTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Component"
+                            android:textAllCaps="true"
+                            android:textColor="@color/txt_common_color"
+                            android:textSize="@dimen/common_header_txt_s" />
+
+
+                        <Spinner
+                            android:id="@+id/component_spnr_maint"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_marginTop="2dp"
+                            android:background="@drawable/rounded_corner_with_bottom_shadow"
+                            android:gravity="center|start"
+                            android:popupBackground="@color/white"
+                            android:theme="@android:style/Theme.Holo.Light" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/common_header_mar_t"
+                        android:minHeight="@dimen/common_header_min_H"
+                        android:orientation="vertical">
+
+                        <com.spiderindia.departmentsofhighway.Utils.CustomTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Amount"
+                            android:textAllCaps="true"
+                            android:textColor="@color/txt_common_color"
+                            android:textSize="@dimen/common_header_txt_s" />
+
+
+                        <EditText
+                            android:id="@+id/amount_edtTxt_maint"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="1dp"
+                            android:background="@drawable/rounded_corner_with_bottom_shadow"
+                            android:inputType="number"
+                            android:minHeight="@dimen/edt_txt_min_h"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="5dp"
+                            android:singleLine="false"
+                            android:textSize="@dimen/text_hint_size_capture_screen" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/common_header_mar_t"
+                        android:minHeight="@dimen/common_header_min_H"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:id="@+id/setLocation"
+                            android:layout_width="200dp"
+                            android:layout_height="30dp"
+                            android:text="Set Current location"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/common_header_txt_s"
+                            android:textAllCaps="false"
+                            android:background="@drawable/rounded_corner_for_login_bttn"
+                            android:layout_marginRight="4dp"/>
+
+
+                        <EditText
+                            android:id="@+id/geo_location"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="1dp"
+                            android:background="@drawable/rounded_corner_with_bottom_shadow"
+                            android:inputType="number"
+                            android:minHeight="@dimen/edt_txt_min_h"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="5dp"
+                            android:singleLine="false"
+                            android:textSize="@dimen/text_hint_size_capture_screen" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:minHeight="80dp">
+
+                        <Button
+                            android:id="@+id/submit_button"
+                            android:layout_width="150dp"
+                            android:layout_height="50dp"
+                            android:background="@color/bttn_common_color"
+                            android:gravity="center"
+                            android:text="Submit"
+                            android:textAllCaps="true"
+                            android:textColor="@color/white"
+                            android:textSize="20sp" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/nxn_prev_lay_mar_t"
+                        android:gravity="center"
+                        android:minHeight="@dimen/common_header_min_H"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <Button
+                                android:id="@+id/previous_bttn"
+                                android:layout_width="wrap_content"
+                                android:layout_height="35dp"
+                                android:layout_alignParentLeft="true"
+                                android:layout_centerInParent="true"
+                                android:background="@color/bttn_common_color"
+                                android:paddingLeft="8dp"
+                                android:paddingRight="8dp"
+                                android:text="Previous"
+                                android:textAllCaps="true"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/bottom_text_s" />
+                        </RelativeLayout>
+
+
+                    </LinearLayout>
+                </LinearLayout>
+            </ScrollView>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/progress_loading_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:id="@+id/process_Loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.spiderindia.departmentsofhighway.LoginActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@mipmap/login_bg">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp">
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="45dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerInParent="true"
+                android:src="@mipmap/logo"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="150dp"
+                android:layout_centerInParent="true"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <EditText
+                    android:id="@+id/mbl_edtTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Mobile Number"
+                    android:gravity="center"
+                    android:textColorHint="@color/white"
+                    android:backgroundTint="@color/white"
+                    android:textColor="@color/white"
+                    android:layout_centerInParent="true"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:inputType="phone"/>
+
+                <com.spiderindia.departmentsofhighway.Utils.OtpView
+                    android:id="@+id/otp_edtTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:hint_color="@color/white"
+                    android:cursorVisible="false"
+                    android:digits="1234567890"
+                    android:inputType="number"
+                    android:maxLength="4"
+                    android:textIsSelectable="false"
+                    android:textColor="@color/white"
+                    android:textSize="19sp"
+                    android:visibility="gone">
+
+                </com.spiderindia.departmentsofhighway.Utils.OtpView>
+
+                <Button
+                    android:id="@+id/sub_btn"
+                    android:layout_width="160dp"
+                    android:layout_height="40dp"
+                    android:text="Login"
+                    android:layout_centerInParent="true"
+                    android:layout_below="@+id/mbl_edtTxt"
+                    android:layout_marginTop="15dp"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textAllCaps="false"
+                    android:background="@drawable/rounded_corner_for_login_bttn"/>
+
+            </LinearLayout>
+
+            <!--                    <LinearLayout
+                        android:id="@+id/otp_ll"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_below="@+id/userN_Rl"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center"
+                        android:visibility="gone">
+                        <com.spiderindia.medicalcollectionexecutive.Utils.OtpView
+                            android:id="@+id/otp_edtTxt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:hint_color="@color/white"
+                            android:cursorVisible="false"
+                            android:digits="1234567890"
+                            android:inputType="number"
+                            android:maxLength="4"
+                            android:textIsSelectable="false"
+                            android:textColor="@color/white"
+                            android:textSize="19sp"
+                            android:visibility="visible">
+
+                        </com.spiderindia.medicalcollectionexecutive.Utils.OtpView>
+
+                    </LinearLayout>
+-->
+
+        </RelativeLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/progress_loading_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:id="@+id/process_Loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>

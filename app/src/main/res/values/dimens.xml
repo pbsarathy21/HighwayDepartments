@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+
+    //popup_warning
+    <dimen name="popup_connec_warning_w">220dp</dimen>
+    <dimen name="popup_connec_warning_h">150dp</dimen>
+
+    //alert box
+    <dimen name="alert_box_w">270dp</dimen>
+    <dimen name="alert_box_h">180dp</dimen>
+
+    <dimen name="alert_box_txt_sz">22sp</dimen>
+    <dimen name="alert_box_content_txt_sz">16sp</dimen>
+    <dimen name="alert_box_mar_btm">13dp</dimen>
+
+    <!--Tool bar-->
+    <dimen name="toolbar_height">45dp</dimen>
+    <dimen name="toolbar_height_">50dp</dimen>
+    <dimen name="toolbar_header_txt_s">22sp</dimen>
+    <dimen name="toolbar_icons_width">25sp</dimen>
+    <dimen name="toolbar_icons_width_noti">27sp</dimen>
+    <dimen name="toolbar_icons_width_bell">30sp</dimen>
+    <dimen name="toolbar_icons_height">25sp</dimen>
+
+    //popup_to_singout
+
+    <dimen name="popup_singout_width">270dp</dimen>
+    <dimen name="popup_singout_height">220dp</dimen>
+    <dimen name="popup_singout_txt">15sp</dimen>
+    <dimen name="popup_singout_img_width">70dp</dimen>
+    <dimen name="popup_singout_txt_mar_btm">5dp</dimen>
+    <dimen name="popup_singout_img_mar_top">5dp</dimen>
+    <dimen name="app_text_min_h">20dp</dimen>
+    <dimen name="app_text_s">19sp</dimen>
+
+    //home page
+    <dimen name="bottom_text_s">14sp</dimen>
+    <dimen name="sub_header_text_s">19sp</dimen>
+
+    <dimen name="edt_txt_descr_min_h">70dp</dimen>
+    <dimen name="edt_txt_min_h">40dp</dimen>
+    <dimen name="chk_box_min_h">20dp</dimen>
+
+    <dimen name="edt_txt_mar_btm">12dp</dimen>
+    <dimen name="text_hint_size_capture_screen">17sp</dimen>
+    <dimen name="common_header_txt_s">17sp</dimen>
+    <dimen name="common_header_txt_spin_s">16sp</dimen>
+    <dimen name="common_header_txt_chk_s">14sp</dimen>
+    <dimen name="common_header_mar_t">4dp</dimen>
+    <dimen name="nxn_prev_lay_mar_t">5dp</dimen>
+    <dimen name="common_header_min_H">65dp</dimen>
+    <dimen name="common_header_chkbox_min_H">35dp</dimen>
+    <dimen name="common_header_mT">13dp</dimen>
+    <dimen name="common_between_mT">10dp</dimen>
+    <dimen name="common_header_mB">10dp</dimen>
+
+
+</resources>

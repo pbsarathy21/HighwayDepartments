@@ -35,6 +35,8 @@ import java.util.ArrayList;
  */
 public class ConditionFormOneFrgmnt extends Fragment implements AdapterView.OnItemSelectedListener {
 
+    boolean preset = false;
+
     DataItem dataItem;
 
     @Override
@@ -48,6 +50,8 @@ public class ConditionFormOneFrgmnt extends Fragment implements AdapterView.OnIt
         if (data.equalsIgnoreCase("true")) {
 
             presetValues();
+
+            preset = true;
 
         }
     }
@@ -143,41 +147,7 @@ public class ConditionFormOneFrgmnt extends Fragment implements AdapterView.OnIt
             }
         });
 
-        //By partha
 
-      /*  previousBttn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                HomeActivity._mViewPager.setCurrentItem(4);
-            }
-        });
-        nextBttn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                try{
-
-                    shapePier=shapePierEdtTxt.getText().toString();
-                    brdgeAngle=brdgeAngleEdtTxt.getText().toString();
-                    bedLevel=bedLevelEdttxt.getText().toString();
-                    bedSlope=bedSlopeEdtTxt.getText().toString();
-
-                    new asyncToSendDetails().execute();
-
-                    HomeActivity._mViewPager.setCurrentItem(6);
-
-                }
-                catch(NullPointerException e ) {
-                    e.printStackTrace();
-                }
-                catch (Exception e)
-                {
-                    e.printStackTrace();
-                }
-
-            }
-        });*/
         return root;
     }
 
@@ -192,12 +162,18 @@ public class ConditionFormOneFrgmnt extends Fragment implements AdapterView.OnIt
 
         /*shapeOfPierSpinner.setAdapter(new ArrayAdapter<>(getContext(), R.layout.support_simple_spinner_dropdown_item, shapeOfPierList));*/
 
+
         final ArrayAdapter<String> shapeOfPierList_adapter = new ArrayAdapter<String>(getActivity(),R.layout.custom_spinner, shapeOfPierList);
         shapeOfPierList_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         shapeOfPierSpinner.setAdapter(shapeOfPierList_adapter);
 
-        int position = Integer.parseInt(dataItem.getSHAPEOFPIER());
-        shapeOfPierSpinner.setSelection(position);
+        if(preset)
+        {
+            int position = Integer.parseInt(dataItem.getSHAPEOFPIER());
+            shapeOfPierSpinner.setSelection(position);
+        }
+
+
     }
 
     private void saveDetails() {

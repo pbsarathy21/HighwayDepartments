@@ -35,6 +35,8 @@ import java.util.ArrayList;
  */
 public class InventaryFormFourFrgmnt extends Fragment implements AdapterView.OnItemSelectedListener {
 
+    boolean preset = false;
+
     DataItem dataItem;
 
     @Override
@@ -48,6 +50,7 @@ public class InventaryFormFourFrgmnt extends Fragment implements AdapterView.OnI
         if (data.equalsIgnoreCase("true")) {
 
             presetValues();
+            preset = true;
 
         }
     }
@@ -156,46 +159,6 @@ public class InventaryFormFourFrgmnt extends Fragment implements AdapterView.OnI
             }
         });
 
-        //By partha
-
-       /* previousBttn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                HomeActivity._mViewPager.setCurrentItem(3);
-            }
-        });
-        nextBttn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                try{
-
-                    abutmentFoun=abutmentFounEdtTxt.getText().toString();
-                    MLF=MLFEdtTxt.getText().toString();
-                    bankProtectType=bankProtectTypeEdtTxt.getText().toString();
-                    approachTyp=approachTypEdtTxt.getText().toString();
-                    floorProtctn=floorProtctnEdtTxt.getText().toString();
-                    floorProtectnTyp=floorProtectnTypEdtTxt.getText().toString();
-                    typeSubStructure=typeSubStructureEdtTxt.getText().toString();
-
-                    new asyncToSendDetails().execute();
-
-                    HomeActivity._mViewPager.setCurrentItem(5);
-                }
-
-                catch(NullPointerException e ) {
-                    e.printStackTrace();
-                }
-                catch (Exception e)
-                {
-                    e.printStackTrace();
-                }
-
-
-            }
-        });*/
-
         return root;
 
     }
@@ -216,8 +179,11 @@ public class InventaryFormFourFrgmnt extends Fragment implements AdapterView.OnI
         abutmentList_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         abutmentSpinner.setAdapter(abutmentList_adapter);
 
-        int position = Integer.parseInt(dataItem.getABUTMENTFOUNDATION());
-        abutmentSpinner.setSelection(position);
+        if(preset)
+        {
+            int position = Integer.parseInt(dataItem.getABUTMENTFOUNDATION());
+            abutmentSpinner.setSelection(position);
+        }
 
         ArrayList<String> bankProtectionList = new ArrayList<>();
 
@@ -232,8 +198,13 @@ public class InventaryFormFourFrgmnt extends Fragment implements AdapterView.OnI
         bankProtectionList_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         bankProtectionSpinner.setAdapter(bankProtectionList_adapter);
 
-        int position1 = Integer.parseInt(dataItem.getBANKPROTECTIONTYPE());
-        bankProtectionSpinner.setSelection(position1);
+        if(preset)
+        {
+            int position1 = Integer.parseInt(dataItem.getBANKPROTECTIONTYPE());
+            bankProtectionSpinner.setSelection(position1);
+        }
+
+
 
         ArrayList<String> approachList = new ArrayList<>();
 
@@ -247,8 +218,13 @@ public class InventaryFormFourFrgmnt extends Fragment implements AdapterView.OnI
         approachList_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         approachSpinner.setAdapter(approachList_adapter);
 
-        int position2 = Integer.parseInt(dataItem.getAPPROACHTYPE());
-        approachSpinner.setSelection(position2);
+        if(preset)
+        {
+            int position2 = Integer.parseInt(dataItem.getAPPROACHTYPE());
+            approachSpinner.setSelection(position2);
+        }
+
+
 
         ArrayList<String> floorProtectionList = new ArrayList<>();
 
@@ -262,8 +238,13 @@ public class InventaryFormFourFrgmnt extends Fragment implements AdapterView.OnI
         floorProtectionList_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         floorProtectionSpinner.setAdapter(floorProtectionList_adapter);
 
-        int position3 = Integer.parseInt(dataItem.getFLOORPROTECTION());
-        floorProtectionSpinner.setSelection(position3);
+        if(preset)
+        {
+            int position3 = Integer.parseInt(dataItem.getFLOORPROTECTION());
+            floorProtectionSpinner.setSelection(position3);
+        }
+
+
 
         ArrayList<String> typeOfSubstructureList = new ArrayList<>();
 
@@ -277,9 +258,11 @@ public class InventaryFormFourFrgmnt extends Fragment implements AdapterView.OnI
         typeOfSubstructureList_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         typeOfSucstructureSpinner.setAdapter(typeOfSubstructureList_adapter);
 
-        int position4 = Integer.parseInt(dataItem.getTYPEOFSUBSTRUCTURE());
-        typeOfSucstructureSpinner.setSelection(position4);
-
+        if(preset)
+        {
+            int position4 = Integer.parseInt(dataItem.getTYPEOFSUBSTRUCTURE());
+            typeOfSucstructureSpinner.setSelection(position4);
+        }
 
     }
 

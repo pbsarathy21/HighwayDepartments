@@ -37,6 +37,8 @@ public class InventaryFormThreeFrgmnt extends Fragment implements AdapterView.On
 
     DataItem dataItem;
 
+    boolean preset = false;
+
     @Override
     public void onStart() {
         super.onStart();
@@ -49,6 +51,8 @@ public class InventaryFormThreeFrgmnt extends Fragment implements AdapterView.On
         if (data.equalsIgnoreCase("true")) {
 
             presetValues();
+
+            preset = true;
 
         }
     }
@@ -222,8 +226,13 @@ public class InventaryFormThreeFrgmnt extends Fragment implements AdapterView.On
         superList_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         superSpinner.setAdapter(superList_adapter);
 
-        int position = Integer.parseInt(dataItem.getSUPERSTRUCTURETYPE());
-        superSpinner.setSelection(position);
+        if(preset)
+        {
+            int position = Integer.parseInt(dataItem.getSUPERSTRUCTURETYPE());
+            superSpinner.setSelection(position);
+        }
+
+
 
         ArrayList<String> bearingList = new ArrayList<>();
 
@@ -237,8 +246,13 @@ public class InventaryFormThreeFrgmnt extends Fragment implements AdapterView.On
         bearingList_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         bearingSpinner.setAdapter(bearingList_adapter);
 
-        int position1 = Integer.parseInt(dataItem.getBEARINGTYPE());
-        bearingSpinner.setSelection(position1);
+        if(preset)
+        {
+            int position1 = Integer.parseInt(dataItem.getBEARINGTYPE());
+            bearingSpinner.setSelection(position1);
+
+        }
+
 
         ArrayList<String> parapetList = new ArrayList<>();
 
@@ -253,8 +267,13 @@ public class InventaryFormThreeFrgmnt extends Fragment implements AdapterView.On
         parapetList_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         parapetSpinner.setAdapter(parapetList_adapter);
 
-        int position2 = Integer.parseInt(dataItem.getPARAPETHANDRAILTYPE());
-        parapetSpinner.setSelection(position2);
+        if(preset)
+        {
+            int position2 = Integer.parseInt(dataItem.getPARAPETHANDRAILTYPE());
+            parapetSpinner.setSelection(position2);
+        }
+
+
 
         ArrayList<String> wearingList = new ArrayList<>();
 
@@ -267,9 +286,14 @@ public class InventaryFormThreeFrgmnt extends Fragment implements AdapterView.On
         final ArrayAdapter<String> wearingList_adapter = new ArrayAdapter<String>(getActivity(),R.layout.custom_spinner, wearingList);
         wearingList_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         wearingSpinner.setAdapter(wearingList_adapter);
+        if(preset)
+        {
 
-        int position3 = Integer.parseInt(dataItem.getWEARINGCOATTYPE());
-        wearingSpinner.setSelection(position3);
+            int position3 = Integer.parseInt(dataItem.getWEARINGCOATTYPE());
+            wearingSpinner.setSelection(position3);
+        }
+
+
 
 
         ArrayList<String> pierFoundationList = new ArrayList<>();
@@ -286,8 +310,13 @@ public class InventaryFormThreeFrgmnt extends Fragment implements AdapterView.On
         pierFoundationList_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         pierFoundationSpinner.setAdapter(pierFoundationList_adapter);
 
-        int position4 = Integer.parseInt(dataItem.getPIERFOUNDATION());
-        pierFoundationSpinner.setSelection(position4);
+        if(preset)
+        {
+            int position4 = Integer.parseInt(dataItem.getPIERFOUNDATION());
+            pierFoundationSpinner.setSelection(position4);
+        }
+
+
     }
 
     private void saveDetails() {

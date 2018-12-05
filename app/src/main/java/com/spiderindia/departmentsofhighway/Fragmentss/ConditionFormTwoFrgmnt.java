@@ -33,8 +33,24 @@ import java.util.HashMap;
  */
 public class ConditionFormTwoFrgmnt extends Fragment {
 
+    boolean preset = false;
+
     DataItem dataItem;
 
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("Modify",Context.MODE_PRIVATE);
+
+        String data = sharedPreferences.getString("data", "false");
+
+        if (data.equalsIgnoreCase("true")) {
+
+            preset = true;
+
+        }
+    }
 
     public ConditionFormTwoFrgmnt() {
         // Required empty public constructor
@@ -334,62 +350,103 @@ public class ConditionFormTwoFrgmnt extends Fragment {
                 adapter_leftCrack.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 leftCrackUpSSpinr.setAdapter(adapter_leftCrack);
 
-                int position = Integer.parseInt(dataItem.getFOUNDATIONCRACKSUL());
-                leftCrackUpSSpinr.setSelection(position);
+                if(preset)
+                {
+                    int position = Integer.parseInt(dataItem.getFOUNDATIONCRACKSUL());
+                    leftCrackUpSSpinr.setSelection(position);
+
+                }
+
 
 
                 final ArrayAdapter<String> adapter_rightCrack = new ArrayAdapter<String>(getActivity(),R.layout.custom_spinner, rightCrackUpSSpinrArr);
                 adapter_rightCrack.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 rightCrackUpSSpinr.setAdapter(adapter_rightCrack);
 
-                int position1 = Integer.parseInt(dataItem.getFOUNDATIONCRACKSUR());
-                rightCrackUpSSpinr.setSelection(position1);
+                if(preset)
+                {
+                    int position1 = Integer.parseInt(dataItem.getFOUNDATIONCRACKSUR());
+                    rightCrackUpSSpinr.setSelection(position1);
+                }
+
+
 
 
                 final ArrayAdapter<String> adapter_leftSplaity = new ArrayAdapter<String>(getActivity(),R.layout.custom_spinner, leftSplaityUpSSpinrArr);
                 adapter_leftSplaity.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 leftSplaityUpSSpinr.setAdapter(adapter_leftSplaity);
 
-                int position2 = Integer.parseInt(dataItem.getFOUNDATIONSPALITYUL());
-                leftSplaityUpSSpinr.setSelection(position2);
+                if(preset)
+                {
+                    int position2 = Integer.parseInt(dataItem.getFOUNDATIONSPALITYUL());
+                    leftSplaityUpSSpinr.setSelection(position2);
+
+                }
+
+
 
                 final ArrayAdapter<String> adapter_rightSplaityUpSSpinr = new ArrayAdapter<String>(getActivity(),R.layout.custom_spinner, rightSplaityUpSSpinrArr);
                 adapter_rightSplaityUpSSpinr.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 rightSplaityUpSSpinr.setAdapter(adapter_rightSplaityUpSSpinr);
 
-                int position3 = Integer.parseInt(dataItem.getFOUNDATIONSPALITYUR());
-                rightSplaityUpSSpinr.setSelection(position3);
+                if(preset)
+                {
+                    int position3 = Integer.parseInt(dataItem.getFOUNDATIONSPALITYUR());
+                    rightSplaityUpSSpinr.setSelection(position3);
+
+                }
+
 
                 final ArrayAdapter<String> adapter_leftCrackDownSSpinr = new ArrayAdapter<String>(getActivity(),R.layout.custom_spinner, leftCrackDownSSpinrArr);
                 adapter_leftCrackDownSSpinr.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 leftCrackDownSSpinr.setAdapter(adapter_leftCrackDownSSpinr);
 
-                int position4 = Integer.parseInt(dataItem.getFOUNDATIONCRACKSDL());
-                leftCrackDownSSpinr.setSelection(position4);
+                if(preset)
+                {
+                    int position4 = Integer.parseInt(dataItem.getFOUNDATIONCRACKSDL());
+                    leftCrackDownSSpinr.setSelection(position4);
+                }
+
+
 
                 final ArrayAdapter<String> adapter_rightCrackDownSSpinr = new ArrayAdapter<String>(getActivity(),R.layout.custom_spinner, rightCrackDownSSpinrArr);
                 adapter_rightCrackDownSSpinr.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 rightCrackDownSSpinr.setAdapter(adapter_rightCrackDownSSpinr);
 
-                int position5 = Integer.parseInt(dataItem.getFOUNDATIONCRACKSDR());
-                rightCrackDownSSpinr.setSelection(position5);
+                if(preset)
+                {
+                    int position5 = Integer.parseInt(dataItem.getFOUNDATIONCRACKSDR());
+                    rightCrackDownSSpinr.setSelection(position5);
+                }
+
+
 
                 final ArrayAdapter<String> adapter_leftSplaityDownSSpinr = new ArrayAdapter<String>(getActivity(),R.layout.custom_spinner, leftSplaityDownSSpinrArr);
                 adapter_leftSplaityDownSSpinr.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 leftSplaityDownSSpinr.setAdapter(adapter_leftSplaityDownSSpinr);
 
-                int position6 = Integer.parseInt(dataItem.getFOUNDATIONSPALITYDL());
-                leftSplaityDownSSpinr.setSelection(position6);
+                if(preset)
+                {
+                    int position6 = Integer.parseInt(dataItem.getFOUNDATIONSPALITYDL());
+                    leftSplaityDownSSpinr.setSelection(position6);
+                }
+
+
 
                 final ArrayAdapter<String> adapter_rightSplaityDownSSpinr = new ArrayAdapter<String>(getActivity(),R.layout.custom_spinner, rightSplaityDownSSpinrArr);
                 adapter_rightSplaityDownSSpinr.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 rightSplaityDownSSpinr.setAdapter(adapter_rightSplaityDownSSpinr);
 
-                int position7 = Integer.parseInt(dataItem.getFOUNDATIONSPALITYDR());
-                rightSplaityDownSSpinr.setSelection(position7);
+                if(preset)
+                {
+                    int position7 = Integer.parseInt(dataItem.getFOUNDATIONSPALITYDR());
+                    rightSplaityDownSSpinr.setSelection(position7);
+                }
 
 
-                leftCrackUpSSpinr.setSelection(Integer.parseInt(leftCrackUpSSpinrId));
+
+
+                /*leftCrackUpSSpinr.setSelection(Integer.parseInt(leftCrackUpSSpinrId));
                 rightCrackUpSSpinr.setSelection(Integer.parseInt(rightCrackUpSSpinrId));
 
                 leftSplaityUpSSpinr.setSelection(Integer.parseInt(leftSplaityUpSSpinrId));
@@ -423,7 +480,7 @@ public class ConditionFormTwoFrgmnt extends Fragment {
 
                 if (crackedChkBxId.equalsIgnoreCase("1"))
                     crackedChkBx.setChecked(true);
-
+*/
                 if(!(response.equals("")) && response.equalsIgnoreCase("TRUE"))
                 {
 

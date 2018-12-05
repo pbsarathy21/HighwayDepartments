@@ -36,6 +36,22 @@ public class ConditionFormFourFrgmnt extends Fragment {
 
     DataItem dataItem;
 
+    boolean preset = false;
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("Modify",Context.MODE_PRIVATE);
+
+        String data = sharedPreferences.getString("data", "false");
+
+        if (data.equalsIgnoreCase("true")) {
+
+            preset = true;
+
+        }
+    }
 
     public ConditionFormFourFrgmnt() {
         // Required empty public constructor
@@ -347,9 +363,14 @@ public class ConditionFormFourFrgmnt extends Fragment {
                 adapter_leftCrack.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 spallingSpnrSuperS.setAdapter(adapter_leftCrack);
 
-                int position = Integer.parseInt(dataItem.getHANDRAILSSPALLING());
-                spallingSpnrSuperS.setSelection(position);
+                if(preset)
+                {
+                    int position = Integer.parseInt(dataItem.getHANDRAILSSPALLING());
+                    spallingSpnrSuperS.setSelection(position);
+                }
 
+
+/*
                 if(crackedId.equalsIgnoreCase("1"))
                     crackedChkBx.setChecked(true);
 
@@ -389,7 +410,7 @@ public class ConditionFormFourFrgmnt extends Fragment {
                 if(disintegratnNoFootId.equalsIgnoreCase("1"))
                     disintegratnNoChkBxFoot.setChecked(true);
 
-                spallingSpnrSuperS.setSelection(Integer.parseInt(spallingSpnrSuperSId));
+                spallingSpnrSuperS.setSelection(Integer.parseInt(spallingSpnrSuperSId));*/
 
 
 

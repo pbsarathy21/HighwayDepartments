@@ -38,10 +38,11 @@ public class InventaryFormTwoFrgmnt extends Fragment implements AdapterView.OnIt
 
     DataItem dataItem;
 
+    boolean preset = false;
+
     @Override
     public void onStart() {
         super.onStart();
-
 
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("Modify",Context.MODE_PRIVATE);
 
@@ -51,6 +52,7 @@ public class InventaryFormTwoFrgmnt extends Fragment implements AdapterView.OnIt
 
             presetValues();
 
+            preset = true;
         }
     }
 
@@ -213,8 +215,13 @@ public class InventaryFormTwoFrgmnt extends Fragment implements AdapterView.OnIt
         loadingList_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         loadingSpinner.setAdapter(loadingList_adapter);
 
-        int position = Integer.parseInt(dataItem.getLOADING());
-        loadingSpinner.setSelection(position);
+        if(preset)
+        {
+            int position = Integer.parseInt(dataItem.getLOADING());
+            loadingSpinner.setSelection(position);
+        }
+
+
 
 
         ArrayList<String> slabList = new ArrayList<>();
@@ -231,8 +238,11 @@ public class InventaryFormTwoFrgmnt extends Fragment implements AdapterView.OnIt
         slabList_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         slabSpinner.setAdapter(slabList_adapter);
 
-        int position1 = Integer.parseInt(dataItem.getSLABDESIGN());
-        slabSpinner.setSelection(position1);
+        if(preset)
+        {
+            int position1 = Integer.parseInt(dataItem.getSLABDESIGN());
+            slabSpinner.setSelection(position1);
+        }
 
 
     }

@@ -27,6 +27,7 @@ import com.spiderindia.departmentsofhighway.R;
 import com.spiderindia.departmentsofhighway.SqLiteDb.MyDataBaseHandler;
 
 import java.util.HashMap;
+import java.util.Objects;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -35,6 +36,22 @@ public class ConditionFormFiveFrgmnt extends Fragment {
 
     DataItem dataItem;
 
+    boolean preset = false;
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("Modify",Context.MODE_PRIVATE);
+
+        String data = sharedPreferences.getString("data", "false");
+
+        if (data.equalsIgnoreCase("true")) {
+
+            preset = true;
+
+        }
+    }
 
     public ConditionFormFiveFrgmnt() {
         // Required empty public constructor
@@ -271,47 +288,77 @@ public class ConditionFormFiveFrgmnt extends Fragment {
                     progress_layout.setVisibility(View.GONE);
                 }
 
-                final ArrayAdapter<String> adapter_leftCrack = new ArrayAdapter<String>(getActivity(),R.layout.custom_spinner, cracksSpnrArr);
+                final ArrayAdapter<String> adapter_leftCrack = new ArrayAdapter<>(Objects.requireNonNull(getActivity()),R.layout.custom_spinner, cracksSpnrArr);
                 adapter_leftCrack.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 cracksSpnr.setAdapter(adapter_leftCrack);
 
-                int position = Integer.parseInt(dataItem.getWEARINGCOATCRACKS());
-                cracksSpnr.setSelection(position);
+                if(preset)
+                {
+                    int position = Integer.parseInt(dataItem.getWEARINGCOATCRACKS());
+                    cracksSpnr.setSelection(position);
+                }
 
-                final ArrayAdapter<String> adapter_potholesSpnr = new ArrayAdapter<String>(getActivity(),R.layout.custom_spinner, potholesSpnrArr);
+
+
+                final ArrayAdapter<String> adapter_potholesSpnr = new ArrayAdapter<>(getActivity(),R.layout.custom_spinner, potholesSpnrArr);
                 adapter_potholesSpnr.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 potholesSpnr.setAdapter(adapter_potholesSpnr);
 
-                int position1 = Integer.parseInt(dataItem.getWEARINGCOATPOTHOLES());
-                potholesSpnr.setSelection(position1);
+                if(preset)
+                {
+                    int position1 = Integer.parseInt(dataItem.getWEARINGCOATPOTHOLES());
+                    potholesSpnr.setSelection(position1);
+                }
 
-                final ArrayAdapter<String> adapter_ravelledSpnr = new ArrayAdapter<String>(getActivity(),R.layout.custom_spinner, ravelledSpnrArr);
+
+
+                final ArrayAdapter<String> adapter_ravelledSpnr = new ArrayAdapter<>(getActivity(),R.layout.custom_spinner, ravelledSpnrArr);
                 adapter_ravelledSpnr.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 ravelledSpnr.setAdapter(adapter_ravelledSpnr);
 
-                int position2 = Integer.parseInt(dataItem.getWEARINGCOATRAVELLED());
-                ravelledSpnr.setSelection(position2);
+                if(preset)
+                {
+                    int position2 = Integer.parseInt(dataItem.getWEARINGCOATRAVELLED());
+                    ravelledSpnr.setSelection(position2);
 
-                final ArrayAdapter<String> adapter_rustedSpnr = new ArrayAdapter<String>(getActivity(),R.layout.custom_spinner, rustedSpnrArr);
+                }
+
+
+                final ArrayAdapter<String> adapter_rustedSpnr = new ArrayAdapter<>(getActivity(),R.layout.custom_spinner, rustedSpnrArr);
                 adapter_rustedSpnr.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 rustedSpnr.setAdapter(adapter_rustedSpnr);
 
-                int position3 = Integer.parseInt(dataItem.getBEARINGSSTEELRUSTED());
-                rustedSpnr.setSelection(position3);
+                if(preset)
+                {
+                    int position3 = Integer.parseInt(dataItem.getBEARINGSSTEELRUSTED());
+                    rustedSpnr.setSelection(position3);
 
-                final ArrayAdapter<String> adapter_flatteringSpnr = new ArrayAdapter<String>(getActivity(),R.layout.custom_spinner, flatteringSpnrArr);
+                }
+
+
+                final ArrayAdapter<String> adapter_flatteringSpnr = new ArrayAdapter<>(getActivity(),R.layout.custom_spinner, flatteringSpnrArr);
                 adapter_flatteringSpnr.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 flatteringSpnr.setAdapter(adapter_flatteringSpnr);
 
-                int position4 = Integer.parseInt(dataItem.getBEARINGSELASTOFLATTERING());
-                flatteringSpnr.setSelection(position4);
+                if(preset)
+                {
+                    int position4 = Integer.parseInt(dataItem.getBEARINGSELASTOFLATTERING());
+                    flatteringSpnr.setSelection(position4);
+                }
 
-                final ArrayAdapter<String> adapter_splitinalSpnr = new ArrayAdapter<String>(getActivity(),R.layout.custom_spinner, splitinalSpnrArr);
+
+
+                final ArrayAdapter<String> adapter_splitinalSpnr = new ArrayAdapter<>(getActivity(),R.layout.custom_spinner, splitinalSpnrArr);
                 adapter_splitinalSpnr.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 splitinalSpnr.setAdapter(adapter_splitinalSpnr);
 
-                int position5 = Integer.parseInt(dataItem.getBEARINGSELASTOCRACKING());
-                splitinalSpnr.setSelection(position5);
+                if(preset)
+                {
+                    int position5 = Integer.parseInt(dataItem.getBEARINGSELASTOCRACKING());
+                    splitinalSpnr.setSelection(position5);
+                }
+
+
 
                /* cracksSpnr.setSelection(Integer.parseInt(cracksSpnrId));
                 potholesSpnr.setSelection(Integer.parseInt(potholesSpnrId));
@@ -331,13 +378,13 @@ public class ConditionFormFiveFrgmnt extends Fragment {
                     tiledChkBx.setChecked(true);
 
 
-                if(!(response.equals("")) && response.equalsIgnoreCase("TRUE"))
+              /*  if(!(response.equals("")) && response.equalsIgnoreCase("TRUE"))
                 {
 
                 }
                 else
                 {
-                }
+                }*/
 
             } catch (Exception e) {
 

@@ -12,6 +12,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,6 +35,7 @@ import com.spiderindia.departmentsofhighway.R;
 import com.spiderindia.departmentsofhighway.SqLiteDb.MyDataBaseHandler;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -41,6 +43,8 @@ import java.util.ArrayList;
 public class InventaryFormOneFrgmnt extends Fragment implements AdapterView.OnItemSelectedListener {
 
     DataItem dataItem;
+
+    Boolean preset = false;
 
     @Override
     public void onStart() {
@@ -53,13 +57,12 @@ public class InventaryFormOneFrgmnt extends Fragment implements AdapterView.OnIt
 
         if (data.equalsIgnoreCase("true")) {
 
+            preset = true;
+
             presetValues();
 
-        } else {
         }
-
     }
-
     private void presetValues() {
 
         dataItem = (DataItem) getActivity().getIntent().getSerializableExtra("dataItem");
@@ -68,7 +71,7 @@ public class InventaryFormOneFrgmnt extends Fragment implements AdapterView.OnIt
         bWidthEdtTxt.setText(dataItem.getBRIDGEWIDTH());
         riverNameEdtTxt.setText(dataItem.getRIVERNAME());
         linearWtrWatEdtTxt.setText(dataItem.getLINEARWATERWAY());
-        linearWtrWatEdtTxt.setText(dataItem.getLINEARWATERWAY());
+
 
     }
 
@@ -273,8 +276,13 @@ public class InventaryFormOneFrgmnt extends Fragment implements AdapterView.OnIt
         final ArrayAdapter<String> BridgeTypelist_adapter = new ArrayAdapter<String>(getActivity(),R.layout.custom_spinner, BridgeTypelist);
         BridgeTypelist_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         bridgeTypeSpinner.setAdapter(BridgeTypelist_adapter);
-        int position = Integer.parseInt(dataItem.getBRIDGETYPE());
-        bridgeTypeSpinner.setSelection(position);
+
+        if(preset)
+        {
+            int position = Integer.parseInt(dataItem.getBRIDGETYPE());
+            bridgeTypeSpinner.setSelection(position);
+        }
+
 
         ArrayList<String> Controllinglist = new ArrayList<>();
 
@@ -289,8 +297,14 @@ public class InventaryFormOneFrgmnt extends Fragment implements AdapterView.OnIt
         final ArrayAdapter<String> Controllinglist_adapter = new ArrayAdapter<String>(getActivity(),R.layout.custom_spinner, Controllinglist);
         Controllinglist_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         controllingSpinner.setAdapter(Controllinglist_adapter);
-        int position1 = Integer.parseInt(dataItem.getOWNERSHIPOFRIVER());
-        controllingSpinner.setSelection(position1);
+
+
+        if(preset)
+        {
+            int position1 = Integer.parseInt(dataItem.getOWNERSHIPOFRIVER());
+
+            controllingSpinner.setSelection(position1);
+        }
 
         ArrayList<String> flowofRiverlist = new ArrayList<>();
 
@@ -300,12 +314,18 @@ public class InventaryFormOneFrgmnt extends Fragment implements AdapterView.OnIt
 
         /*flowofRiverSpinner.setAdapter(new ArrayAdapter<String>(getContext(),R.layout.support_simple_spinner_dropdown_item, flowofRiverlist));*/
 
+
+
         final ArrayAdapter<String> flowofRiverlist_adapter = new ArrayAdapter<String>(getActivity(),R.layout.custom_spinner, flowofRiverlist);
         flowofRiverlist_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         flowofRiverSpinner.setAdapter(flowofRiverlist_adapter);
 
-        int position2 = Integer.parseInt(dataItem.getFLOWOFRIVER());
-        flowofRiverSpinner.setSelection(position2);
+        if(preset)
+        {
+            int position2 = Integer.parseInt(dataItem.getFLOWOFRIVER());
+            flowofRiverSpinner.setSelection(position2);
+        }
+
     }
 
     private void saveDetails() {

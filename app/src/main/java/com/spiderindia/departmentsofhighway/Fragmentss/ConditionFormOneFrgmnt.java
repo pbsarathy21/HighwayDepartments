@@ -24,6 +24,7 @@ import android.widget.ProgressBar;
 import android.widget.Spinner;
 
 import com.spiderindia.departmentsofhighway.HomeActivity;
+import com.spiderindia.departmentsofhighway.ModelClasses.ModelBridgeResponse.DataItem;
 import com.spiderindia.departmentsofhighway.R;
 import com.spiderindia.departmentsofhighway.SqLiteDb.MyDataBaseHandler;
 
@@ -34,6 +35,31 @@ import java.util.ArrayList;
  */
 public class ConditionFormOneFrgmnt extends Fragment implements AdapterView.OnItemSelectedListener {
 
+    DataItem dataItem;
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("Modify",Context.MODE_PRIVATE);
+
+        String data = sharedPreferences.getString("data", "false");
+
+        if (data.equalsIgnoreCase("true")) {
+
+            presetValues();
+
+        }
+    }
+
+    private void presetValues() {
+
+        dataItem = (DataItem) getActivity().getIntent().getSerializableExtra("dataItem");
+
+        brdgeAngleEdtTxt.setText(dataItem.getBRIDGEANGLE());
+        bedLevelEdttxt.setText(dataItem.getBEDLEVEL());
+        bedSlopeEdtTxt.setText(dataItem.getBEDSLOPE());
+    }
 
     public ConditionFormOneFrgmnt() {
         // Required empty public constructor

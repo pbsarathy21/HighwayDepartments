@@ -24,6 +24,7 @@ import android.widget.ProgressBar;
 import android.widget.Spinner;
 
 import com.spiderindia.departmentsofhighway.HomeActivity;
+import com.spiderindia.departmentsofhighway.ModelClasses.ModelBridgeResponse.DataItem;
 import com.spiderindia.departmentsofhighway.R;
 import com.spiderindia.departmentsofhighway.SqLiteDb.MyDataBaseHandler;
 
@@ -34,6 +35,30 @@ import java.util.ArrayList;
  */
 public class InventaryFormFourFrgmnt extends Fragment implements AdapterView.OnItemSelectedListener {
 
+    DataItem dataItem;
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("Modify",Context.MODE_PRIVATE);
+
+        String data = sharedPreferences.getString("data", "false");
+
+        if (data.equalsIgnoreCase("true")) {
+
+            presetValues();
+
+        }
+    }
+
+    private void presetValues() {
+
+        dataItem = (DataItem) getActivity().getIntent().getSerializableExtra("dataItem");
+
+        MLFEdtTxt.setText(dataItem.getMFL());
+        floorProtectnTypEdtTxt.setText(dataItem.getFLOORPROTECTIONTYPE());
+    }
 
     public InventaryFormFourFrgmnt() {
         // Required empty public constructor

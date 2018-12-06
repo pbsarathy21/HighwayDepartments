@@ -53,6 +53,17 @@ import retrofit2.Response;
 
 public class CulvertFormActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
+    @Override
+    public void onBackPressed() {
+
+        SharedPreferences preferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.clear().apply();
+
+        super.onBackPressed();
+
+    }
+
     Toolbar toolbar;
     TextView headerTxt;
     EditText yrOfConstrEdtTxt, culvet_key_id, geoLocation;
@@ -445,14 +456,16 @@ public class CulvertFormActivity extends AppCompatActivity implements AdapterVie
 
         preferences=getSharedPreferences("MyPrefs", MODE_PRIVATE);
 
-        String circle_id = preferences.getString("Cir_id", "0");
-        String div_id = preferences.getString("div_id", "0");
-        String subdiv_id = preferences.getString("Subdivision_Id", "0");
-        String user_id = preferences.getString("userId", "0");
+        SharedPreferences userDetails = getSharedPreferences("UserDetails", MODE_PRIVATE);
+
+        String circle_id = userDetails.getString("Cir_id", "0");
+        String div_id = userDetails.getString("div_id", "0");
+        String subdiv_id = userDetails.getString("Subdivision_Id", "0");
+        String user_id = userDetails.getString("userId", "0");
         String latitude = preferences.getString("latitude", null);
         String longitude = preferences.getString("longitude", null);
-        String road_id = preferences.getString("Road_Id", "0");
-        String link_id = preferences.getString("Link_Id", "0");
+        String road_id = userDetails.getString("Road_Id", "0");
+        String link_id = userDetails.getString("Link_Id", "0");
         String condition = preferences.getString("condition_type_spinner", "0");
         String type = preferences.getString("culvert_type_spinner", "0");
 
@@ -485,7 +498,7 @@ public class CulvertFormActivity extends AppCompatActivity implements AdapterVie
 
         call.enqueue(new Callback<CulvetEditResponse>() {
             @Override
-            public void onResponse(Call<CulvetEditResponse> call, Response<CulvetEditResponse> response) {
+            public void onResponse(@NonNull Call<CulvetEditResponse> call, Response<CulvetEditResponse> response) {
                 progressDialog.dismiss();
 
                 if (response.code() == 200)
@@ -528,7 +541,7 @@ public class CulvertFormActivity extends AppCompatActivity implements AdapterVie
             }
 
             @Override
-            public void onFailure(Call<CulvetEditResponse> call, Throwable t) {
+            public void onFailure(@NonNull Call<CulvetEditResponse> call, @NonNull Throwable t) {
 
                 progressDialog.dismiss();
 
@@ -547,14 +560,16 @@ public class CulvertFormActivity extends AppCompatActivity implements AdapterVie
 
         preferences=getSharedPreferences("MyPrefs", MODE_PRIVATE);
 
-        String circle_id = preferences.getString("Cir_id", "0");
-        String div_id = preferences.getString("div_id", "0");
-        String subdiv_id = preferences.getString("Subdivision_Id", "0");
-        String user_id = preferences.getString("userId", "0");
+        SharedPreferences userDetails = getSharedPreferences("UserDetails", MODE_PRIVATE);
+
+        String circle_id = userDetails.getString("Cir_id", "0");
+        String div_id = userDetails.getString("div_id", "0");
+        String subdiv_id = userDetails.getString("Subdivision_Id", "0");
+        String user_id = userDetails.getString("userId", "0");
         String latitude = preferences.getString("latitude", null);
         String longitude = preferences.getString("longitude", null);
-        String road_id = preferences.getString("Road_Id", "0");
-        String link_id = preferences.getString("Link_Id", "0");
+        String road_id = userDetails.getString("Road_Id", "0");
+        String link_id = userDetails.getString("Link_Id", "0");
         String condition = preferences.getString("condition_type_spinner", "0");
         String type = preferences.getString("culvert_type_spinner", "0");
 
@@ -608,8 +623,7 @@ public class CulvertFormActivity extends AppCompatActivity implements AdapterVie
 
                                 preferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
 
-                                preferences.edit().remove("latitude").commit();
-                                preferences.edit().remove("longitude").commit();
+                                preferences.edit().clear().commit();
 
                                 finish();
                             }

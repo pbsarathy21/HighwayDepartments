@@ -264,7 +264,7 @@ public class LoginActivity extends AppCompatActivity {
                 String authority = loginResponse.getData().get(0).getAUTHORITY();
 
 
-                SharedPreferences saved_values = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+                SharedPreferences saved_values = getSharedPreferences("UserDetails", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = saved_values.edit();
 
                 editor.putString("userId",userId);
@@ -275,9 +275,14 @@ public class LoginActivity extends AppCompatActivity {
                 editor.putString("Cir_id", CirId);
                 editor.putString("authority", authority);
                 editor.putString("firstTimeAfterLogin", "1");
-                editor.putString("SignOut", "true");
 
                 editor.apply();
+
+                SharedPreferences preferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor1 = preferences.edit();
+                editor1.putString("SignOut", "true");
+                editor1.apply();
+
 
                 Toast.makeText(LoginActivity.this, ""+loginResponse.getMessage(), Toast.LENGTH_SHORT).show();
 

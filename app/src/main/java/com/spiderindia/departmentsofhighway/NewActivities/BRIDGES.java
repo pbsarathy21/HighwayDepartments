@@ -69,7 +69,7 @@ public class BRIDGES extends AppCompatActivity implements AdapterView.OnItemSele
     protected void onStart() {
         super.onStart();
 
-        sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        sharedPreferences = getSharedPreferences("UserDetails", MODE_PRIVATE);
         String authority = sharedPreferences.getString("authority", "4");
 
         if (authority.equalsIgnoreCase("1"))
@@ -108,7 +108,7 @@ public class BRIDGES extends AppCompatActivity implements AdapterView.OnItemSele
     protected void onPostResume() {
         super.onPostResume();
 
-        sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        sharedPreferences = getSharedPreferences("UserDetails", MODE_PRIVATE);
         String authority = sharedPreferences.getString("authority", "4");
 
         if (authority.equalsIgnoreCase("1"))
@@ -182,7 +182,7 @@ public class BRIDGES extends AppCompatActivity implements AdapterView.OnItemSele
         spinnerDivision.setOnItemSelectedListener(this);
         spinnerSubdivision.setOnItemSelectedListener(this);
 
-        SharedPreferences preferences = getSharedPreferences("MyPrefs",Context.MODE_PRIVATE);
+        SharedPreferences preferences = getSharedPreferences("UserDetails",Context.MODE_PRIVATE);
         String Userid = preferences.getString("userId", "0");
         String Subdivid = preferences.getString("Subdivision_Id", "0");
 
@@ -298,7 +298,7 @@ public class BRIDGES extends AppCompatActivity implements AdapterView.OnItemSele
                        String Road_Id = bridgeResponse.getResult().getData().get(0).getROADKEYID();
                     String Link_Id = bridgeResponse.getResult().getData().get(0).getLINKKEYID();
 
-                    SharedPreferences preferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+                    SharedPreferences preferences = getSharedPreferences("UserDetails", Context.MODE_PRIVATE);
                     SharedPreferences.Editor editor = preferences.edit();
                     editor.putString("Road_Id", Road_Id);
                     editor.putString("Link_Id", Link_Id);
@@ -335,7 +335,7 @@ public class BRIDGES extends AppCompatActivity implements AdapterView.OnItemSele
         {
             String circleId = adapterView.getItemAtPosition(i).toString().substring(0,2).trim();
 
-            sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+            sharedPreferences = getSharedPreferences("UserDetails", MODE_PRIVATE);
             editor = sharedPreferences.edit();
             editor.putString("Cir_id", circleId);
             editor.apply();
@@ -349,7 +349,7 @@ public class BRIDGES extends AppCompatActivity implements AdapterView.OnItemSele
         {
             String divisionId = adapterView.getItemAtPosition(i).toString().substring(0,3).trim();
 
-            sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+            sharedPreferences = getSharedPreferences("UserDetails", MODE_PRIVATE);
             editor = sharedPreferences.edit();
             editor.putString("div_id", divisionId);
             editor.apply();
@@ -363,7 +363,7 @@ public class BRIDGES extends AppCompatActivity implements AdapterView.OnItemSele
         {
             String subdivId = adapterView.getItemAtPosition(i).toString().substring(0,3).trim();
 
-            sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+            sharedPreferences = getSharedPreferences("UserDetails", MODE_PRIVATE);
             editor = sharedPreferences.edit();
             editor.putString("Subdivision_Id", subdivId);
             editor.apply();
@@ -405,7 +405,7 @@ public class BRIDGES extends AppCompatActivity implements AdapterView.OnItemSele
 
         progressDialog.show();
 
-        SharedPreferences preferences = getSharedPreferences("MyPrefs",Context.MODE_PRIVATE);
+        SharedPreferences preferences = getSharedPreferences("UserDetails",Context.MODE_PRIVATE);
         String Userid = preferences.getString("userId", "0");
 
         JSONObject paramObject = new JSONObject();
@@ -459,7 +459,7 @@ public class BRIDGES extends AppCompatActivity implements AdapterView.OnItemSele
 
         progressDialog.show();
 
-        sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        sharedPreferences = getSharedPreferences("UserDetails", MODE_PRIVATE);
         String circleID = sharedPreferences.getString("Cir_id", "44");
 
         JSONObject paramObject = new JSONObject();
@@ -521,7 +521,7 @@ public class BRIDGES extends AppCompatActivity implements AdapterView.OnItemSele
 
         progressDialog.show();
 
-        SharedPreferences preferences = getSharedPreferences("MyPrefs",Context.MODE_PRIVATE);
+        SharedPreferences preferences = getSharedPreferences("UserDetails",Context.MODE_PRIVATE);
         String divisionId = preferences.getString("div_id", "0");
 
         JSONObject paramObject = new JSONObject();
@@ -580,7 +580,7 @@ public class BRIDGES extends AppCompatActivity implements AdapterView.OnItemSele
 
     private void loadRoadSpinner() {
 
-        sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        sharedPreferences = getSharedPreferences("UserDetails", MODE_PRIVATE);
 
         String Userid = sharedPreferences.getString("userId", "0");
         String Subdivid = sharedPreferences.getString("Subdivision_Id", "0");

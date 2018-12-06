@@ -1,5 +1,6 @@
 package com.spiderindia.departmentsofhighway.NewActivities;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -9,6 +10,17 @@ import com.spiderindia.departmentsofhighway.Fragmentss.AddBridgeFragment;
 import com.spiderindia.departmentsofhighway.R;
 
 public class NewBridgeForm extends FragmentActivity {
+
+    @Override
+    public void onBackPressed() {
+
+        SharedPreferences preferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.clear().apply();
+
+        super.onBackPressed();
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

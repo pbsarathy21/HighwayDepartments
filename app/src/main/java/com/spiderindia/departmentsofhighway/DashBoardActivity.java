@@ -79,7 +79,7 @@ public class DashBoardActivity extends AppCompatActivity {
 
     private void setsharedpreference() {
 
-        SharedPreferences sharedPref = getSharedPreferences("MyPrefs" ,Context.MODE_PRIVATE);
+        SharedPreferences sharedPref = getSharedPreferences("UserDetails" ,Context.MODE_PRIVATE);
 
         String authority = sharedPref.getString("authority", "");
        // String userid = preferences.getString("userId", "");

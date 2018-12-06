@@ -115,7 +115,7 @@ public class MaintenanceFormOneFrgmnt extends Fragment {
         mContext = container.getContext();
 
         dbase = new MyDataBaseHandler(getActivity());
-        spf = getActivity().getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        spf = getActivity().getSharedPreferences("UserDetails", MODE_PRIVATE);
         userId = spf.getString("userId", "");
         authenticationCode = spf.getString("authenticationToken", "");
 
@@ -303,6 +303,7 @@ public class MaintenanceFormOneFrgmnt extends Fragment {
     private void updateDetails() {
 
         SharedPreferences preferences = getActivity().getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        SharedPreferences userDetails = getActivity().getSharedPreferences("UserDetails", MODE_PRIVATE);
 
         //String photo1 = "";
         //String photo2 = "";
@@ -329,13 +330,13 @@ public class MaintenanceFormOneFrgmnt extends Fragment {
 
         String bridge_key_id = preferences.getString("bridge_key_id", "14240");
 
-        String user_id = preferences.getString("userId", null);
-        String Subdivision_Id = preferences.getString("Subdivision_Id", null);
+        String user_id = userDetails.getString("userId", null);
+        String Subdivision_Id = userDetails.getString("Subdivision_Id", null);
         String userName = preferences.getString("userName", null);
-        String div_id = preferences.getString("div_id", null);
-        String Cir_id = preferences.getString("Cir_id", null);
-        String Road_Id = preferences.getString("Road_Id", null);
-        String Link_Id = preferences.getString("Link_Id", null);
+        String div_id = userDetails.getString("div_id", null);
+        String Cir_id = userDetails.getString("Cir_id", null);
+        String Road_Id = userDetails.getString("Road_Id", null);
+        String Link_Id = userDetails.getString("Link_Id", null);
         String start_chainage = preferences.getString("start_chainage", "56");
         String location = preferences.getString("location", "chennai");
         String description = preferences.getString("description", "testing");
@@ -514,8 +515,7 @@ public class MaintenanceFormOneFrgmnt extends Fragment {
 
                                SharedPreferences preferences = getActivity().getSharedPreferences("MyPrefs", MODE_PRIVATE);
 
-                                preferences.edit().remove("latitude").apply();
-                                preferences.edit().remove("longitude").apply();
+                                preferences.edit().clear().apply();
 
                                getActivity().finish();
                             }
@@ -545,6 +545,7 @@ public class MaintenanceFormOneFrgmnt extends Fragment {
 
     private void uploadDetails() {
         SharedPreferences preferences = getActivity().getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        SharedPreferences userDetails = getActivity().getSharedPreferences("UserDetails", MODE_PRIVATE);
 
         //String photo1 = "";
         //String photo2 = "";
@@ -571,13 +572,13 @@ public class MaintenanceFormOneFrgmnt extends Fragment {
 
         String bridge_key_id = preferences.getString("bridge_key_id", "14240");
 
-        String user_id = preferences.getString("userId", null);
-        String Subdivision_Id = preferences.getString("Subdivision_Id", null);
+        String user_id = userDetails.getString("userId", null);
+        String Subdivision_Id = userDetails.getString("Subdivision_Id", null);
         String userName = preferences.getString("userName", null);
-        String div_id = preferences.getString("div_id", null);
-        String Cir_id = preferences.getString("Cir_id", null);
-        String Road_Id = preferences.getString("Road_Id", null);
-        String Link_Id = preferences.getString("Link_Id", null);
+        String div_id = userDetails.getString("div_id", null);
+        String Cir_id = userDetails.getString("Cir_id", null);
+        String Road_Id = userDetails.getString("Road_Id", null);
+        String Link_Id = userDetails.getString("Link_Id", null);
         String start_chainage = preferences.getString("start_chainage", "56");
         String location = preferences.getString("location", "chennai");
         String description = preferences.getString("description", "testing");

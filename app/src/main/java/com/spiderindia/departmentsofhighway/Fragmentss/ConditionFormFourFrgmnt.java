@@ -50,6 +50,73 @@ public class ConditionFormFourFrgmnt extends Fragment {
 
             preset = true;
 
+            if (dataItem.getSPSCONCREATECRACKED().equalsIgnoreCase("1"))
+            {
+                crackedChkBx.setChecked(true);
+            }
+            if (dataItem.getSPSCONCREATELEACHED().equalsIgnoreCase("1"))
+            {
+                leachedChkBx.setChecked(true);
+            }
+
+            if (dataItem.getSPSCONCREATESALLIYO().equalsIgnoreCase("1"))
+            {
+                saliyoChkBx.setChecked(true);
+            }
+
+            if (dataItem.getSPSCONCREATESPALITY().equalsIgnoreCase("1"))
+            {
+                spalityChkBx.setChecked(true);
+            }
+
+            if (dataItem.getSPSSTEELCORROSION().equalsIgnoreCase("1"))
+            {
+                corrosionChkBx.setChecked(true);
+            }
+
+            if (dataItem.getSPSSTEELBUCKLED().equalsIgnoreCase("1"))
+            {
+                buckledChkBx.setChecked(true);
+            }
+
+            if (dataItem.getSPSARCHSPALLED().equalsIgnoreCase("1"))
+            {
+                spalledChkBx.setChecked(true);
+            }
+
+            if (dataItem.getSPSARCHVEGETATION().equalsIgnoreCase("1"))
+            {
+                vegetationChkBx.setChecked(true);
+            }
+
+            if (dataItem.getSPSARCHSCALED().equalsIgnoreCase("1"))
+            {
+                scaledChkBx.setChecked(true);
+            }
+
+
+            if (dataItem.getHANDRAILSBROKEN().equalsIgnoreCase("1"))
+            {
+                brokenChkBxHandRails.setChecked(true);
+            }
+
+            if (dataItem.getHANDRAILSCORRODED().equalsIgnoreCase("1"))
+            {
+                corrodedChkBxHandRail.setChecked(true);
+            }
+
+            if (dataItem.getFOOTPATHBROKEN().equalsIgnoreCase("1"))
+            {
+                brokenChkBxFootPath.setChecked(true);
+            }
+
+            if (dataItem.getFOOTPATHDISINTEGRATION().equalsIgnoreCase("1"))
+            {
+                disintegratnNoChkBxFoot.setChecked(true);
+            }
+
+
+
         }
     }
 

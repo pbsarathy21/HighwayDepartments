@@ -49,6 +49,40 @@ public class ConditionFormTwoFrgmnt extends Fragment {
 
             preset = true;
 
+            if (dataItem.getFOUNDATIONSETTLEMENTUL().equalsIgnoreCase("1"))
+            {
+                leftSetlemntUpsChkBx.setChecked(true);
+            }
+
+            if (dataItem.getFOUNDATIONSETTLEMENTUR().equalsIgnoreCase("1"))
+            {
+                rightSetlemntUpSChkBx.setChecked(true);
+            }
+
+            if (dataItem.getFOUNDATIONSETTLEMENTDL().equalsIgnoreCase("1"))
+            {
+                leftSetlemntDownSChkBx.setChecked(true);
+            }
+
+            if (dataItem.getFOUNDATIONSETTLEMENTDR().equalsIgnoreCase("1"))
+            {
+                rightSetlemntDownSChkBx.setChecked(true);
+            }
+
+            if (dataItem.getFOUNDATIONSPALLEDPIERS().equalsIgnoreCase("1"))
+            {
+                spalledChkBx.setChecked(true);
+            }
+
+            if (dataItem.getFOUNDATIONSCOURPIERS().equalsIgnoreCase("1"))
+            {
+                scourChkBx.setChecked(true);
+            }
+
+            if (dataItem.getFOUNDATIONCRACKEDPIERS().equalsIgnoreCase("1"))
+            {
+                crackedChkBx.setChecked(true);
+            }
         }
     }
 
@@ -368,8 +402,6 @@ public class ConditionFormTwoFrgmnt extends Fragment {
                     int position1 = Integer.parseInt(dataItem.getFOUNDATIONCRACKSUR());
                     rightCrackUpSSpinr.setSelection(position1);
                 }
-
-
 
 
                 final ArrayAdapter<String> adapter_leftSplaity = new ArrayAdapter<String>(getActivity(),R.layout.custom_spinner, leftSplaityUpSSpinrArr);

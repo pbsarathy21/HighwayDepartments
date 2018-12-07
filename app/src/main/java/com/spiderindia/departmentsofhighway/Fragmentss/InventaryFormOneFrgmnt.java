@@ -72,7 +72,15 @@ public class InventaryFormOneFrgmnt extends Fragment implements AdapterView.OnIt
         riverNameEdtTxt.setText(dataItem.getRIVERNAME());
         linearWtrWatEdtTxt.setText(dataItem.getLINEARWATERWAY());
 
+        if (dataItem.getPARTIALWIDENING().equalsIgnoreCase("1"))
+        {
+            partialWedChkBx.setChecked(true);
+        }
 
+        if (dataItem.getCLOSETODAM().equalsIgnoreCase("1"))
+        {
+            partialWedChkBx.setChecked(true);
+        }
     }
 
     public InventaryFormOneFrgmnt() {

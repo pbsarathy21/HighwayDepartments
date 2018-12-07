@@ -50,6 +50,21 @@ public class ConditionFormFiveFrgmnt extends Fragment {
 
             preset = true;
 
+            if (dataItem.getWEARINGCOATFAILEDJOINTS().equalsIgnoreCase("1"))
+            {
+                failedJointChkBx.setChecked(true);
+            }
+
+            if (dataItem.getWEARINGCOATPOORDRAINAGE().equalsIgnoreCase("1"))
+            {
+                poorDraingeChkBx.setChecked(true);
+            }
+
+            if (dataItem.getBEARINGSSTEELTILTED().equalsIgnoreCase("1"))
+            {
+                tiledChkBx.setChecked(true);
+            }
+
         }
     }
 
@@ -140,52 +155,7 @@ public class ConditionFormFiveFrgmnt extends Fragment {
             }
         });
 
-        //By partha
 
-      /*  previousBttn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                HomeActivity._mViewPager.setCurrentItem(8);
-            }
-        });
-        nextBttn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                try{
-                    cracksSpnrId = cracksSpnrMap.get(cracksSpnr.getSelectedItemPosition());
-                    potholesSpnrId = potholesSpnrMap.get(potholesSpnr.getSelectedItemPosition());
-                    ravelledSpnrId = ravelledSpnrMap.get(ravelledSpnr.getSelectedItemPosition());
-                    rustedSpnrId = rustedSpnrMap.get(rustedSpnr.getSelectedItemPosition());
-                    flatteringSpnrId = flatteringSpnrMap.get(flatteringSpnr.getSelectedItemPosition());
-                    splitinalSpnrId = splitinalSpnrMap.get(splitinalSpnr.getSelectedItemPosition());
-
-
-                    if (failedJointChkBx.isChecked())
-                        failedJointChkBxId = "1";
-
-                    if (poorDraingeChkBx.isChecked())
-                        poorDraingeChkBxId = "1";
-
-                    if (tiledChkBx.isChecked())
-                        tiledChkBxId = "1";
-
-                    new  asyncToSendDetails().execute();
-
-                    HomeActivity._mViewPager.setCurrentItem(10);
-
-                }
-                catch(NullPointerException e ) {
-                    e.printStackTrace();
-                }
-                catch (Exception e)
-                {
-                    e.printStackTrace();
-                }
-
-            }
-        });
-*/
         new asyncToGetDetails().execute();
 
         return root;

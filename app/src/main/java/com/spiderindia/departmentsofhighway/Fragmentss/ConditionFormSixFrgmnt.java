@@ -21,6 +21,7 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 
 import com.spiderindia.departmentsofhighway.HomeActivity;
+import com.spiderindia.departmentsofhighway.ModelClasses.ModelBridgeResponse.DataItem;
 import com.spiderindia.departmentsofhighway.R;
 import com.spiderindia.departmentsofhighway.SqLiteDb.MyDataBaseHandler;
 
@@ -28,6 +29,52 @@ import com.spiderindia.departmentsofhighway.SqLiteDb.MyDataBaseHandler;
  * A simple {@link Fragment} subclass.
  */
 public class ConditionFormSixFrgmnt extends Fragment {
+
+    boolean preset = false;
+
+    DataItem dataItem;
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("Modify",Context.MODE_PRIVATE);
+
+        String data = sharedPreferences.getString("data", "false");
+
+        if (data.equalsIgnoreCase("true")) {
+
+            preset = true;
+
+            if (dataItem.getEXPANSIONJOINTSWORNOUT().equalsIgnoreCase("1"))
+            {
+                worntoutChkBx.setChecked(true);
+            }
+
+            if (dataItem.getEXPANSIONJOINTSBLEED().equalsIgnoreCase("1"))
+            {
+                bleedChkBx.setChecked(true);
+            }
+
+            if (dataItem.getEXPANSIONJOINTSCRACKED().equalsIgnoreCase("1"))
+            {
+                crackedChkBx.setChecked(true);
+            }
+
+            if (dataItem.getVENTWATERWAYSILTED().equalsIgnoreCase("1"))
+            {
+                siltedChkBx.setChecked(true);
+            }
+
+            if (dataItem.getVENTWATERWAYSCOURED().equalsIgnoreCase("1"))
+            {
+                scourChkBx.setChecked(true);
+            }
+
+
+
+        }
+    }
 
 
     public ConditionFormSixFrgmnt() {

@@ -53,6 +53,89 @@ public class ConditionFormThreeFrgmnt extends Fragment {
 
             preset = true;
 
+            if (dataItem.getSBSVEGETATIONUL().equalsIgnoreCase("1"))
+            {
+                leftVegetatnChkBx.setChecked(true);
+            }
+
+            if (dataItem.getSBSVEGETATIONUR().equalsIgnoreCase("1"))
+            {
+                rightVegetationChkBx.setChecked(true);
+            }
+
+            if (dataItem.getSBSVEGETATIONDL().equalsIgnoreCase("1"))
+            {
+                leftVegetatnChkBxDownS.setChecked(true);
+            }
+
+            if (dataItem.getSBSVEGETATIONDR().equalsIgnoreCase("1"))
+            {
+                rightVegetationChkBxDownS.setChecked(true);
+            }
+
+
+            if (dataItem.getSBSTILTINGUL().equalsIgnoreCase("1"))
+            {
+                leftTiltingChkBx.setChecked(true);
+            }
+
+            if (dataItem.getSBSTILTINGUR().equalsIgnoreCase("1"))
+            {
+                rightTiltingChkBx.setChecked(true);
+            }
+
+            if (dataItem.getSBSTILTINGDL().equalsIgnoreCase("1"))
+            {
+                leftTiltingChkBxDownS.setChecked(true);
+            }
+
+            if (dataItem.getSBSTILTINGDR().equalsIgnoreCase("1"))
+            {
+                rightTiltingChkBxDownS.setChecked(true);
+            }
+
+
+            if (dataItem.getSBSSPALITYUL().equalsIgnoreCase("1"))
+            {
+                lefTspalityChkBx.setChecked(true);
+            }
+
+            if (dataItem.getSBSSPALITYUR().equalsIgnoreCase("1"))
+            {
+                rightSpalityChkBx.setChecked(true);
+            }
+
+            if (dataItem.getSBSSPALITYDL().equalsIgnoreCase("1"))
+            {
+                lefTspalityChkBxDownS.setChecked(true);
+            }
+
+            if (dataItem.getSBSSPALITYDR().equalsIgnoreCase("1"))
+            {
+                rightSpalityChkBxDownS.setChecked(true);
+            }
+
+            if (dataItem.getSBSCRACKEDPIERS().equalsIgnoreCase("1"))
+            {
+                cracksChkBx.setChecked(true);
+            }
+
+            if (dataItem.getSBSTILTINGPIERS().equalsIgnoreCase("1"))
+            {
+                tiltingChkBx.setChecked(true);
+            }
+
+            if (dataItem.getSBSVEGETATIONPIERS().equalsIgnoreCase("1"))
+            {
+                vegetationChkBx.setChecked(true);
+            }
+
+            if (dataItem.getSBSSPALINGPIERS().equalsIgnoreCase("1"))
+            {
+                spalityChkBx.setChecked(true);
+            }
+
+
         }
     }
 

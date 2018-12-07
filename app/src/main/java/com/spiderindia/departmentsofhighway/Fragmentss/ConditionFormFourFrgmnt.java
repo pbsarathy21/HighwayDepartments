@@ -117,9 +117,6 @@ public class ConditionFormFourFrgmnt extends Fragment {
             {
                 disintegratnNoChkBxFoot.setChecked(true);
             }
-
-
-
         }
     }
 

@@ -95,7 +95,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        spf = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        spf = getSharedPreferences("credentials", Context.MODE_PRIVATE);
         signOut = spf.getString("SignOut", "");
 
         if ((signOut.equalsIgnoreCase("")) || (signOut.equalsIgnoreCase("1"))) {
@@ -278,7 +278,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 editor.apply();
 
-                SharedPreferences preferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+                SharedPreferences preferences = getSharedPreferences("credentials", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor1 = preferences.edit();
                 editor1.putString("SignOut", "true");
                 editor1.apply();
@@ -535,9 +535,12 @@ public class LoginActivity extends AppCompatActivity {
                 editor.putString("Cir_id", CirId);
                 editor.putString("authority", authority);
                 editor.putString("firstTimeAfterLogin", "1");
-                editor.putString("SignOut", "true");
-
                 editor.apply();
+
+                SharedPreferences preferences = getSharedPreferences("credentials", MODE_PRIVATE);
+                SharedPreferences.Editor editor1 = preferences.edit();
+                editor1.putString("SignOut", "true");
+                editor1.apply();
 
 
             } else if (otpResponse.equalsIgnoreCase("error")) {
@@ -691,7 +694,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
 
-        spf = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        spf = getSharedPreferences("credentials", Context.MODE_PRIVATE);
 
         String login = spf.getString("SignOut", "false");
 

@@ -518,8 +518,13 @@ public class HomeActivity extends AppCompatActivity {
                 editor.putString("userId", "");
                 editor.putString("authenticationToken", "");
                 editor.putString("uesrName", "");
-                editor.putString("SignOut", "1");
+
                 editor.commit();
+
+                SharedPreferences preferences = getSharedPreferences("credentials", MODE_PRIVATE);
+                SharedPreferences.Editor editor1 = preferences.edit();
+                editor1.putString("SignOut", "1");
+                editor1.apply();
 
 
                 finishAffinity();

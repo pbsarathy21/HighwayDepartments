@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -50,67 +51,69 @@ public class ConditionFormFourFrgmnt extends Fragment {
 
             preset = true;
 
-            if (dataItem.getSPSCONCREATECRACKED().equalsIgnoreCase("1"))
+            dataItem = (DataItem) getActivity().getIntent().getSerializableExtra("dataItem");
+
+            if (!TextUtils.isEmpty(dataItem.getSPSCONCREATECRACKED()) && dataItem.getSPSCONCREATECRACKED().equalsIgnoreCase("1"))
             {
                 crackedChkBx.setChecked(true);
             }
-            if (dataItem.getSPSCONCREATELEACHED().equalsIgnoreCase("1"))
+            if (!TextUtils.isEmpty(dataItem.getSPSCONCREATELEACHED()) && dataItem.getSPSCONCREATELEACHED().equalsIgnoreCase("1"))
             {
                 leachedChkBx.setChecked(true);
             }
 
-            if (dataItem.getSPSCONCREATESALLIYO().equalsIgnoreCase("1"))
+            if (!TextUtils.isEmpty(dataItem.getSPSCONCREATESALLIYO()) && dataItem.getSPSCONCREATESALLIYO().equalsIgnoreCase("1"))
             {
                 saliyoChkBx.setChecked(true);
             }
 
-            if (dataItem.getSPSCONCREATESPALITY().equalsIgnoreCase("1"))
+            if (!TextUtils.isEmpty(dataItem.getSPSCONCREATESPALITY()) && dataItem.getSPSCONCREATESPALITY().equalsIgnoreCase("1"))
             {
                 spalityChkBx.setChecked(true);
             }
 
-            if (dataItem.getSPSSTEELCORROSION().equalsIgnoreCase("1"))
+            if (!TextUtils.isEmpty(dataItem.getSPSSTEELCORROSION()) && dataItem.getSPSSTEELCORROSION().equalsIgnoreCase("1"))
             {
                 corrosionChkBx.setChecked(true);
             }
 
-            if (dataItem.getSPSSTEELBUCKLED().equalsIgnoreCase("1"))
+            if (!TextUtils.isEmpty(dataItem.getSPSSTEELBUCKLED()) && dataItem.getSPSSTEELBUCKLED().equalsIgnoreCase("1"))
             {
                 buckledChkBx.setChecked(true);
             }
 
-            if (dataItem.getSPSARCHSPALLED().equalsIgnoreCase("1"))
+            if (!TextUtils.isEmpty(dataItem.getSPSARCHSPALLED()) && dataItem.getSPSARCHSPALLED().equalsIgnoreCase("1"))
             {
                 spalledChkBx.setChecked(true);
             }
 
-            if (dataItem.getSPSARCHVEGETATION().equalsIgnoreCase("1"))
+            if (!TextUtils.isEmpty(dataItem.getSPSARCHSPALLED()) && dataItem.getSPSARCHVEGETATION().equalsIgnoreCase("1"))
             {
                 vegetationChkBx.setChecked(true);
             }
 
-            if (dataItem.getSPSARCHSCALED().equalsIgnoreCase("1"))
+            if (!TextUtils.isEmpty(dataItem.getSPSARCHSCALED()) && dataItem.getSPSARCHSCALED().equalsIgnoreCase("1"))
             {
                 scaledChkBx.setChecked(true);
             }
 
 
-            if (dataItem.getHANDRAILSBROKEN().equalsIgnoreCase("1"))
+            if (!TextUtils.isEmpty(dataItem.getHANDRAILSBROKEN()) && dataItem.getHANDRAILSBROKEN().equalsIgnoreCase("1"))
             {
                 brokenChkBxHandRails.setChecked(true);
             }
 
-            if (dataItem.getHANDRAILSCORRODED().equalsIgnoreCase("1"))
+            if (!TextUtils.isEmpty(dataItem.getHANDRAILSCORRODED()) && dataItem.getHANDRAILSCORRODED().equalsIgnoreCase("1"))
             {
                 corrodedChkBxHandRail.setChecked(true);
             }
 
-            if (dataItem.getFOOTPATHBROKEN().equalsIgnoreCase("1"))
+            if (!TextUtils.isEmpty(dataItem.getFOOTPATHBROKEN()) && dataItem.getFOOTPATHBROKEN().equalsIgnoreCase("1"))
             {
                 brokenChkBxFootPath.setChecked(true);
             }
 
-            if (dataItem.getFOOTPATHDISINTEGRATION().equalsIgnoreCase("1"))
+            if (!TextUtils.isEmpty(dataItem.getFOOTPATHDISINTEGRATION()) && dataItem.getFOOTPATHDISINTEGRATION().equalsIgnoreCase("1"))
             {
                 disintegratnNoChkBxFoot.setChecked(true);
             }
@@ -216,78 +219,7 @@ public class ConditionFormFourFrgmnt extends Fragment {
             }
         });
 
-        //By partha
 
-       /* previousBttn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                HomeActivity._mViewPager.setCurrentItem(7);
-            }
-        });
-        nextBttn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                try{
-                    spallingSpnrSuperSId = spallingSpnrMap.get(spallingSpnrSuperS.getSelectedItemPosition());
-
-                    if (crackedChkBx.isChecked())
-                        crackedId = "1";
-
-                    if (corrosionChkBx.isChecked())
-                        corrosionId = "1";
-
-                    if (spalledChkBx.isChecked())
-                        spalledId = "1";
-
-                    if (leachedChkBx.isChecked())
-                        leachedId = "1";
-
-                    if (buckledChkBx.isChecked())
-                        buckledId = "1";
-
-                    if (vegetationChkBx.isChecked())
-                        vegetationId = "1";
-
-                    if (saliyoChkBx.isChecked())
-                        saliyoId = "1";
-
-                    if (scaledChkBx.isChecked())
-                        scaledId = "1";
-
-                    if (spalityChkBx.isChecked())
-                        spalityId = "1";
-
-                    if (brokenChkBxHandRails.isChecked())
-                        brokenHandRailsId = "1";
-
-                    if (corrodedChkBxHandRail.isChecked())
-                        corrodedHandRailId = "1";
-
-                    if (brokenChkBxFootPath.isChecked())
-                        brokenFootPathId = "1";
-
-                    if (disintegratnNoChkBxFoot.isChecked())
-                        disintegratnNoFootId = "1";
-
-                    //spallingSpnrSuperS
-
-                    new asyncToSendDetails().execute();
-
-                    HomeActivity._mViewPager.setCurrentItem(9);
-                }
-                catch(NullPointerException e ) {
-                    e.printStackTrace();
-                }
-                catch (Exception e)
-                {
-                    e.printStackTrace();
-                }
-
-            }
-        });
-*/
         new asyncToGetDetails().execute();
         return root;
 
@@ -430,61 +362,15 @@ public class ConditionFormFourFrgmnt extends Fragment {
                 adapter_leftCrack.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 spallingSpnrSuperS.setAdapter(adapter_leftCrack);
 
-                if(preset)
+                if(!TextUtils.isEmpty(dataItem.getHANDRAILSSPALLING()) && preset)
                 {
                     int position = Integer.parseInt(dataItem.getHANDRAILSSPALLING());
                     spallingSpnrSuperS.setSelection(position);
                 }
 
 
-/*
-                if(crackedId.equalsIgnoreCase("1"))
-                    crackedChkBx.setChecked(true);
-
-                if(corrosionId.equalsIgnoreCase("1"))
-                    corrosionChkBx.setChecked(true);
-
-                if(spalledId.equalsIgnoreCase("1"))
-                    spalledChkBx.setChecked(true);
-
-                if(leachedId.equalsIgnoreCase("1"))
-                    leachedChkBx.setChecked(true);
-
-                if(buckledId.equalsIgnoreCase("1"))
-                    buckledChkBx.setChecked(true);
-
-                if(vegetationId.equalsIgnoreCase("1"))
-                    vegetationChkBx.setChecked(true);
-
-                if(saliyoId.equalsIgnoreCase("1"))
-                    saliyoChkBx.setChecked(true);
-
-                if(scaledId.equalsIgnoreCase("1"))
-                    scaledChkBx.setChecked(true);
-
-                if(spalityId.equalsIgnoreCase("1"))
-                    spalityChkBx.setChecked(true);
-
-                if(brokenHandRailsId.equalsIgnoreCase("1"))
-                    brokenChkBxHandRails.setChecked(true);
-
-                if(corrodedHandRailId.equalsIgnoreCase("1"))
-                    corrodedChkBxHandRail.setChecked(true);
-
-                if(brokenFootPathId.equalsIgnoreCase("1"))
-                    brokenChkBxFootPath.setChecked(true);
-
-                if(disintegratnNoFootId.equalsIgnoreCase("1"))
-                    disintegratnNoChkBxFoot.setChecked(true);
-
-                spallingSpnrSuperS.setSelection(Integer.parseInt(spallingSpnrSuperSId));*/
-
-
-
-
                 if(!(response.equals("")) && response.equalsIgnoreCase("TRUE"))
                 {
-
                 }
                 else
                 {

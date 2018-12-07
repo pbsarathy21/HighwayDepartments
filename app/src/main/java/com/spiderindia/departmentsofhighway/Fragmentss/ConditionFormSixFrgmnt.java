@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -46,27 +47,29 @@ public class ConditionFormSixFrgmnt extends Fragment {
 
             preset = true;
 
-            if (dataItem.getEXPANSIONJOINTSWORNOUT().equalsIgnoreCase("1"))
+            dataItem = (DataItem) getActivity().getIntent().getSerializableExtra("dataItem");
+
+            if (!TextUtils.isEmpty(dataItem.getEXPANSIONJOINTSWORNOUT()) && dataItem.getEXPANSIONJOINTSWORNOUT().equalsIgnoreCase("1"))
             {
                 worntoutChkBx.setChecked(true);
             }
 
-            if (dataItem.getEXPANSIONJOINTSBLEED().equalsIgnoreCase("1"))
+            if (!TextUtils.isEmpty(dataItem.getEXPANSIONJOINTSBLEED()) && dataItem.getEXPANSIONJOINTSBLEED().equalsIgnoreCase("1"))
             {
                 bleedChkBx.setChecked(true);
             }
 
-            if (dataItem.getEXPANSIONJOINTSCRACKED().equalsIgnoreCase("1"))
+            if (!TextUtils.isEmpty(dataItem.getEXPANSIONJOINTSCRACKED()) && dataItem.getEXPANSIONJOINTSCRACKED().equalsIgnoreCase("1"))
             {
                 crackedChkBx.setChecked(true);
             }
 
-            if (dataItem.getVENTWATERWAYSILTED().equalsIgnoreCase("1"))
+            if (!TextUtils.isEmpty(dataItem.getVENTWATERWAYSILTED()) && dataItem.getVENTWATERWAYSILTED().equalsIgnoreCase("1"))
             {
                 siltedChkBx.setChecked(true);
             }
 
-            if (dataItem.getVENTWATERWAYSCOURED().equalsIgnoreCase("1"))
+            if (!TextUtils.isEmpty(dataItem.getVENTWATERWAYSCOURED()) && dataItem.getVENTWATERWAYSCOURED().equalsIgnoreCase("1"))
             {
                 scourChkBx.setChecked(true);
             }
@@ -113,7 +116,6 @@ public class ConditionFormSixFrgmnt extends Fragment {
 
         nextBttn=(Button)root.findViewById(R.id.nxt_btn);
         previousBttn=(Button)root.findViewById(R.id.previous_bttn);
-
         worntoutChkBx=(CheckBox)root.findViewById(R.id.wornout_chkBx_ventway);
         bleedChkBx=(CheckBox)root.findViewById(R.id.bleed_chkBx_ventway);
         crackedChkBx=(CheckBox)root.findViewById(R.id.cracked_chkBx_ventway);

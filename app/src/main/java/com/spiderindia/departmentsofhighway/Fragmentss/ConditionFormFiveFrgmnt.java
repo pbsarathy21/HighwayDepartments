@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -50,17 +51,19 @@ public class ConditionFormFiveFrgmnt extends Fragment {
 
             preset = true;
 
-            if (dataItem.getWEARINGCOATFAILEDJOINTS().equalsIgnoreCase("1"))
+            dataItem = (DataItem) getActivity().getIntent().getSerializableExtra("dataItem");
+
+            if (!TextUtils.isEmpty(dataItem.getWEARINGCOATFAILEDJOINTS()) && dataItem.getWEARINGCOATFAILEDJOINTS().equalsIgnoreCase("1"))
             {
                 failedJointChkBx.setChecked(true);
             }
 
-            if (dataItem.getWEARINGCOATPOORDRAINAGE().equalsIgnoreCase("1"))
+            if (!TextUtils.isEmpty(dataItem.getWEARINGCOATPOORDRAINAGE()) && dataItem.getWEARINGCOATPOORDRAINAGE().equalsIgnoreCase("1"))
             {
                 poorDraingeChkBx.setChecked(true);
             }
 
-            if (dataItem.getBEARINGSSTEELTILTED().equalsIgnoreCase("1"))
+            if (!TextUtils.isEmpty(dataItem.getBEARINGSSTEELTILTED()) && dataItem.getBEARINGSSTEELTILTED().equalsIgnoreCase("1"))
             {
                 tiledChkBx.setChecked(true);
             }
@@ -262,7 +265,7 @@ public class ConditionFormFiveFrgmnt extends Fragment {
                 adapter_leftCrack.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 cracksSpnr.setAdapter(adapter_leftCrack);
 
-                if(preset)
+                if(!TextUtils.isEmpty(dataItem.getWEARINGCOATCRACKS()) && preset)
                 {
                     int position = Integer.parseInt(dataItem.getWEARINGCOATCRACKS());
                     cracksSpnr.setSelection(position);
@@ -274,7 +277,7 @@ public class ConditionFormFiveFrgmnt extends Fragment {
                 adapter_potholesSpnr.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 potholesSpnr.setAdapter(adapter_potholesSpnr);
 
-                if(preset)
+                if(!TextUtils.isEmpty(dataItem.getWEARINGCOATPOTHOLES()) && preset)
                 {
                     int position1 = Integer.parseInt(dataItem.getWEARINGCOATPOTHOLES());
                     potholesSpnr.setSelection(position1);
@@ -286,7 +289,7 @@ public class ConditionFormFiveFrgmnt extends Fragment {
                 adapter_ravelledSpnr.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 ravelledSpnr.setAdapter(adapter_ravelledSpnr);
 
-                if(preset)
+                if(!TextUtils.isEmpty(dataItem.getWEARINGCOATRAVELLED()) && preset)
                 {
                     int position2 = Integer.parseInt(dataItem.getWEARINGCOATRAVELLED());
                     ravelledSpnr.setSelection(position2);
@@ -298,7 +301,7 @@ public class ConditionFormFiveFrgmnt extends Fragment {
                 adapter_rustedSpnr.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 rustedSpnr.setAdapter(adapter_rustedSpnr);
 
-                if(preset)
+                if(!TextUtils.isEmpty(dataItem.getBEARINGSSTEELRUSTED()) && preset)
                 {
                     int position3 = Integer.parseInt(dataItem.getBEARINGSSTEELRUSTED());
                     rustedSpnr.setSelection(position3);
@@ -310,7 +313,7 @@ public class ConditionFormFiveFrgmnt extends Fragment {
                 adapter_flatteringSpnr.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 flatteringSpnr.setAdapter(adapter_flatteringSpnr);
 
-                if(preset)
+                if(!TextUtils.isEmpty(dataItem.getBEARINGSELASTOFLATTERING()) && preset)
                 {
                     int position4 = Integer.parseInt(dataItem.getBEARINGSELASTOFLATTERING());
                     flatteringSpnr.setSelection(position4);
@@ -322,39 +325,11 @@ public class ConditionFormFiveFrgmnt extends Fragment {
                 adapter_splitinalSpnr.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 splitinalSpnr.setAdapter(adapter_splitinalSpnr);
 
-                if(preset)
+                if(!TextUtils.isEmpty(dataItem.getBEARINGSELASTOCRACKING()) && preset)
                 {
                     int position5 = Integer.parseInt(dataItem.getBEARINGSELASTOCRACKING());
                     splitinalSpnr.setSelection(position5);
                 }
-
-
-
-               /* cracksSpnr.setSelection(Integer.parseInt(cracksSpnrId));
-                potholesSpnr.setSelection(Integer.parseInt(potholesSpnrId));
-                ravelledSpnr.setSelection(Integer.parseInt(ravelledSpnrId));
-                rustedSpnr.setSelection(Integer.parseInt(rustedSpnrId));
-                flatteringSpnr.setSelection(Integer.parseInt(flatteringSpnrId));
-                splitinalSpnr.setSelection(Integer.parseInt(splitinalSpnrId));*/
-
-
-                if(failedJointChkBxId.equalsIgnoreCase("1"))
-                    failedJointChkBx.setChecked(true);
-
-                if(poorDraingeChkBxId.equalsIgnoreCase("1"))
-                    poorDraingeChkBx.setChecked(true);
-
-                if(tiledChkBxId.equalsIgnoreCase("1"))
-                    tiledChkBx.setChecked(true);
-
-
-              /*  if(!(response.equals("")) && response.equalsIgnoreCase("TRUE"))
-                {
-
-                }
-                else
-                {
-                }*/
 
             } catch (Exception e) {
 

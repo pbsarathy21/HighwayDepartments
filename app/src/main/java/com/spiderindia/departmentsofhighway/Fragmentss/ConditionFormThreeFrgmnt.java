@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -53,84 +54,86 @@ public class ConditionFormThreeFrgmnt extends Fragment {
 
             preset = true;
 
-            if (dataItem.getSBSVEGETATIONUL().equalsIgnoreCase("1"))
+            dataItem = (DataItem) getActivity().getIntent().getSerializableExtra("dataItem");
+
+            if (!TextUtils.isEmpty(dataItem.getSBSVEGETATIONUL()) && dataItem.getSBSVEGETATIONUL().equalsIgnoreCase("1"))
             {
                 leftVegetatnChkBx.setChecked(true);
             }
 
-            if (dataItem.getSBSVEGETATIONUR().equalsIgnoreCase("1"))
+            if (!TextUtils.isEmpty(dataItem.getSBSVEGETATIONUR()) && dataItem.getSBSVEGETATIONUR().equalsIgnoreCase("1"))
             {
                 rightVegetationChkBx.setChecked(true);
             }
 
-            if (dataItem.getSBSVEGETATIONDL().equalsIgnoreCase("1"))
+            if (!TextUtils.isEmpty(dataItem.getSBSVEGETATIONDL()) && dataItem.getSBSVEGETATIONDL().equalsIgnoreCase("1"))
             {
                 leftVegetatnChkBxDownS.setChecked(true);
             }
 
-            if (dataItem.getSBSVEGETATIONDR().equalsIgnoreCase("1"))
+            if (!TextUtils.isEmpty(dataItem.getSBSVEGETATIONDR()) && dataItem.getSBSVEGETATIONDR().equalsIgnoreCase("1"))
             {
                 rightVegetationChkBxDownS.setChecked(true);
             }
 
 
-            if (dataItem.getSBSTILTINGUL().equalsIgnoreCase("1"))
+            if (!TextUtils.isEmpty(dataItem.getSBSTILTINGUL()) && dataItem.getSBSTILTINGUL().equalsIgnoreCase("1"))
             {
                 leftTiltingChkBx.setChecked(true);
             }
 
-            if (dataItem.getSBSTILTINGUR().equalsIgnoreCase("1"))
+            if (!TextUtils.isEmpty(dataItem.getSBSTILTINGUR()) && dataItem.getSBSTILTINGUR().equalsIgnoreCase("1"))
             {
                 rightTiltingChkBx.setChecked(true);
             }
 
-            if (dataItem.getSBSTILTINGDL().equalsIgnoreCase("1"))
+            if (!TextUtils.isEmpty(dataItem.getSBSTILTINGDL()) && dataItem.getSBSTILTINGDL().equalsIgnoreCase("1"))
             {
                 leftTiltingChkBxDownS.setChecked(true);
             }
 
-            if (dataItem.getSBSTILTINGDR().equalsIgnoreCase("1"))
+            if (!TextUtils.isEmpty(dataItem.getSBSTILTINGDR()) && dataItem.getSBSTILTINGDR().equalsIgnoreCase("1"))
             {
                 rightTiltingChkBxDownS.setChecked(true);
             }
 
 
-            if (dataItem.getSBSSPALITYUL().equalsIgnoreCase("1"))
+            if (!TextUtils.isEmpty(dataItem.getSBSSPALITYUL()) && dataItem.getSBSSPALITYUL().equalsIgnoreCase("1"))
             {
                 lefTspalityChkBx.setChecked(true);
             }
 
-            if (dataItem.getSBSSPALITYUR().equalsIgnoreCase("1"))
+            if (!TextUtils.isEmpty(dataItem.getSBSSPALITYUR()) && dataItem.getSBSSPALITYUR().equalsIgnoreCase("1"))
             {
                 rightSpalityChkBx.setChecked(true);
             }
 
-            if (dataItem.getSBSSPALITYDL().equalsIgnoreCase("1"))
+            if (!TextUtils.isEmpty(dataItem.getSBSSPALITYDL()) && dataItem.getSBSSPALITYDL().equalsIgnoreCase("1"))
             {
                 lefTspalityChkBxDownS.setChecked(true);
             }
 
-            if (dataItem.getSBSSPALITYDR().equalsIgnoreCase("1"))
+            if (!TextUtils.isEmpty(dataItem.getSBSSPALITYDR()) && dataItem.getSBSSPALITYDR().equalsIgnoreCase("1"))
             {
                 rightSpalityChkBxDownS.setChecked(true);
             }
 
-            if (dataItem.getSBSCRACKEDPIERS().equalsIgnoreCase("1"))
+            if (!TextUtils.isEmpty(dataItem.getSBSCRACKEDPIERS()) && dataItem.getSBSCRACKEDPIERS().equalsIgnoreCase("1"))
             {
                 cracksChkBx.setChecked(true);
             }
 
-            if (dataItem.getSBSTILTINGPIERS().equalsIgnoreCase("1"))
+            if (!TextUtils.isEmpty(dataItem.getSBSTILTINGPIERS()) && dataItem.getSBSTILTINGPIERS().equalsIgnoreCase("1"))
             {
                 tiltingChkBx.setChecked(true);
             }
 
-            if (dataItem.getSBSVEGETATIONPIERS().equalsIgnoreCase("1"))
+            if (!TextUtils.isEmpty(dataItem.getSBSVEGETATIONPIERS()) && dataItem.getSBSVEGETATIONPIERS().equalsIgnoreCase("1"))
             {
                 vegetationChkBx.setChecked(true);
             }
 
-            if (dataItem.getSBSSPALINGPIERS().equalsIgnoreCase("1"))
+            if (!TextUtils.isEmpty(dataItem.getSBSSPALINGPIERS()) && dataItem.getSBSSPALINGPIERS().equalsIgnoreCase("1"))
             {
                 spalityChkBx.setChecked(true);
             }
@@ -238,94 +241,9 @@ public class ConditionFormThreeFrgmnt extends Fragment {
                 fragmentTransaction.commit();
             }
         });
-        //By partha
 
-       /* nextBttn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                try{
-                    leftCrackUpSSpinrId = leftCrackUpSSpinrMap.get(leftCrackUpSSpinr.getSelectedItemPosition());
-                    rightCrackUpSSpinrId = rightCrackUpSSpinrMap.get(rightCrackUpSSpinr.getSelectedItemPosition());
-                    leftCrackDownSSpinrId = leftCrackDownSSpinrMap.get(leftCrackDownSSpinr.getSelectedItemPosition());
-                    rightCrackDownSSpinrId = rightCrackDownSSpinrMap.get(rightCrackDownSSpinr.getSelectedItemPosition());
-
-                    if (leftVegetatnChkBx.isChecked())
-                        leftVegetatnId = "1";
-
-                    if (rightVegetationChkBx.isChecked())
-                        rightVegetationId = "1";
-
-                    if (leftTiltingChkBx.isChecked())
-                        leftTiltingId = "1";
-
-                    if (rightTiltingChkBx.isChecked())
-                        rightTiltingId = "1";
-
-                    if (lefTspalityChkBx.isChecked())
-                        lefTspalityId = "1";
-
-                    if (rightSpalityChkBx.isChecked())
-                        rightSpalityId = "1";
-
-                    if (leftVegetatnChkBxDownS.isChecked())
-                        leftVegetatnDownSId = "1";
-
-                    if (rightVegetationChkBxDownS.isChecked())
-                        rightVegetationDownSId = "1";
-
-                    if (leftTiltingChkBxDownS.isChecked())
-                        leftTiltingDownSId = "1";
-
-                    if (rightTiltingChkBxDownS.isChecked())
-                        rightTiltingDownSId = "1";
-
-                    if (lefTspalityChkBxDownS.isChecked())
-                        lefTspalityDownSId = "1";
-
-                    if (rightSpalityChkBxDownS.isChecked())
-                        rightSpalityDownSId = "1";
-
-                    if (cracksChkBx.isChecked())
-                        cracksId = "1";
-
-                    if (spalityChkBx.isChecked())
-                        spalityId = "1";
-
-                    if (vegetationChkBx.isChecked())
-                        vegetationId = "1";
-
-                    if (tiltingChkBx.isChecked())
-                        tiltingId = "1";
-
-                    new asyncToSendDetails().execute();
-
-                    HomeActivity._mViewPager.setCurrentItem(8);
-                }
-                catch(NullPointerException e ) {
-                    e.printStackTrace();
-                }
-                catch (Exception e)
-                {
-                    e.printStackTrace();
-                }
-
-
-            }
-        });
-
-        previousBttn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                new asyncToSendDetails().execute();
-
-                HomeActivity._mViewPager.setCurrentItem(6);
-            }
-        });*/
         new asyncToGetDetails().execute();
         return root;
-
 
     }
 
@@ -493,7 +411,7 @@ public class ConditionFormThreeFrgmnt extends Fragment {
                 adapter_leftCrack.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 leftCrackUpSSpinr.setAdapter(adapter_leftCrack);
 
-                if(preset)
+                if(!TextUtils.isEmpty(dataItem.getSBSCRACKSUL()) && preset)
                 {
                     int position = Integer.parseInt(dataItem.getSBSCRACKSUL());
                     leftCrackUpSSpinr.setSelection(position);
@@ -505,7 +423,7 @@ public class ConditionFormThreeFrgmnt extends Fragment {
                 adapter_rightCrackUp.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 rightCrackUpSSpinr.setAdapter(adapter_rightCrackUp);
 
-                if(preset)
+                if(!TextUtils.isEmpty(dataItem.getSBSCRACKSUR()) && preset)
                 {
                     int position1 = Integer.parseInt(dataItem.getSBSCRACKSUR());
                     rightCrackUpSSpinr.setSelection(position1);
@@ -517,7 +435,7 @@ public class ConditionFormThreeFrgmnt extends Fragment {
                 adapter_leftCrackDown.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 leftCrackDownSSpinr.setAdapter(adapter_leftCrackDown);
 
-                if(preset)
+                if(!TextUtils.isEmpty(dataItem.getSBSCRACKSDL()) && preset)
                 {
                     int position2 = Integer.parseInt(dataItem.getSBSCRACKSDL());
                     leftCrackDownSSpinr.setSelection(position2);
@@ -529,72 +447,13 @@ public class ConditionFormThreeFrgmnt extends Fragment {
                 adapter_rightCrackDown.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 rightCrackDownSSpinr.setAdapter(adapter_rightCrackDown);
 
-                if(preset)
+                if(!TextUtils.isEmpty(dataItem.getSBSCRACKSDR()) && preset)
                 {
                     int position3 = Integer.parseInt(dataItem.getSBSCRACKSDR());
                     rightCrackDownSSpinr.setSelection(position3);
                 }
 
 
-
-
-             /*   leftCrackUpSSpinr.setSelection(Integer.parseInt(leftCrackUpSSpinrId));
-                rightCrackUpSSpinr.setSelection(Integer.parseInt(rightCrackUpSSpinrId));
-
-                leftCrackDownSSpinr.setSelection(Integer.parseInt(leftCrackDownSSpinrId));
-                rightCrackDownSSpinr.setSelection(Integer.parseInt(rightCrackDownSSpinrId));
-
-                if (leftVegetatnId.equalsIgnoreCase("1")) {
-                    leftVegetatnChkBx.setChecked(true);
-                }
-
-                if (rightVegetationId.equalsIgnoreCase("1"))
-                    rightVegetationChkBx.setChecked(true);
-
-                if (leftTiltingId.equalsIgnoreCase("1"))
-                    leftTiltingChkBx.setChecked(true);
-
-                if (rightTiltingId.equalsIgnoreCase("1"))
-                    rightTiltingChkBx.setChecked(true);
-
-                if (lefTspalityId.equalsIgnoreCase("1")) {
-                    lefTspalityChkBx.setChecked(true);
-                }
-
-                if (rightSpalityId.equalsIgnoreCase("1"))
-                    rightSpalityChkBx.setChecked(true);
-
-                if (leftVegetatnDownSId.equalsIgnoreCase("1"))
-                    leftVegetatnChkBxDownS.setChecked(true);
-
-                if (rightVegetationDownSId.equalsIgnoreCase("1"))
-                    rightVegetationChkBxDownS.setChecked(true);
-
-                if (leftTiltingDownSId.equalsIgnoreCase("1"))
-                    leftTiltingChkBxDownS.setChecked(true);
-
-
-                if (rightTiltingDownSId.equalsIgnoreCase("1"))
-                    rightTiltingChkBxDownS.setChecked(true);
-
-                if (lefTspalityDownSId.equalsIgnoreCase("1"))
-                    lefTspalityChkBxDownS.setChecked(true);
-                if (rightSpalityDownSId.equalsIgnoreCase("1"))
-                    rightSpalityChkBxDownS.setChecked(true);
-
-
-                if (cracksId.equalsIgnoreCase("1"))
-                    cracksChkBx.setChecked(true);
-
-                if (tiltingId.equalsIgnoreCase("1"))
-                    tiltingChkBx.setChecked(true);
-
-                if (vegetationId.equalsIgnoreCase("1"))
-                    vegetationChkBx.setChecked(true);
-
-                if (spalityId.equalsIgnoreCase("1"))
-                    spalityChkBx.setChecked(true);
-*/
                 if(!(response.equals("")) && response.equalsIgnoreCase("TRUE"))
                 {
 

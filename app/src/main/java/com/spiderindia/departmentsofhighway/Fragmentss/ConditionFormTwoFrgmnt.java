@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -49,37 +50,39 @@ public class ConditionFormTwoFrgmnt extends Fragment {
 
             preset = true;
 
-            if (dataItem.getFOUNDATIONSETTLEMENTUL().equalsIgnoreCase("1"))
-            {
-                leftSetlemntUpsChkBx.setChecked(true);
-            }
+            dataItem = (DataItem) getActivity().getIntent().getSerializableExtra("dataItem");
 
-            if (dataItem.getFOUNDATIONSETTLEMENTUR().equalsIgnoreCase("1"))
+                if (!TextUtils.isEmpty(dataItem.getFOUNDATIONSETTLEMENTUL()) &&  dataItem.getFOUNDATIONSETTLEMENTUL().equalsIgnoreCase("1"))
+                {
+                    leftSetlemntUpsChkBx.setChecked(true);
+                }
+
+            if (!TextUtils.isEmpty(dataItem.getFOUNDATIONSETTLEMENTUR()) && dataItem.getFOUNDATIONSETTLEMENTUR().equalsIgnoreCase("1"))
             {
                 rightSetlemntUpSChkBx.setChecked(true);
             }
 
-            if (dataItem.getFOUNDATIONSETTLEMENTDL().equalsIgnoreCase("1"))
+            if (!TextUtils.isEmpty(dataItem.getFOUNDATIONSETTLEMENTDL()) && dataItem.getFOUNDATIONSETTLEMENTDL().equalsIgnoreCase("1"))
             {
                 leftSetlemntDownSChkBx.setChecked(true);
             }
 
-            if (dataItem.getFOUNDATIONSETTLEMENTDR().equalsIgnoreCase("1"))
+            if (!TextUtils.isEmpty(dataItem.getFOUNDATIONSETTLEMENTDR()) && dataItem.getFOUNDATIONSETTLEMENTDR().equalsIgnoreCase("1"))
             {
                 rightSetlemntDownSChkBx.setChecked(true);
             }
 
-            if (dataItem.getFOUNDATIONSPALLEDPIERS().equalsIgnoreCase("1"))
+            if (!TextUtils.isEmpty(dataItem.getFOUNDATIONSPALLEDPIERS()) && dataItem.getFOUNDATIONSPALLEDPIERS().equalsIgnoreCase("1"))
             {
                 spalledChkBx.setChecked(true);
             }
 
-            if (dataItem.getFOUNDATIONSCOURPIERS().equalsIgnoreCase("1"))
+            if (!TextUtils.isEmpty(dataItem.getFOUNDATIONSCOURPIERS()) && dataItem.getFOUNDATIONSCOURPIERS().equalsIgnoreCase("1"))
             {
                 scourChkBx.setChecked(true);
             }
 
-            if (dataItem.getFOUNDATIONCRACKEDPIERS().equalsIgnoreCase("1"))
+            if (!TextUtils.isEmpty(dataItem.getFOUNDATIONCRACKEDPIERS()) && dataItem.getFOUNDATIONCRACKEDPIERS().equalsIgnoreCase("1"))
             {
                 crackedChkBx.setChecked(true);
             }
@@ -187,69 +190,6 @@ public class ConditionFormTwoFrgmnt extends Fragment {
                 fragmentTransaction.commit();
             }
         });
-
-        // By partha
-
-      /*  previousBttn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                HomeActivity._mViewPager.setCurrentItem(5);
-            }
-        });
-
-
-        nextBttn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                try{
-                    leftCrackUpSSpinrId = leftCrackUpSSpinrMap.get(leftCrackUpSSpinr.getSelectedItemPosition());
-                    rightCrackUpSSpinrId = rightCrackUpSSpinrMap.get(rightCrackUpSSpinr.getSelectedItemPosition());
-                    leftSplaityUpSSpinrId = leftSplaityUpSSpinrMap.get(leftSplaityUpSSpinr.getSelectedItemPosition());
-                    rightSplaityUpSSpinrId = rightSplaityUpSSpinrMap.get(rightSplaityUpSSpinr.getSelectedItemPosition());
-
-                    leftCrackDownSSpinrId = leftCrackDownSSpinrMap.get(leftCrackDownSSpinr.getSelectedItemPosition());
-                    rightCrackDownSSpinrId = rightCrackDownSSpinrMap.get(rightCrackDownSSpinr.getSelectedItemPosition());
-                    leftSplaityDownSSpinrId = leftSplaityDownSSpinrMap.get(leftSplaityDownSSpinr.getSelectedItemPosition());
-                    rightSplaityDownSSpinrId = rightSplaityDownSSpinrMap.get(rightSplaityDownSSpinr.getSelectedItemPosition());
-
-                    if(leftSetlemntUpsChkBx.isChecked())
-                        leftSetlemntUpsChkBxId="1";
-
-                    if(rightSetlemntUpSChkBx.isChecked())
-                        rightSetlemntUpSChkBxId="1";
-
-                    if(leftSetlemntDownSChkBx.isChecked())
-                        leftSetlemntDownSChkBxId="1";
-
-                    if(rightSetlemntDownSChkBx.isChecked())
-                        rightSetlemntDownSChkBxId="1";
-
-                    if(scourChkBx.isChecked())
-                        scourChkBxId="1";
-
-                    if(spalledChkBx.isChecked())
-                        spalledChkBxId="1";
-
-                    if(crackedChkBx.isChecked())
-                        crackedChkBxId="1";
-
-                    new asyncToSendDetails().execute();
-
-                    HomeActivity._mViewPager.setCurrentItem(7);
-                }
-                catch(NullPointerException e ) {
-                    e.printStackTrace();
-                    Toast.makeText(getActivity(),"Try again",Toast.LENGTH_SHORT).show();
-                }
-                catch (Exception e)
-                {
-                    e.printStackTrace();
-                }
-
-            }
-        });*/
 
         return root;
 
@@ -373,7 +313,6 @@ public class ConditionFormTwoFrgmnt extends Fragment {
 
         @Override
         protected void onPostExecute(String response_str) {
-            try {
 
 
                 if (progress_layout.getVisibility() == View.VISIBLE) {
@@ -384,9 +323,11 @@ public class ConditionFormTwoFrgmnt extends Fragment {
                 adapter_leftCrack.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 leftCrackUpSSpinr.setAdapter(adapter_leftCrack);
 
-                if(preset)
+                if(!TextUtils.isEmpty(dataItem.getFOUNDATIONCRACKSUL()) && preset)
                 {
-                    int position = Integer.parseInt(dataItem.getFOUNDATIONCRACKSUL());
+                    Integer position = Integer.parseInt(dataItem.getFOUNDATIONCRACKSUL());
+
+                    if (position<10)
                     leftCrackUpSSpinr.setSelection(position);
 
                 }
@@ -397,21 +338,32 @@ public class ConditionFormTwoFrgmnt extends Fragment {
                 adapter_rightCrack.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 rightCrackUpSSpinr.setAdapter(adapter_rightCrack);
 
-                if(preset)
+                if(!TextUtils.isEmpty(dataItem.getFOUNDATIONCRACKSUR()) && preset)
                 {
-                    int position1 = Integer.parseInt(dataItem.getFOUNDATIONCRACKSUR());
-                    rightCrackUpSSpinr.setSelection(position1);
+                    Integer position1 = Integer.parseInt(dataItem.getFOUNDATIONCRACKSUR());
+                    if (position1!=null && position1<10) {
+                        rightCrackUpSSpinr.setSelection(3);
+                    }
+
+                    else {
+                        rightCrackUpSSpinr.setSelection(1);
+                    }
                 }
 
 
                 final ArrayAdapter<String> adapter_leftSplaity = new ArrayAdapter<String>(getActivity(),R.layout.custom_spinner, leftSplaityUpSSpinrArr);
                 adapter_leftSplaity.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 leftSplaityUpSSpinr.setAdapter(adapter_leftSplaity);
+                leftSplaityUpSSpinr.setSelection(2);
 
-                if(preset)
+                if(!TextUtils.isEmpty(dataItem.getFOUNDATIONSPALITYUL()) && preset)
                 {
-                    int position2 = Integer.parseInt(dataItem.getFOUNDATIONSPALITYUL());
-                    leftSplaityUpSSpinr.setSelection(position2);
+                   int position2 = Integer.parseInt(dataItem.getFOUNDATIONSPALITYUL());
+                    if (position2 != 0 && position2<10)
+                    {
+                        leftSplaityUpSSpinr.setSelection(position2);
+                    }
+
 
                 }
 
@@ -421,9 +373,10 @@ public class ConditionFormTwoFrgmnt extends Fragment {
                 adapter_rightSplaityUpSSpinr.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 rightSplaityUpSSpinr.setAdapter(adapter_rightSplaityUpSSpinr);
 
-                if(preset)
+                if(!TextUtils.isEmpty(dataItem.getFOUNDATIONSPALITYUR()) && preset)
                 {
                     int position3 = Integer.parseInt(dataItem.getFOUNDATIONSPALITYUR());
+                    if (position3<10)
                     rightSplaityUpSSpinr.setSelection(position3);
 
                 }
@@ -433,9 +386,10 @@ public class ConditionFormTwoFrgmnt extends Fragment {
                 adapter_leftCrackDownSSpinr.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 leftCrackDownSSpinr.setAdapter(adapter_leftCrackDownSSpinr);
 
-                if(preset)
+                if(!TextUtils.isEmpty(dataItem.getFOUNDATIONCRACKSDL()) && preset)
                 {
                     int position4 = Integer.parseInt(dataItem.getFOUNDATIONCRACKSDL());
+                    if (position4<10)
                     leftCrackDownSSpinr.setSelection(position4);
                 }
 
@@ -445,9 +399,10 @@ public class ConditionFormTwoFrgmnt extends Fragment {
                 adapter_rightCrackDownSSpinr.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 rightCrackDownSSpinr.setAdapter(adapter_rightCrackDownSSpinr);
 
-                if(preset)
+                if(!TextUtils.isEmpty(dataItem.getFOUNDATIONCRACKSDR()) && preset)
                 {
                     int position5 = Integer.parseInt(dataItem.getFOUNDATIONCRACKSDR());
+                    if (position5<10)
                     rightCrackDownSSpinr.setSelection(position5);
                 }
 
@@ -457,9 +412,10 @@ public class ConditionFormTwoFrgmnt extends Fragment {
                 adapter_leftSplaityDownSSpinr.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 leftSplaityDownSSpinr.setAdapter(adapter_leftSplaityDownSSpinr);
 
-                if(preset)
+                if(!TextUtils.isEmpty(dataItem.getFOUNDATIONSPALITYDL()) && preset)
                 {
                     int position6 = Integer.parseInt(dataItem.getFOUNDATIONSPALITYDL());
+                    if (position6<10)
                     leftSplaityDownSSpinr.setSelection(position6);
                 }
 
@@ -469,9 +425,10 @@ public class ConditionFormTwoFrgmnt extends Fragment {
                 adapter_rightSplaityDownSSpinr.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 rightSplaityDownSSpinr.setAdapter(adapter_rightSplaityDownSSpinr);
 
-                if(preset)
+                if(!TextUtils.isEmpty(dataItem.getFOUNDATIONSPALITYDR()) && preset)
                 {
                     int position7 = Integer.parseInt(dataItem.getFOUNDATIONSPALITYDR());
+                    if (position7<10)
                     rightSplaityDownSSpinr.setSelection(position7);
                 }
 
@@ -521,10 +478,6 @@ public class ConditionFormTwoFrgmnt extends Fragment {
                 {
                 }
 
-            } catch (Exception e) {
-
-                Log.e(e.getClass().getName(), e.getMessage(), e);
-            }
         }
 
     }

@@ -26,6 +26,7 @@ import com.spiderindia.departmentsofhighway.HomeActivity;
 import com.spiderindia.departmentsofhighway.ModelClasses.ModelBridgeResponse.DataItem;
 import com.spiderindia.departmentsofhighway.R;
 import com.spiderindia.departmentsofhighway.SqLiteDb.MyDataBaseHandler;
+import com.spiderindia.departmentsofhighway.Utils.WarningDialog;
 
 import java.util.HashMap;
 import java.util.Objects;
@@ -39,6 +40,8 @@ public class ConditionFormFiveFrgmnt extends Fragment {
 
     boolean preset = false;
 
+    Boolean preloadSpinner = true;
+
     @Override
     public void onStart() {
         super.onStart();
@@ -46,6 +49,13 @@ public class ConditionFormFiveFrgmnt extends Fragment {
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("Modify",Context.MODE_PRIVATE);
 
         String data = sharedPreferences.getString("data", "false");
+        boolean preload = sharedPreferences.getBoolean("preload", false);
+
+        if (preload)
+        {
+            preloadSpinner = true;
+            preloadValues();
+        }
 
         if (data.equalsIgnoreCase("true")) {
 
@@ -68,6 +78,29 @@ public class ConditionFormFiveFrgmnt extends Fragment {
                 tiledChkBx.setChecked(true);
             }
 
+        }
+    }
+
+    private void preloadValues() {
+
+        SharedPreferences preferences = getActivity().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        String failedJointChkBxId = preferences.getString("failedJointChkBxId", null);
+        String poorDraingeChkBxId = preferences.getString("poorDraingeChkBxId", null);
+        String tiledChkBxId = preferences.getString("tiledChkBxId", null);
+
+        if (!TextUtils.isEmpty(failedJointChkBxId) && failedJointChkBxId.equalsIgnoreCase("1"))
+            {
+                failedJointChkBx.setChecked(true);
+            }
+
+        if (!TextUtils.isEmpty(poorDraingeChkBxId) && poorDraingeChkBxId.equalsIgnoreCase("1"))
+        {
+            poorDraingeChkBx.setChecked(true);
+        }
+
+        if (!TextUtils.isEmpty(tiledChkBxId) && tiledChkBxId.equalsIgnoreCase("1"))
+        {
+            tiledChkBx.setChecked(true);
         }
     }
 
@@ -256,6 +289,13 @@ public class ConditionFormFiveFrgmnt extends Fragment {
         protected void onPostExecute(String response_str) {
             try {
 
+                SharedPreferences preferences = getActivity().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+                String cracksSpnrId = preferences.getString("cracksSpnrId", null);
+                String potholesSpnrId = preferences.getString("potholesSpnrId", null);
+                String ravelledSpnrId = preferences.getString("ravelledSpnrId", null);
+                String rustedSpnrId = preferences.getString("rustedSpnrId", null);
+                String flatteringSpnrId = preferences.getString("flatteringSpnrId", null);
+                String splitinalSpnrId = preferences.getString("splitinalSpnrId", null);
 
                 if (progress_layout.getVisibility() == View.VISIBLE) {
                     progress_layout.setVisibility(View.GONE);
@@ -265,75 +305,117 @@ public class ConditionFormFiveFrgmnt extends Fragment {
                 adapter_leftCrack.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 cracksSpnr.setAdapter(adapter_leftCrack);
 
-                if(!TextUtils.isEmpty(dataItem.getWEARINGCOATCRACKS()) && preset)
+                if (preset)
                 {
-                    int position = Integer.parseInt(dataItem.getWEARINGCOATCRACKS());
-                    cracksSpnr.setSelection(position);
+                    if(!TextUtils.isEmpty(dataItem.getWEARINGCOATCRACKS()) && preset)
+                    {
+                        int position = Integer.parseInt(dataItem.getWEARINGCOATCRACKS());
+                        cracksSpnr.setSelection(position);
+                    }
                 }
 
-
+                if (preloadSpinner && !TextUtils.isEmpty(cracksSpnrId))
+                {
+                    cracksSpnr.setSelection(Integer.parseInt(cracksSpnrId));
+                }
 
                 final ArrayAdapter<String> adapter_potholesSpnr = new ArrayAdapter<>(getActivity(),R.layout.custom_spinner, potholesSpnrArr);
                 adapter_potholesSpnr.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 potholesSpnr.setAdapter(adapter_potholesSpnr);
 
-                if(!TextUtils.isEmpty(dataItem.getWEARINGCOATPOTHOLES()) && preset)
+                if (preset)
                 {
-                    int position1 = Integer.parseInt(dataItem.getWEARINGCOATPOTHOLES());
-                    potholesSpnr.setSelection(position1);
+                    if(!TextUtils.isEmpty(dataItem.getWEARINGCOATPOTHOLES()) && preset)
+                    {
+                        int position1 = Integer.parseInt(dataItem.getWEARINGCOATPOTHOLES());
+                        potholesSpnr.setSelection(position1);
+                    }
                 }
 
-
+                if (preloadSpinner && !TextUtils.isEmpty(potholesSpnrId))
+                {
+                    potholesSpnr.setSelection(Integer.parseInt(potholesSpnrId));
+                }
 
                 final ArrayAdapter<String> adapter_ravelledSpnr = new ArrayAdapter<>(getActivity(),R.layout.custom_spinner, ravelledSpnrArr);
                 adapter_ravelledSpnr.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 ravelledSpnr.setAdapter(adapter_ravelledSpnr);
 
-                if(!TextUtils.isEmpty(dataItem.getWEARINGCOATRAVELLED()) && preset)
+                if (preset)
                 {
-                    int position2 = Integer.parseInt(dataItem.getWEARINGCOATRAVELLED());
-                    ravelledSpnr.setSelection(position2);
+                    if(!TextUtils.isEmpty(dataItem.getWEARINGCOATRAVELLED()) && preset)
+                    {
+                        int position2 = Integer.parseInt(dataItem.getWEARINGCOATRAVELLED());
+                        ravelledSpnr.setSelection(position2);
 
+                    }
                 }
 
+                if (preloadSpinner && !TextUtils.isEmpty(ravelledSpnrId))
+                {
+                    ravelledSpnr.setSelection(Integer.parseInt(ravelledSpnrId));
+                }
 
                 final ArrayAdapter<String> adapter_rustedSpnr = new ArrayAdapter<>(getActivity(),R.layout.custom_spinner, rustedSpnrArr);
                 adapter_rustedSpnr.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 rustedSpnr.setAdapter(adapter_rustedSpnr);
 
-                if(!TextUtils.isEmpty(dataItem.getBEARINGSSTEELRUSTED()) && preset)
+                if (preset)
                 {
-                    int position3 = Integer.parseInt(dataItem.getBEARINGSSTEELRUSTED());
-                    rustedSpnr.setSelection(position3);
+                    if(!TextUtils.isEmpty(dataItem.getBEARINGSSTEELRUSTED()) && preset)
+                    {
+                        int position3 = Integer.parseInt(dataItem.getBEARINGSSTEELRUSTED());
+                        rustedSpnr.setSelection(position3);
 
+                    }
                 }
 
+                if (preloadSpinner && !TextUtils.isEmpty(rustedSpnrId))
+                {
+                    rustedSpnr.setSelection(Integer.parseInt(rustedSpnrId));
+                }
 
                 final ArrayAdapter<String> adapter_flatteringSpnr = new ArrayAdapter<>(getActivity(),R.layout.custom_spinner, flatteringSpnrArr);
                 adapter_flatteringSpnr.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 flatteringSpnr.setAdapter(adapter_flatteringSpnr);
 
-                if(!TextUtils.isEmpty(dataItem.getBEARINGSELASTOFLATTERING()) && preset)
+                if (preset)
                 {
-                    int position4 = Integer.parseInt(dataItem.getBEARINGSELASTOFLATTERING());
-                    flatteringSpnr.setSelection(position4);
+                    if(!TextUtils.isEmpty(dataItem.getBEARINGSELASTOFLATTERING()) && preset)
+                    {
+                        int position4 = Integer.parseInt(dataItem.getBEARINGSELASTOFLATTERING());
+                        flatteringSpnr.setSelection(position4);
+                    }
                 }
 
-
+                if (preloadSpinner && !TextUtils.isEmpty(flatteringSpnrId))
+                {
+                    flatteringSpnr.setSelection(Integer.parseInt(flatteringSpnrId));
+                }
 
                 final ArrayAdapter<String> adapter_splitinalSpnr = new ArrayAdapter<>(getActivity(),R.layout.custom_spinner, splitinalSpnrArr);
                 adapter_splitinalSpnr.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 splitinalSpnr.setAdapter(adapter_splitinalSpnr);
 
-                if(!TextUtils.isEmpty(dataItem.getBEARINGSELASTOCRACKING()) && preset)
+                if (preset)
                 {
-                    int position5 = Integer.parseInt(dataItem.getBEARINGSELASTOCRACKING());
-                    splitinalSpnr.setSelection(position5);
+                    if(!TextUtils.isEmpty(dataItem.getBEARINGSELASTOCRACKING()) && preset)
+                    {
+                        int position5 = Integer.parseInt(dataItem.getBEARINGSELASTOCRACKING());
+                        splitinalSpnr.setSelection(position5);
+                    }
+                }
+
+                if (preloadSpinner && !TextUtils.isEmpty(splitinalSpnrId))
+                {
+                    splitinalSpnr.setSelection(Integer.parseInt(splitinalSpnrId));
                 }
 
             } catch (Exception e) {
 
-                Log.e(e.getClass().getName(), e.getMessage(), e);
+                //Log.e(e.getClass().getName(), e.getMessage(), e);
+
+                new WarningDialog(getContext(), e.getMessage());
             }
         }
 

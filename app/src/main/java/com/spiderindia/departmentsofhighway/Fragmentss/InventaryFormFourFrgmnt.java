@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,21 +38,45 @@ public class InventaryFormFourFrgmnt extends Fragment implements AdapterView.OnI
 
     boolean preset = false;
 
+    boolean preloadSpinner = true;
+
     DataItem dataItem;
 
     @Override
     public void onStart() {
         super.onStart();
-
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("Modify",Context.MODE_PRIVATE);
 
         String data = sharedPreferences.getString("data", "false");
+        boolean preload = sharedPreferences.getBoolean("preload", false);
 
         if (data.equalsIgnoreCase("true")) {
-
             presetValues();
             preset = true;
+        }
 
+        if (preload)
+        {
+            preloadSpinner = true;
+            preloadValues();
+        }
+
+    }
+
+    private void preloadValues() {
+
+        SharedPreferences preferences = getActivity().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        String MLF = preferences.getString("MLF", null);
+        String floor_protection_type = preferences.getString("floor_protection_type", null);
+
+        if (!TextUtils.isEmpty(MLF))
+        {
+            MLFEdtTxt.setText(MLF);
+        }
+
+        if (!TextUtils.isEmpty(floor_protection_type))
+        {
+            floorProtectnTypEdtTxt.setText(floor_protection_type);
         }
     }
 
@@ -165,6 +190,13 @@ public class InventaryFormFourFrgmnt extends Fragment implements AdapterView.OnI
 
     private void loadSpinners() {
 
+        SharedPreferences preferences = getActivity().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        String abutment_foundation = preferences.getString("abutment_foundation", null);
+        String bank_protectType = preferences.getString("bank_protectType", null);
+        String approach_type = preferences.getString("approach_type", null);
+        String floor_protection = preferences.getString("floor_protection", null);
+        String type_substructure = preferences.getString("type_substructure", null);
+
         ArrayList<String> abutmentList = new ArrayList<>();
 
         abutmentList.add("Select");
@@ -185,6 +217,12 @@ public class InventaryFormFourFrgmnt extends Fragment implements AdapterView.OnI
             abutmentSpinner.setSelection(position);
         }
 
+        if (preloadSpinner && !TextUtils.isEmpty(abutment_foundation))
+        {
+            abutmentSpinner.setSelection(Integer.parseInt(abutment_foundation));
+        }
+
+
         ArrayList<String> bankProtectionList = new ArrayList<>();
 
         bankProtectionList.add("Select");
@@ -203,6 +241,12 @@ public class InventaryFormFourFrgmnt extends Fragment implements AdapterView.OnI
             int position1 = Integer.parseInt(dataItem.getBANKPROTECTIONTYPE());
             bankProtectionSpinner.setSelection(position1);
         }
+
+        if (preloadSpinner && !TextUtils.isEmpty(bank_protectType))
+        {
+            bankProtectionSpinner.setSelection(Integer.parseInt(bank_protectType));
+        }
+
 
 
 
@@ -224,6 +268,12 @@ public class InventaryFormFourFrgmnt extends Fragment implements AdapterView.OnI
             approachSpinner.setSelection(position2);
         }
 
+        if (preloadSpinner && !TextUtils.isEmpty(approach_type))
+        {
+            approachSpinner.setSelection(Integer.parseInt(approach_type));
+        }
+
+
 
 
         ArrayList<String> floorProtectionList = new ArrayList<>();
@@ -243,6 +293,12 @@ public class InventaryFormFourFrgmnt extends Fragment implements AdapterView.OnI
             int position3 = Integer.parseInt(dataItem.getFLOORPROTECTION());
             floorProtectionSpinner.setSelection(position3);
         }
+
+        if (preloadSpinner && !TextUtils.isEmpty(floor_protection))
+        {
+            floorProtectionSpinner.setSelection(Integer.parseInt(floor_protection));
+        }
+
 
 
 
@@ -264,6 +320,12 @@ public class InventaryFormFourFrgmnt extends Fragment implements AdapterView.OnI
             typeOfSucstructureSpinner.setSelection(position4);
         }
 
+        if (preloadSpinner && !TextUtils.isEmpty(type_substructure))
+        {
+            typeOfSucstructureSpinner.setSelection(Integer.parseInt(type_substructure));
+        }
+
+
     }
 
     private void saveDetails() {
@@ -280,12 +342,7 @@ public class InventaryFormFourFrgmnt extends Fragment implements AdapterView.OnI
         SharedPreferences.Editor editor = preferences.edit();
 
         editor.putString("MLF",MLF );
-
-
-
         editor.putString("floor_protection_type",floorProtectnTyp );
-
-
         editor.apply();
     }
 
@@ -298,7 +355,8 @@ public class InventaryFormFourFrgmnt extends Fragment implements AdapterView.OnI
 
         if (id == R.id.abutment_spinner)
         {
-            String spinnerString = adapterView.getItemAtPosition(i).toString();
+            //String spinnerString = adapterView.getItemAtPosition(i).toString();
+            String spinnerString = String.valueOf(i);
             editor.putString("abutment_foundation",spinnerString );
             editor.apply();
             return;
@@ -306,7 +364,8 @@ public class InventaryFormFourFrgmnt extends Fragment implements AdapterView.OnI
 
         if (id == R.id.bank_protection_spinner)
         {
-            String spinnerString = adapterView.getItemAtPosition(i).toString();
+            //String spinnerString = adapterView.getItemAtPosition(i).toString();
+            String spinnerString = String.valueOf(i);
             editor.putString("bank_protectType",spinnerString );
             editor.apply();
             return;
@@ -314,7 +373,8 @@ public class InventaryFormFourFrgmnt extends Fragment implements AdapterView.OnI
 
         if (id == R.id.approach_spinner)
         {
-            String spinnerString = adapterView.getItemAtPosition(i).toString();
+            //String spinnerString = adapterView.getItemAtPosition(i).toString();
+            String spinnerString = String.valueOf(i);
             editor.putString("approach_type",spinnerString );
             editor.apply();
             return;
@@ -322,7 +382,8 @@ public class InventaryFormFourFrgmnt extends Fragment implements AdapterView.OnI
 
         if (id == R.id.floor_protection_spinner)
         {
-            String spinnerString = adapterView.getItemAtPosition(i).toString();
+            //String spinnerString = adapterView.getItemAtPosition(i).toString();
+            String spinnerString = String.valueOf(i);
             editor.putString("floor_protection",spinnerString );
             editor.apply();
             return;
@@ -330,7 +391,8 @@ public class InventaryFormFourFrgmnt extends Fragment implements AdapterView.OnI
 
         if (id == R.id.type_of_substructure_spinner)
         {
-            String spinnerString = adapterView.getItemAtPosition(i).toString();
+            //String spinnerString = adapterView.getItemAtPosition(i).toString();
+            String spinnerString = String.valueOf(i);
             editor.putString("type_substructure",spinnerString );
             editor.apply();
             return;

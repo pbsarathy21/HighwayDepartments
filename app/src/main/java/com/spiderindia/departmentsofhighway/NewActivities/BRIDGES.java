@@ -221,6 +221,7 @@ public class BRIDGES extends AppCompatActivity implements AdapterView.OnItemSele
                 SharedPreferences.Editor editor = preferences.edit();
 
                 editor.putString("data", "false");
+                editor.putBoolean("preload", false);
                 editor.apply();
 
                 startActivity(new Intent(BRIDGES.this,NewBridgeForm.class));

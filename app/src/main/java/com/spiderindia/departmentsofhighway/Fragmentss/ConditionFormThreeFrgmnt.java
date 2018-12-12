@@ -30,6 +30,7 @@ import com.spiderindia.departmentsofhighway.ModelClasses.ModelBridgeResponse.Dat
 import com.spiderindia.departmentsofhighway.R;
 import com.spiderindia.departmentsofhighway.SqLiteDb.MyDataBaseHandler;
 import com.spiderindia.departmentsofhighway.Utils.CustomFontCheckBox;
+import com.spiderindia.departmentsofhighway.Utils.WarningDialog;
 
 import java.util.HashMap;
 
@@ -42,6 +43,8 @@ public class ConditionFormThreeFrgmnt extends Fragment {
 
     DataItem dataItem;
 
+    Boolean preloadSpinner = true;
+
     @Override
     public void onStart() {
         super.onStart();
@@ -49,6 +52,14 @@ public class ConditionFormThreeFrgmnt extends Fragment {
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("Modify",Context.MODE_PRIVATE);
 
         String data = sharedPreferences.getString("data", "false");
+        boolean preload = sharedPreferences.getBoolean("preload", false);
+
+        if (preload)
+        {
+            preloadSpinner = true;
+            preloadValues();
+        }
+
 
         if (data.equalsIgnoreCase("true")) {
 
@@ -139,6 +150,107 @@ public class ConditionFormThreeFrgmnt extends Fragment {
             }
 
 
+        }
+    }
+
+    private void preloadValues() {
+
+        SharedPreferences preferences = getActivity().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        String leftVegetatnId = preferences.getString("leftVegetatnId", null);
+        String rightVegetationId = preferences.getString("rightVegetationId", null);
+        String leftTiltingId = preferences.getString("leftTiltingId", null);
+        String rightTiltingId = preferences.getString("rightTiltingId", null);
+        String lefTspalityId = preferences.getString("lefTspalityId", null);
+        String rightSpalityId = preferences.getString("rightSpalityId", null);
+        String leftVegetatnDownSId = preferences.getString("leftVegetatnDownSId", null);
+        String rightVegetationDownSId = preferences.getString("rightVegetationDownSId", null);
+        String leftTiltingDownSId = preferences.getString("leftTiltingDownSId", null);
+        String rightTiltingDownSId = preferences.getString("rightTiltingDownSId", null);
+        String lefTspalityDownSId = preferences.getString("lefTspalityDownSId", null);
+        String rightSpalityDownSId = preferences.getString("rightSpalityDownSId", null);
+        String cracksId = preferences.getString("cracksId", null);
+        String spalityId1 = preferences.getString("spalityId1", null);
+        String vegetationId1 = preferences.getString("vegetationId1", null);
+        String tiltingId = preferences.getString("tiltingId", null);
+
+        if (!TextUtils.isEmpty(leftVegetatnId) && leftVegetatnId.equalsIgnoreCase("1"))
+        {
+            leftVegetatnChkBx.setChecked(true);
+        }
+
+        if (!TextUtils.isEmpty(rightVegetationId) && rightVegetationId.equalsIgnoreCase("1"))
+        {
+            rightVegetationChkBx.setChecked(true);
+        }
+
+        if (!TextUtils.isEmpty(leftTiltingId) && leftTiltingId.equalsIgnoreCase("1"))
+        {
+            leftTiltingChkBx.setChecked(true);
+        }
+
+        if (!TextUtils.isEmpty(rightTiltingId) && rightTiltingId.equalsIgnoreCase("1"))
+        {
+            rightTiltingChkBx.setChecked(true);
+        }
+
+        if (!TextUtils.isEmpty(lefTspalityId) && lefTspalityId.equalsIgnoreCase("1"))
+        {
+            lefTspalityChkBx.setChecked(true);
+        }
+
+        if (!TextUtils.isEmpty(rightSpalityId) && rightSpalityId.equalsIgnoreCase("1"))
+        {
+            rightSpalityChkBx.setChecked(true);
+        }
+
+        if (!TextUtils.isEmpty(leftVegetatnDownSId) && leftVegetatnDownSId.equalsIgnoreCase("1"))
+        {
+            leftVegetatnChkBxDownS.setChecked(true);
+        }
+
+        if (!TextUtils.isEmpty(rightVegetationDownSId) && rightVegetationDownSId.equalsIgnoreCase("1"))
+        {
+            rightVegetationChkBxDownS.setChecked(true);
+        }
+
+        if (!TextUtils.isEmpty(leftTiltingDownSId) && leftTiltingDownSId.equalsIgnoreCase("1"))
+        {
+            lefTspalityChkBxDownS.setChecked(true);
+        }
+
+        if (!TextUtils.isEmpty(rightTiltingDownSId) && rightTiltingDownSId.equalsIgnoreCase("1"))
+        {
+            rightTiltingChkBxDownS.setChecked(true);
+        }
+
+        if (!TextUtils.isEmpty(lefTspalityDownSId) && lefTspalityDownSId.equalsIgnoreCase("1"))
+        {
+            lefTspalityChkBxDownS.setChecked(true);
+        }
+
+        if (!TextUtils.isEmpty(rightSpalityDownSId) && rightSpalityDownSId.equalsIgnoreCase("1"))
+        {
+            rightSpalityChkBxDownS.setChecked(true);
+        }
+
+        if (!TextUtils.isEmpty(cracksId) && cracksId.equalsIgnoreCase("1"))
+        {
+            cracksChkBx.setChecked(true);
+        }
+
+        if (!TextUtils.isEmpty(spalityId1) && spalityId1.equalsIgnoreCase("1"))
+        {
+            spalityChkBx.setChecked(true);
+        }
+
+        if (!TextUtils.isEmpty(vegetationId1) && vegetationId1.equalsIgnoreCase("1"))
+        {
+            vegetationChkBx.setChecked(true);
+        }
+
+        if (!TextUtils.isEmpty(tiltingId) && tiltingId.equalsIgnoreCase("1"))
+        {
+            tiltingChkBx.setChecked(true);
         }
     }
 
@@ -407,14 +519,29 @@ public class ConditionFormThreeFrgmnt extends Fragment {
                     progress_layout.setVisibility(View.GONE);
                 }
 
+                SharedPreferences preferences = getActivity().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+                String leftCrackUpSSpinrId1 = preferences.getString("leftCrackUpSSpinrId1", null);
+                String rightCrackUpSSpinrId1 = preferences.getString("rightCrackUpSSpinrId1", null);
+                String leftCrackDownSSpinrId1 = preferences.getString("leftCrackDownSSpinrId1", null);
+                String rightCrackDownSSpinrId1 = preferences.getString("rightCrackDownSSpinrId1", null);
+
                 final ArrayAdapter<String> adapter_leftCrack = new ArrayAdapter<String>(getActivity(), R.layout.custom_spinner, leftCrackUpSSpinrArr);
                 adapter_leftCrack.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 leftCrackUpSSpinr.setAdapter(adapter_leftCrack);
 
-                if(!TextUtils.isEmpty(dataItem.getSBSCRACKSUL()) && preset)
+                if (preset)
                 {
-                    int position = Integer.parseInt(dataItem.getSBSCRACKSUL());
-                    leftCrackUpSSpinr.setSelection(position);
+                    if(!TextUtils.isEmpty(dataItem.getSBSCRACKSUL()) && preset)
+                    {
+                        int position = Integer.parseInt(dataItem.getSBSCRACKSUL());
+                        leftCrackUpSSpinr.setSelection(position);
+                    }
+                }
+
+
+                if (preloadSpinner && !TextUtils.isEmpty(leftCrackUpSSpinrId1))
+                {
+                    leftCrackUpSSpinr.setSelection(Integer.parseInt(leftCrackUpSSpinrId1));
                 }
 
 
@@ -423,10 +550,19 @@ public class ConditionFormThreeFrgmnt extends Fragment {
                 adapter_rightCrackUp.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 rightCrackUpSSpinr.setAdapter(adapter_rightCrackUp);
 
-                if(!TextUtils.isEmpty(dataItem.getSBSCRACKSUR()) && preset)
+                if (preset)
                 {
-                    int position1 = Integer.parseInt(dataItem.getSBSCRACKSUR());
-                    rightCrackUpSSpinr.setSelection(position1);
+                    if(!TextUtils.isEmpty(dataItem.getSBSCRACKSUR()) && preset)
+                    {
+                        int position1 = Integer.parseInt(dataItem.getSBSCRACKSUR());
+                        rightCrackUpSSpinr.setSelection(position1);
+                    }
+                }
+
+
+                if (preloadSpinner && !TextUtils.isEmpty(rightCrackUpSSpinrId1))
+                {
+                    rightCrackUpSSpinr.setSelection(Integer.parseInt(rightCrackUpSSpinrId1));
                 }
 
 
@@ -435,36 +571,45 @@ public class ConditionFormThreeFrgmnt extends Fragment {
                 adapter_leftCrackDown.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 leftCrackDownSSpinr.setAdapter(adapter_leftCrackDown);
 
-                if(!TextUtils.isEmpty(dataItem.getSBSCRACKSDL()) && preset)
+                if (preset)
                 {
-                    int position2 = Integer.parseInt(dataItem.getSBSCRACKSDL());
-                    leftCrackDownSSpinr.setSelection(position2);
+                    if(!TextUtils.isEmpty(dataItem.getSBSCRACKSDL()) && preset)
+                    {
+                        int position2 = Integer.parseInt(dataItem.getSBSCRACKSDL());
+                        leftCrackDownSSpinr.setSelection(position2);
+                    }
                 }
 
+
+                if (preloadSpinner && !TextUtils.isEmpty(leftCrackDownSSpinrId1))
+                {
+                    leftCrackDownSSpinr.setSelection(Integer.parseInt(leftCrackDownSSpinrId1));
+                }
 
 
                 final ArrayAdapter<String> adapter_rightCrackDown = new ArrayAdapter<String>(getActivity(), R.layout.custom_spinner, rightCrackDownSSpinrArr);
                 adapter_rightCrackDown.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 rightCrackDownSSpinr.setAdapter(adapter_rightCrackDown);
 
-                if(!TextUtils.isEmpty(dataItem.getSBSCRACKSDR()) && preset)
+                if (preset)
                 {
-                    int position3 = Integer.parseInt(dataItem.getSBSCRACKSDR());
-                    rightCrackDownSSpinr.setSelection(position3);
+                    if(!TextUtils.isEmpty(dataItem.getSBSCRACKSDR()) && preset)
+                    {
+                        int position3 = Integer.parseInt(dataItem.getSBSCRACKSDR());
+                        rightCrackDownSSpinr.setSelection(position3);
+                    }
                 }
 
-
-                if(!(response.equals("")) && response.equalsIgnoreCase("TRUE"))
+                if (preloadSpinner && !TextUtils.isEmpty(rightCrackDownSSpinrId1))
                 {
+                    rightCrackDownSSpinr.setSelection(Integer.parseInt(rightCrackDownSSpinrId1));
+                }
 
-                }
-                else
-                {
-                }
 
             } catch (Exception e) {
 
-                Log.e(e.getClass().getName(), e.getMessage(), e);
+                new WarningDialog(getContext(), e.getMessage());
+
             }
         }
 

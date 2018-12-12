@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -40,6 +41,8 @@ public class InventaryFormTwoFrgmnt extends Fragment implements AdapterView.OnIt
 
     boolean preset = false;
 
+    Boolean preloadSpinner = true;
+
     @Override
     public void onStart() {
         super.onStart();
@@ -47,13 +50,59 @@ public class InventaryFormTwoFrgmnt extends Fragment implements AdapterView.OnIt
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("Modify",Context.MODE_PRIVATE);
 
         String data = sharedPreferences.getString("data", "false");
+        boolean preload = sharedPreferences.getBoolean("preload", false);
 
         if (data.equalsIgnoreCase("true")) {
-
             presetValues();
-
             preset = true;
         }
+
+        if (preload)
+        {
+            preloadSpinner = true;
+            preloadValues();
+        }
+    }
+
+    private void preloadValues() {
+
+        SharedPreferences preferences = getActivity().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        String design_discharge = preferences.getString("design_discharge", null);
+        String no_of_lanes = preferences.getString("no_of_lanes", null);
+        String spans = preferences.getString("spans", null);
+        String max_spans = preferences.getString("max_spans", null);
+        String vertical_clearance = preferences.getString("vertical_clearance", null);
+
+        if (!TextUtils.isEmpty(design_discharge))
+        {
+            designDischargeEdtTxt.setText(design_discharge);
+        }
+
+
+        if (!TextUtils.isEmpty(no_of_lanes))
+        {
+            noOfLanesEdtTxt.setText(no_of_lanes);
+        }
+
+
+        if (!TextUtils.isEmpty(spans))
+        {
+            spansEdtTxt.setText(spans);
+        }
+
+
+        if (!TextUtils.isEmpty(max_spans))
+        {
+            maxSpansEdtTxt.setText(max_spans);
+        }
+
+
+        if (!TextUtils.isEmpty(vertical_clearance))
+        {
+            verticalClearnceEdtTxt.setText(vertical_clearance);
+        }
+
+
     }
 
     private void presetValues() {
@@ -205,6 +254,10 @@ public class InventaryFormTwoFrgmnt extends Fragment implements AdapterView.OnIt
 
     private void loadSpinner() {
 
+        SharedPreferences preferences = getActivity().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        String loading = preferences.getString("loading", null);
+        String slab_design = preferences.getString("slab_design", null);
+
         ArrayList<String> loadingList = new ArrayList<>();
 
         loadingList.add("Select");
@@ -221,8 +274,10 @@ public class InventaryFormTwoFrgmnt extends Fragment implements AdapterView.OnIt
             loadingSpinner.setSelection(position);
         }
 
-
-
+        if (preloadSpinner && !TextUtils.isEmpty(loading))
+        {
+            loadingSpinner.setSelection(Integer.parseInt(loading));
+        }
 
         ArrayList<String> slabList = new ArrayList<>();
 
@@ -234,7 +289,7 @@ public class InventaryFormTwoFrgmnt extends Fragment implements AdapterView.OnIt
         /*slabSpinner.setAdapter(new ArrayAdapter<String>(getContext(), R.layout.support_simple_spinner_dropdown_item, slabList));*/
 
 
-        final ArrayAdapter<String> slabList_adapter = new ArrayAdapter<String>(getActivity(),R.layout.custom_spinner, slabList);
+        final ArrayAdapter<String> slabList_adapter = new ArrayAdapter<>(getActivity(),R.layout.custom_spinner, slabList);
         slabList_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         slabSpinner.setAdapter(slabList_adapter);
 
@@ -244,6 +299,10 @@ public class InventaryFormTwoFrgmnt extends Fragment implements AdapterView.OnIt
             slabSpinner.setSelection(position1);
         }
 
+        if (preloadSpinner && !TextUtils.isEmpty(slab_design))
+        {
+            slabSpinner.setSelection(Integer.parseInt(slab_design));
+        }
 
     }
 
@@ -280,7 +339,8 @@ public class InventaryFormTwoFrgmnt extends Fragment implements AdapterView.OnIt
 
         if (id == R.id.loading_spinner)
         {
-            String spinnerString = adapterView.getItemAtPosition(i).toString();
+           // String spinnerString = adapterView.getItemAtPosition(i).toString();
+            String spinnerString = String.valueOf(i);
             editor.putString("loading",spinnerString );
             editor.apply();
             return;
@@ -288,7 +348,8 @@ public class InventaryFormTwoFrgmnt extends Fragment implements AdapterView.OnIt
 
         if (id == R.id.slab_spinner)
         {
-            String spinnerString = adapterView.getItemAtPosition(i).toString();
+           // String spinnerString = adapterView.getItemAtPosition(i).toString();
+            String spinnerString = String.valueOf(i);
             editor.putString("slab_design",spinnerString );
             editor.apply();
             return;

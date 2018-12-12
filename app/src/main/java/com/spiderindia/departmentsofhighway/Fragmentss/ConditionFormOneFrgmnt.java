@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,6 +40,8 @@ public class ConditionFormOneFrgmnt extends Fragment implements AdapterView.OnIt
 
     DataItem dataItem;
 
+    boolean preloadSpinner = true;
+
     @Override
     public void onStart() {
         super.onStart();
@@ -46,13 +49,41 @@ public class ConditionFormOneFrgmnt extends Fragment implements AdapterView.OnIt
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("Modify",Context.MODE_PRIVATE);
 
         String data = sharedPreferences.getString("data", "false");
+        boolean preload = sharedPreferences.getBoolean("preload", false);
 
         if (data.equalsIgnoreCase("true")) {
-
             presetValues();
-
             preset = true;
+        }
 
+        if (preload)
+        {
+            preloadSpinner = true;
+            preloadValues();
+        }
+    }
+
+    private void preloadValues() {
+
+        SharedPreferences preferences = getActivity().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        String bridge_angle = preferences.getString("bridge_angle", null);
+        String bed_level = preferences.getString("bed_level", null);
+        String bed_slope = preferences.getString("bed_slope", null);
+
+
+        if (!TextUtils.isEmpty(bridge_angle))
+        {
+            brdgeAngleEdtTxt.setText(bridge_angle);
+        }
+
+        if (!TextUtils.isEmpty(bed_level))
+        {
+            bedLevelEdttxt.setText(bed_level);
+        }
+
+        if (!TextUtils.isEmpty(bed_slope))
+        {
+            bedSlopeEdtTxt.setText(bed_slope);
         }
     }
 
@@ -153,6 +184,9 @@ public class ConditionFormOneFrgmnt extends Fragment implements AdapterView.OnIt
 
     private void loadSpinner() {
 
+        SharedPreferences preferences = getActivity().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        String shape_pier = preferences.getString("shape_pier", null);
+
 
         ArrayList<String> shapeOfPierList = new ArrayList<>();
 
@@ -171,6 +205,11 @@ public class ConditionFormOneFrgmnt extends Fragment implements AdapterView.OnIt
         {
             int position = Integer.parseInt(dataItem.getSHAPEOFPIER());
             shapeOfPierSpinner.setSelection(position);
+        }
+
+        if (preloadSpinner && !TextUtils.isEmpty(shape_pier))
+        {
+            shapeOfPierSpinner.setSelection(Integer.parseInt(shape_pier));
         }
 
 
@@ -203,7 +242,8 @@ public class ConditionFormOneFrgmnt extends Fragment implements AdapterView.OnIt
 
         if (id == R.id.shape_of_pier_spinner)
         {
-            String spinnerString = adapterView.getItemAtPosition(i).toString();
+           // String spinnerString = adapterView.getItemAtPosition(i).toString();
+            String spinnerString = String.valueOf(i);
             editor.putString("shape_pier",spinnerString );
             editor.apply();
             return;

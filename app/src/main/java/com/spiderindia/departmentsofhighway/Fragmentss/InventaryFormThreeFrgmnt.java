@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -38,23 +39,53 @@ public class InventaryFormThreeFrgmnt extends Fragment implements AdapterView.On
     DataItem dataItem;
 
     boolean preset = false;
+    Boolean preloadSpinner = true;
+
+
 
     @Override
     public void onStart() {
         super.onStart();
 
-
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("Modify",Context.MODE_PRIVATE);
 
         String data = sharedPreferences.getString("data", "false");
+        boolean preload = sharedPreferences.getBoolean("preload", false);
 
         if (data.equalsIgnoreCase("true")) {
-
             presetValues();
-
             preset = true;
-
         }
+
+        if (preload)
+        {
+            preloadSpinner = true;
+            preloadValues();
+        }
+    }
+
+    private void preloadValues() {
+
+        SharedPreferences preferences = getActivity().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        String left_footpath = preferences.getString("left_footpath", null);
+        String right_footpath = preferences.getString("right_footpath", null);
+        String slap_thickness = preferences.getString("slap_thickness", null);
+
+        if (!TextUtils.isEmpty(left_footpath))
+        {
+            leftFootpathEdtTxt.setText(left_footpath);
+        }
+
+        if (!TextUtils.isEmpty(right_footpath))
+        {
+            rightFootPathEdtTxt.setText(right_footpath);
+        }
+
+        if (!TextUtils.isEmpty(slap_thickness))
+        {
+            slapThiknsEdtTxt.setText(slap_thickness);
+        }
+
     }
 
     private void presetValues()
@@ -213,6 +244,13 @@ public class InventaryFormThreeFrgmnt extends Fragment implements AdapterView.On
 
     private void loadSpinner() {
 
+        SharedPreferences preferences = getActivity().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        String structure_type = preferences.getString("structure_type", null);
+        String bearing_type = preferences.getString("bearing_type", null);
+        String parapet_handrail = preferences.getString("parapet_handrail", null);
+        String wearing_coat = preferences.getString("wearing_coat", null);
+        String pier_foundation = preferences.getString("pier_foundation", null);
+
         ArrayList<String> superList = new ArrayList<>();
 
         superList.add("Select");
@@ -232,6 +270,12 @@ public class InventaryFormThreeFrgmnt extends Fragment implements AdapterView.On
             superSpinner.setSelection(position);
         }
 
+        if (preloadSpinner && !TextUtils.isEmpty(structure_type))
+        {
+            superSpinner.setSelection(Integer.parseInt(structure_type));
+        }
+
+
 
 
         ArrayList<String> bearingList = new ArrayList<>();
@@ -242,7 +286,7 @@ public class InventaryFormThreeFrgmnt extends Fragment implements AdapterView.On
         bearingList.add("Bed Block");
 
        /* bearingSpinner.setAdapter(new ArrayAdapter<>(getContext(), R.layout.support_simple_spinner_dropdown_item, bearingList));*/
-        final ArrayAdapter<String> bearingList_adapter = new ArrayAdapter<String>(getActivity(),R.layout.custom_spinner, bearingList);
+        final ArrayAdapter<String> bearingList_adapter = new ArrayAdapter<>(getActivity(),R.layout.custom_spinner, bearingList);
         bearingList_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         bearingSpinner.setAdapter(bearingList_adapter);
 
@@ -251,6 +295,11 @@ public class InventaryFormThreeFrgmnt extends Fragment implements AdapterView.On
             int position1 = Integer.parseInt(dataItem.getBEARINGTYPE());
             bearingSpinner.setSelection(position1);
 
+        }
+
+        if (preloadSpinner && !TextUtils.isEmpty(bearing_type))
+        {
+            bearingSpinner.setSelection(Integer.parseInt(bearing_type));
         }
 
 
@@ -273,7 +322,10 @@ public class InventaryFormThreeFrgmnt extends Fragment implements AdapterView.On
             parapetSpinner.setSelection(position2);
         }
 
-
+        if (preloadSpinner && !TextUtils.isEmpty(parapet_handrail))
+        {
+            parapetSpinner.setSelection(Integer.parseInt(parapet_handrail));
+        }
 
         ArrayList<String> wearingList = new ArrayList<>();
 
@@ -294,6 +346,10 @@ public class InventaryFormThreeFrgmnt extends Fragment implements AdapterView.On
         }
 
 
+        if (preloadSpinner && !TextUtils.isEmpty(wearing_coat))
+        {
+            wearingSpinner.setSelection(Integer.parseInt(wearing_coat));
+        }
 
 
         ArrayList<String> pierFoundationList = new ArrayList<>();
@@ -316,6 +372,11 @@ public class InventaryFormThreeFrgmnt extends Fragment implements AdapterView.On
             pierFoundationSpinner.setSelection(position4);
         }
 
+        if (preloadSpinner && !TextUtils.isEmpty(pier_foundation))
+        {
+            pierFoundationSpinner.setSelection(Integer.parseInt(pier_foundation));
+        }
+
 
     }
 
@@ -334,13 +395,7 @@ public class InventaryFormThreeFrgmnt extends Fragment implements AdapterView.On
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString("left_footpath",leftFootpath );
         editor.putString("right_footpath",rightFootPath );
-
         editor.putString("slap_thickness",slapThikns );
-
-
-
-
-
         editor.apply();
     }
 
@@ -353,7 +408,8 @@ public class InventaryFormThreeFrgmnt extends Fragment implements AdapterView.On
 
         if (id == R.id.super_spinner)
         {
-            String spinnerString = adapterView.getItemAtPosition(i).toString();
+          //  String spinnerString = adapterView.getItemAtPosition(i).toString();
+            String spinnerString = String.valueOf(i);
             editor.putString("structure_type",spinnerString );
             editor.apply();
             return;
@@ -361,7 +417,8 @@ public class InventaryFormThreeFrgmnt extends Fragment implements AdapterView.On
 
         if (id == R.id.bearing_spinner)
         {
-            String spinnerString = adapterView.getItemAtPosition(i).toString();
+           // String spinnerString = adapterView.getItemAtPosition(i).toString();
+            String spinnerString = String.valueOf(i);
             editor.putString("bearing_type",spinnerString );
             editor.apply();
             return;
@@ -369,7 +426,8 @@ public class InventaryFormThreeFrgmnt extends Fragment implements AdapterView.On
 
         if (id == R.id.parapet_spinner)
         {
-            String spinnerString = adapterView.getItemAtPosition(i).toString();
+           // String spinnerString = adapterView.getItemAtPosition(i).toString();
+            String spinnerString = String.valueOf(i);
             editor.putString("parapet_handrail",spinnerString );
             editor.apply();
             return;
@@ -377,7 +435,8 @@ public class InventaryFormThreeFrgmnt extends Fragment implements AdapterView.On
 
         if (id == R.id.wearing_spinner)
         {
-            String spinnerString = adapterView.getItemAtPosition(i).toString();
+            //String spinnerString = adapterView.getItemAtPosition(i).toString();
+            String spinnerString = String.valueOf(i);
             editor.putString("wearing_coat",spinnerString );
             editor.apply();
             return;
@@ -385,7 +444,8 @@ public class InventaryFormThreeFrgmnt extends Fragment implements AdapterView.On
 
         if (id == R.id.pier_foundation_spinner)
         {
-            String spinnerString = adapterView.getItemAtPosition(i).toString();
+           // String spinnerString = adapterView.getItemAtPosition(i).toString();
+            String spinnerString = String.valueOf(i);
             editor.putString("pier_foundation",spinnerString );
             editor.apply();
             return;

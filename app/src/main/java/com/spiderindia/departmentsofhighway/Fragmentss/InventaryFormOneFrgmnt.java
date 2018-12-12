@@ -2,7 +2,6 @@ package com.spiderindia.departmentsofhighway.Fragmentss;
 
 
 import android.app.Activity;
-import android.app.FragmentTransaction;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -17,7 +16,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -28,14 +26,11 @@ import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.spiderindia.departmentsofhighway.HomeActivity;
 import com.spiderindia.departmentsofhighway.ModelClasses.ModelBridgeResponse.DataItem;
-import com.spiderindia.departmentsofhighway.NewActivities.CULVETS;
 import com.spiderindia.departmentsofhighway.R;
 import com.spiderindia.departmentsofhighway.SqLiteDb.MyDataBaseHandler;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -45,6 +40,7 @@ public class InventaryFormOneFrgmnt extends Fragment implements AdapterView.OnIt
     DataItem dataItem;
 
     Boolean preset = false;
+    Boolean preloadSpinner = true;
 
     @Override
     public void onStart() {
@@ -54,15 +50,67 @@ public class InventaryFormOneFrgmnt extends Fragment implements AdapterView.OnIt
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("Modify",Context.MODE_PRIVATE);
 
         String data = sharedPreferences.getString("data", "false");
+        boolean preload = sharedPreferences.getBoolean("preload", false);
 
         if (data.equalsIgnoreCase("true")) {
 
             preset = true;
 
             presetValues();
+        }
 
+        if (preload)
+        {
+            preloadSpinner = false;
+            preloadValues();
         }
     }
+
+    private void preloadValues() {
+
+        SharedPreferences preferences = getActivity().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        String bridge_len = preferences.getString("bridge_len", null);
+        String bridge_width = preferences.getString("bridge_width", null);
+        String river_name = preferences.getString("river_name", null);
+        String linear_wtr_way = preferences.getString("linear_wtr_way", null);
+        String partial_widening = preferences.getString("partial_widening", null);
+        String close_checkdam = preferences.getString("close_checkdam", null);
+
+
+
+
+        if (!TextUtils.isEmpty(bridge_width))
+        {
+           bWidthEdtTxt.setText(bridge_width);
+        }
+
+        if (!TextUtils.isEmpty(river_name))
+        {
+            riverNameEdtTxt.setText(river_name);
+        }
+
+        if (!TextUtils.isEmpty(linear_wtr_way))
+        {
+            linearWtrWatEdtTxt.setText(linear_wtr_way);
+        }
+
+        if (!TextUtils.isEmpty(bridge_len))
+        {
+            bLengthEdtTxt.setText(bridge_len);
+        }
+
+        if (!TextUtils.isEmpty(partial_widening) && partial_widening.equalsIgnoreCase("1"))
+        {
+            partialWedChkBx.setChecked(true);
+        }
+
+        if (!TextUtils.isEmpty(close_checkdam)&& close_checkdam.equalsIgnoreCase("1"))
+        {
+            closeChkDamChkBx.setChecked(true);
+        }
+
+    }
+
     private void presetValues() {
 
         dataItem = (DataItem) getActivity().getIntent().getSerializableExtra("dataItem");
@@ -191,6 +239,10 @@ public class InventaryFormOneFrgmnt extends Fragment implements AdapterView.OnIt
             @Override
             public void onClick(View view) {
 
+                SharedPreferences sharedPreferences = getActivity().getSharedPreferences("Modify", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putBoolean("preload", true);
+                editor.apply();
 
                 saveDetails();
 
@@ -205,53 +257,7 @@ public class InventaryFormOneFrgmnt extends Fragment implements AdapterView.OnIt
                 fragmentTransaction.commit();
             }
         });
-// By partha
-       /* nextBttn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                try{
-                    brdgType=brdgeTypeEdttxt.getText().toString();
-                    bLength=bLengthEdtTxt.getText().toString();
-                    bWidth=bWidthEdtTxt.getText().toString();
-                    riverName=riverNameEdtTxt.getText().toString();
-                    authorityofRiver=authorityOfRiverEdtTxt.getText().toString();
-                    flowOfRiver=flowOfRiverEdtTxt.getText().toString();
-                    linearWtrWay=linearWtrWatEdtTxt.getText().toString();
-
-                    if(partialWedChkBx.isChecked())
-                    {
-                        partialWidening="1";
-                    }
-                    else {
-                        partialWidening="0";
-                    }
-
-                    if(closeChkDamChkBx.isChecked())
-                    {
-                        closeCheckDam="1";
-                    }
-                    else {
-                        closeCheckDam="0";
-                    }
-
-                    new asyncToSendDetails().execute();
-
-                    HomeActivity._mViewPager.setCurrentItem(2);
-
-                }
-                catch(NullPointerException e ) {
-                    e.printStackTrace();
-                }
-                catch (Exception e)
-                {
-                    e.printStackTrace();
-                }
-
-
-            }
-        });
-*/
 
         previousBttn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -268,6 +274,11 @@ public class InventaryFormOneFrgmnt extends Fragment implements AdapterView.OnIt
 
 
     private void loadspinners() {
+
+        SharedPreferences preferences = getActivity().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        String bridge_type = preferences.getString("bridge_type", null);
+        String authority_of_river = preferences.getString("authority_of_river", null);
+        String flow_of_river = preferences.getString("flow_of_river", null);
 
         ArrayList<String> BridgeTypelist = new ArrayList<>();
 
@@ -291,6 +302,12 @@ public class InventaryFormOneFrgmnt extends Fragment implements AdapterView.OnIt
             bridgeTypeSpinner.setSelection(position);
         }
 
+        else  if(preloadSpinner && !TextUtils.isEmpty(bridge_type))
+        {
+            bridgeTypeSpinner.setSelection(Integer.parseInt(bridge_type));
+        }
+
+        Toast.makeText(mContext, "preload  " + preloadSpinner, Toast.LENGTH_LONG).show();
 
         ArrayList<String> Controllinglist = new ArrayList<>();
 
@@ -314,6 +331,15 @@ public class InventaryFormOneFrgmnt extends Fragment implements AdapterView.OnIt
             controllingSpinner.setSelection(position1);
         }
 
+        if (preloadSpinner)
+        {
+
+            if (!TextUtils.isEmpty(authority_of_river))
+            {
+                controllingSpinner.setSelection(Integer.parseInt(authority_of_river));
+            }
+        }
+
         ArrayList<String> flowofRiverlist = new ArrayList<>();
 
         flowofRiverlist.add("Select");
@@ -332,6 +358,15 @@ public class InventaryFormOneFrgmnt extends Fragment implements AdapterView.OnIt
         {
             int position2 = Integer.parseInt(dataItem.getFLOWOFRIVER());
             flowofRiverSpinner.setSelection(position2);
+        }
+
+        if (preloadSpinner)
+        {
+
+            if (!TextUtils.isEmpty(flow_of_river))
+            {
+                flowofRiverSpinner.setSelection(Integer.parseInt(flow_of_river));
+            }
         }
 
     }
@@ -389,8 +424,9 @@ public class InventaryFormOneFrgmnt extends Fragment implements AdapterView.OnIt
 
                 if (id == R.id.bridge_type_spinner)
                 {
-                    String bridgeSpinnerString = adapterView.getItemAtPosition(i).toString();
-                    Toast.makeText(mContext, ""+bridgeSpinnerString, Toast.LENGTH_SHORT).show();
+                   // String bridgeSpinnerString = adapterView.getItemAtPosition(i).toString();
+                    String bridgeSpinnerString = String.valueOf(i);
+                  //  Toast.makeText(mContext, ""+bridgeSpinnerString, Toast.LENGTH_SHORT).show();
                     editor.putString("bridge_type",bridgeSpinnerString );
                     editor.apply();
                     return;
@@ -398,8 +434,9 @@ public class InventaryFormOneFrgmnt extends Fragment implements AdapterView.OnIt
 
               if (id == R.id.controlling_spinner)
               {
-                  String controllingSpinnerString = adapterView.getItemAtPosition(i).toString();
-                  Toast.makeText(mContext, ""+controllingSpinnerString, Toast.LENGTH_SHORT).show();
+                //  String controllingSpinnerString = adapterView.getItemAtPosition(i).toString();
+                  String controllingSpinnerString = String.valueOf(i);
+              //    Toast.makeText(mContext, ""+controllingSpinnerString, Toast.LENGTH_SHORT).show();
                   editor.putString("authority_of_river",controllingSpinnerString );
                   editor.apply();
                   return;
@@ -407,8 +444,9 @@ public class InventaryFormOneFrgmnt extends Fragment implements AdapterView.OnIt
 
             if (id == R.id.flow_of_river_spinner)
             {
-                String flowOfRiverSpinnerString = adapterView.getItemAtPosition(i).toString();
-                Toast.makeText(mContext, ""+flowOfRiverSpinnerString, Toast.LENGTH_SHORT).show();
+               // String flowOfRiverSpinnerString = adapterView.getItemAtPosition(i).toString();
+                String flowOfRiverSpinnerString = String.valueOf(i);
+        //        Toast.makeText(mContext, ""+flowOfRiverSpinnerString, Toast.LENGTH_SHORT).show();
                 editor.putString("flow_of_river",flowOfRiverSpinnerString );
                 editor.apply();
                 return;

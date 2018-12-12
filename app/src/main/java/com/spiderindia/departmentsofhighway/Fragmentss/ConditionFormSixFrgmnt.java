@@ -35,6 +35,8 @@ public class ConditionFormSixFrgmnt extends Fragment {
 
     DataItem dataItem;
 
+    Boolean preloadSpinner = true;
+
     @Override
     public void onStart() {
         super.onStart();
@@ -42,6 +44,13 @@ public class ConditionFormSixFrgmnt extends Fragment {
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("Modify",Context.MODE_PRIVATE);
 
         String data = sharedPreferences.getString("data", "false");
+        boolean preload = sharedPreferences.getBoolean("preload", false);
+
+        if (preload)
+        {
+            preloadSpinner = true;
+            preloadValues();
+        }
 
         if (data.equalsIgnoreCase("true")) {
 
@@ -76,6 +85,46 @@ public class ConditionFormSixFrgmnt extends Fragment {
 
 
 
+        }
+    }
+
+    private void preloadValues() {
+
+        SharedPreferences preferences = getActivity().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        String worntoutId = preferences.getString("worntoutId", null);
+        String bleedId = preferences.getString("bleedId", null);
+        String crackedId = preferences.getString("crackedId", null);
+        String siltedId = preferences.getString("siltedId", null);
+        String scourId = preferences.getString("scourId", null);
+
+
+        if (!TextUtils.isEmpty(worntoutId) && worntoutId.equalsIgnoreCase("1"))
+        {
+            worntoutChkBx.setChecked(true);
+        }
+
+
+        if (!TextUtils.isEmpty(bleedId) && bleedId.equalsIgnoreCase("1"))
+        {
+            bleedChkBx.setChecked(true);
+        }
+
+
+        if (!TextUtils.isEmpty(crackedId) && crackedId.equalsIgnoreCase("1"))
+        {
+            crackedChkBx.setChecked(true);
+        }
+
+
+        if (!TextUtils.isEmpty(siltedId) && siltedId.equalsIgnoreCase("1"))
+        {
+            siltedChkBx.setChecked(true);
+        }
+
+
+        if (!TextUtils.isEmpty(scourId) && scourId.equalsIgnoreCase("1"))
+        {
+            scourChkBx.setChecked(true);
         }
     }
 
@@ -158,51 +207,7 @@ public class ConditionFormSixFrgmnt extends Fragment {
             }
         });
 
-        //By partha
 
-       /* previousBttn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                HomeActivity._mViewPager.setCurrentItem(9);
-            }
-        });
-        nextBttn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                try{
-                    if (worntoutChkBx.isChecked())
-                        worntoutId = "1";
-
-                    if (bleedChkBx.isChecked())
-                        bleedId = "1";
-
-                    if (crackedChkBx.isChecked())
-                        crackedId = "1";
-
-                    if (siltedChkBx.isChecked())
-                        siltedId = "1";
-
-                    if (scourChkBx.isChecked())
-                        scourId = "1";
-
-                    new asyncToSendDetails().execute();
-
-                    HomeActivity._mViewPager.setCurrentItem(11);
-
-                }
-                catch(NullPointerException e ) {
-                    e.printStackTrace();
-                }
-                catch (Exception e)
-                {
-                    e.printStackTrace();
-                }
-
-            }
-        });
-*/
         return root;
     }
 

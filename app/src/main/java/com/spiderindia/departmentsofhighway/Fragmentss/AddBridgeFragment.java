@@ -307,6 +307,7 @@ public class AddBridgeFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
+
                 saveDeatails();
 
                 SharedPreferences preferences = getActivity().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);

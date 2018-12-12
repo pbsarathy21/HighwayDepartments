@@ -39,6 +39,8 @@ public class ConditionFormFourFrgmnt extends Fragment {
 
     boolean preset = false;
 
+    Boolean preloadSpinner = true;
+
     @Override
     public void onStart() {
         super.onStart();
@@ -46,6 +48,13 @@ public class ConditionFormFourFrgmnt extends Fragment {
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("Modify",Context.MODE_PRIVATE);
 
         String data = sharedPreferences.getString("data", "false");
+        boolean preload = sharedPreferences.getBoolean("preload", false);
+
+        if (preload)
+        {
+            preloadSpinner = true;
+            preloadValues();
+        }
 
         if (data.equalsIgnoreCase("true")) {
 
@@ -120,6 +129,91 @@ public class ConditionFormFourFrgmnt extends Fragment {
         }
     }
 
+    private void preloadValues() {
+
+        SharedPreferences preferences = getActivity().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        String crackedId1 = preferences.getString("crackedId1", null);
+        String corrosionId = preferences.getString("corrosionId", null);
+        String spalledId = preferences.getString("spalledId", null);
+        String leachedId = preferences.getString("leachedId", null);
+        String buckledId = preferences.getString("buckledId", null);
+        String vegetationId = preferences.getString("vegetationId", null);
+        String saliyoId = preferences.getString("saliyoId", null);
+        String scaledId = preferences.getString("scaledId", null);
+        String spalityId = preferences.getString("spalityId", null);
+        String brokenHandRailsId = preferences.getString("spalityId", null);
+        String corrodedHandRailId = preferences.getString("spalityId", null);
+        String brokenFootPathId = preferences.getString("spalityId", null);
+        String disintegratnNoFootId = preferences.getString("spalityId", null);
+
+        if (!TextUtils.isEmpty(crackedId1) && crackedId1.equalsIgnoreCase("1"))
+        {
+            crackedChkBx.setChecked(true);
+        }
+
+        if (!TextUtils.isEmpty(corrosionId) && corrosionId.equalsIgnoreCase("1"))
+        {
+            corrosionChkBx.setChecked(true);
+        }
+
+        if (!TextUtils.isEmpty(spalledId) && spalledId.equalsIgnoreCase("1"))
+        {
+            spalledChkBx.setChecked(true);
+        }
+
+        if (!TextUtils.isEmpty(leachedId) && leachedId.equalsIgnoreCase("1"))
+        {
+            leachedChkBx.setChecked(true);
+        }
+
+        if (!TextUtils.isEmpty(buckledId) && buckledId.equalsIgnoreCase("1"))
+        {
+            buckledChkBx.setChecked(true);
+        }
+
+        if (!TextUtils.isEmpty(vegetationId) && vegetationId.equalsIgnoreCase("1"))
+        {
+            vegetationChkBx.setChecked(true);
+        }
+
+        if (!TextUtils.isEmpty(saliyoId) && saliyoId.equalsIgnoreCase("1"))
+        {
+            saliyoChkBx.setChecked(true);
+        }
+
+        if (!TextUtils.isEmpty(scaledId) && scaledId.equalsIgnoreCase("1"))
+        {
+            scaledChkBx.setChecked(true);
+        }
+
+        if (!TextUtils.isEmpty(spalityId) && spalityId.equalsIgnoreCase("1"))
+        {
+            spalityChkBx.setChecked(true);
+        }
+
+        if (!TextUtils.isEmpty(brokenHandRailsId) && brokenHandRailsId.equalsIgnoreCase("1"))
+        {
+            brokenChkBxHandRails.setChecked(true);
+        }
+
+        if (!TextUtils.isEmpty(corrodedHandRailId) && corrodedHandRailId.equalsIgnoreCase("1"))
+        {
+            corrodedChkBxHandRail.setChecked(true);
+        }
+
+        if (!TextUtils.isEmpty(brokenFootPathId) && brokenFootPathId.equalsIgnoreCase("1"))
+        {
+            brokenChkBxFootPath.setChecked(true);
+        }
+
+        if (!TextUtils.isEmpty(disintegratnNoFootId) && disintegratnNoFootId.equalsIgnoreCase("1"))
+        {
+            disintegratnNoChkBxFoot.setChecked(true);
+        }
+
+
+    }
+
     public ConditionFormFourFrgmnt() {
         // Required empty public constructor
     }
@@ -135,7 +229,7 @@ public class ConditionFormFourFrgmnt extends Fragment {
             scaledChkBx,spalityChkBx,brokenChkBxHandRails,corrodedChkBxHandRail,brokenChkBxFootPath,disintegratnNoChkBxFoot;
 
     String crackedId,corrosionId,spalledId,leachedId,buckledId,vegetationId,saliyoId,
-            scaledId,spalityId,brokenHandRailsId,corrodedHandRailId,brokenFootPathId,disintegratnNoFootId,spallingSpnrSuperSId;
+            scaledId,spalityId,brokenHandRailsId,corrodedHandRailId,brokenFootPathId, disintegratnNoFootId, spallingSpnrSuperSId;
 
     Spinner spallingSpnrSuperS;
 
@@ -350,6 +444,8 @@ public class ConditionFormFourFrgmnt extends Fragment {
         protected void onPostExecute(String response_str) {
             try {
 
+                SharedPreferences preferences = getActivity().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+                String spallingSpnrSuperSId = preferences.getString("spallingSpnrSuperSId", null);
 
                 if (progress_layout.getVisibility() == View.VISIBLE) {
                     progress_layout.setVisibility(View.GONE);
@@ -365,16 +461,13 @@ public class ConditionFormFourFrgmnt extends Fragment {
                     spallingSpnrSuperS.setSelection(position);
                 }
 
+                if (preloadSpinner && !TextUtils.isEmpty(spallingSpnrSuperSId))
+                {
+                    spallingSpnrSuperS.setSelection(Integer.parseInt(spallingSpnrSuperSId));
+                }
 
-                if(!(response.equals("")) && response.equalsIgnoreCase("TRUE"))
-                {
-                }
-                else
-                {
-                }
 
             } catch (Exception e) {
-
                 Log.e(e.getClass().getName(), e.getMessage(), e);
             }
         }

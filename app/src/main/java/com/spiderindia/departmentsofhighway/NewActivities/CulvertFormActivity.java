@@ -38,6 +38,7 @@ import com.spiderindia.departmentsofhighway.ModelClasses.ModelCulvertEditRespons
 import com.spiderindia.departmentsofhighway.ModelClasses.ModelCulvetResponse.DataItem;
 import com.spiderindia.departmentsofhighway.R;
 import com.spiderindia.departmentsofhighway.YearPicker.YearPickerDialog;
+import com.squareup.picasso.Picasso;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
@@ -134,7 +135,13 @@ public class CulvertFormActivity extends AppCompatActivity implements AdapterVie
         noOfSpanEdtTxt.setText(dataItem.getNOOFSPAN());
         culvertLengthEdtTxt.setText(dataItem.getCULVERTLENGTH());
 
+        if (!TextUtils.isEmpty(dataItem.getiMAGE()))
+        {
+            Picasso.get().load(dataItem.getiMAGE()).into(CulvetImage);
+        }
     }
+
+
 
     @Override
     protected void onPostResume() {

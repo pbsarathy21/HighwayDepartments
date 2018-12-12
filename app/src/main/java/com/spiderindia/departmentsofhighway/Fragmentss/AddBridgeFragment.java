@@ -58,6 +58,7 @@ import com.spiderindia.departmentsofhighway.Utils.NetUtils;
 import com.spiderindia.departmentsofhighway.Utils.WarningDialog;
 import com.spiderindia.departmentsofhighway.Utils.WarningDialogForValidation;
 import com.spiderindia.departmentsofhighway.YearPicker.YearPickerDialog;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -86,6 +87,7 @@ import static android.app.Activity.RESULT_OK;
  * A simple {@link Fragment} subclass.
  */
 public class AddBridgeFragment extends Fragment {
+
 
     DataItem dataItem;
 
@@ -182,7 +184,11 @@ public class AddBridgeFragment extends Fragment {
 
         bridge_key_id.setEnabled(false);
 
+        if (!TextUtils.isEmpty(dataItem.getiMAGE()))
 
+        {
+            Picasso.get().load(dataItem.getiMAGE()).into(firstImage);
+        }
     }
 
     @Override
@@ -2013,5 +2019,4 @@ public class AddBridgeFragment extends Fragment {
             }
         });
     }
-
 }

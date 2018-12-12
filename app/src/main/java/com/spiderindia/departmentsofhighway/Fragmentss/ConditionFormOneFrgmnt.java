@@ -376,13 +376,6 @@ public class ConditionFormOneFrgmnt extends Fragment implements AdapterView.OnIt
                     progress_layout.setVisibility(View.GONE);
                 }
 
-                if(!(response.equals("")) && response.equalsIgnoreCase("TRUE"))
-                {
-
-                }
-                else
-                {
-                }
 
             } catch (Exception e) {
 

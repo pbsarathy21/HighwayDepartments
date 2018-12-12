@@ -292,13 +292,6 @@ public class ConditionFormSixFrgmnt extends Fragment {
                     progress_layout.setVisibility(View.GONE);
                 }
 
-                if(!(response.equals("")) && response.equalsIgnoreCase("TRUE"))
-                {
-
-                }
-                else
-                {
-                }
 
             } catch (Exception e) {
 

@@ -372,6 +372,17 @@ public class DataItem implements Serializable {
 	@SerializedName("BRIDGE_ANGLE")
 	private String bRIDGEANGLE;
 
+	@SerializedName("IMAGE")
+	private String iMAGE;
+
+	public String getiMAGE() {
+		return iMAGE;
+	}
+
+	public void setiMAGE(String iMAGE) {
+		this.iMAGE = iMAGE;
+	}
+
 	public void setCONDITIONSURVEYDATE(String cONDITIONSURVEYDATE){
 		this.cONDITIONSURVEYDATE = cONDITIONSURVEYDATE;
 	}

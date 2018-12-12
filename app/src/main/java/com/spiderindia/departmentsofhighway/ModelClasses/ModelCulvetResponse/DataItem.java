@@ -84,6 +84,17 @@ public class DataItem implements Serializable {
 	@SerializedName("SESSION_ID")
 	private String sESSIONID;
 
+	@SerializedName("IMAGE")
+	private String iMAGE;
+
+	public String getiMAGE() {
+		return iMAGE;
+	}
+
+	public void setiMAGE(String iMAGE) {
+		this.iMAGE = iMAGE;
+	}
+
 	public void setDIVISIONKEYID(String dIVISIONKEYID){
 		this.dIVISIONKEYID = dIVISIONKEYID;
 	}

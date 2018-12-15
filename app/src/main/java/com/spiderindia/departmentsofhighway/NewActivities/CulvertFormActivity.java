@@ -1,5 +1,4 @@
 package com.spiderindia.departmentsofhighway.NewActivities;
-
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
@@ -61,9 +60,13 @@ public class CulvertFormActivity extends AppCompatActivity implements AdapterVie
         SharedPreferences.Editor editor = preferences.edit();
         editor.clear().apply();
 
+
         super.onBackPressed();
 
     }
+
+
+    Boolean preset = false;
 
     Toolbar toolbar;
     TextView headerTxt;
@@ -103,14 +106,12 @@ public class CulvertFormActivity extends AppCompatActivity implements AdapterVie
 
         SharedPreferences sharedPreferences = getSharedPreferences("Modify",Context.MODE_PRIVATE);
 
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-
         String data = sharedPreferences.getString("data", "false");
 
         if (data.equalsIgnoreCase("true")) {
 
             culvetKey.setVisibility(View.VISIBLE);
-
+            preset = true;
             presetValues();
 
             /*editor.putString("data", "false");*/
@@ -118,8 +119,10 @@ public class CulvertFormActivity extends AppCompatActivity implements AdapterVie
             culvetKey.setVisibility(View.GONE);
         }
 
+
         super.onStart();
     }
+
 
     private void presetValues() {
 
@@ -141,14 +144,10 @@ public class CulvertFormActivity extends AppCompatActivity implements AdapterVie
         }
     }
 
-
-
-    @Override
+  /*  @Override
     protected void onPostResume() {
 
         SharedPreferences sharedPreferences = getSharedPreferences("Modify",Context.MODE_PRIVATE);
-
-        SharedPreferences.Editor editor = sharedPreferences.edit();
 
         String data = sharedPreferences.getString("data", "false");
 
@@ -156,15 +155,19 @@ public class CulvertFormActivity extends AppCompatActivity implements AdapterVie
 
             culvetKey.setVisibility(View.VISIBLE);
 
+            preset = true;
+
             presetValues();
 
-            /*editor.putString("data", "false");*/
+            *//*editor.putString("data", "false");*//*
         } else {
             culvetKey.setVisibility(View.GONE);
         }
 
+
+
         super.onPostResume();
-    }
+    }*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -428,6 +431,11 @@ public class CulvertFormActivity extends AppCompatActivity implements AdapterVie
 
             imagePath = getRealpathfromUri(cameraUri);
 
+            SharedPreferences imagePreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+            SharedPreferences.Editor editor = imagePreferences.edit();
+            editor.putString("culvert_image", imagePath);
+            editor.apply();
+
         }
 
         if (requestCode == SELECT_PHOTO && resultCode == RESULT_OK)
@@ -438,21 +446,32 @@ public class CulvertFormActivity extends AppCompatActivity implements AdapterVie
 
             imagePath = getRealpathfromUri(galleryUri);
 
+            SharedPreferences imagePreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+            SharedPreferences.Editor editor = imagePreferences.edit();
+            editor.putString("culvert_image", imagePath);
+            editor.apply();
+
             /*imagePath = data.getData().getPath();*/
 
         }
     }
 
     private String getRealpathfromUri(Uri cameraUri) {
-        String projection = (MediaStore.Images.Media.DATA);
-        CursorLoader cursorLoader = new CursorLoader(getApplicationContext(),cameraUri, new String[]{projection}, null,null, null);
-        Cursor cursor = cursorLoader.loadInBackground();
-        int column_indx = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
-        cursor.moveToFirst();
-        String result = cursor.getString(column_indx);
-        cursor.close();
-        return result;
 
+        String result = null;
+
+
+            String projection = (MediaStore.Images.Media.DATA);
+            CursorLoader cursorLoader = new CursorLoader(getApplicationContext(),cameraUri, new String[]{projection}, null,null, null);
+            Cursor cursor = cursorLoader.loadInBackground();
+            int column_indx = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+            cursor.moveToFirst();
+            result = cursor.getString(column_indx);
+            cursor.close();
+
+        Toast.makeText(this, ""+ result, Toast.LENGTH_SHORT).show();
+
+        return result;
     }
 
 
@@ -490,6 +509,21 @@ public class CulvertFormActivity extends AppCompatActivity implements AdapterVie
         String culvet_len = culvertLengthEdtTxt.getText().toString();
         String description = "culvert description";
 
+        SharedPreferences culvertPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        SharedPreferences.Editor editor = culvertPreferences.edit();
+
+        editor.putString("culvert_chainage", chainage);
+        editor.putString("culvert_no", culvert_no);
+        editor.putString("year", year);
+        editor.putString("no_rows", no_rows);
+        editor.putString("pipes_dia", chainage);
+        editor.putString("vent_width", vent_width);
+        editor.putString("vent_height", vent_height);
+        editor.putString("no_span", no_span);
+        editor.putString("culvet_len", culvet_len);
+
+        editor.apply();
+
 
         String  closed_date = "test", work_flow = "test", session_id = "236", cuvert_id = "13345";
 
@@ -526,6 +560,7 @@ public class CulvertFormActivity extends AppCompatActivity implements AdapterVie
 
                                 preferences.edit().remove("latitude").commit();
                                 preferences.edit().remove("longitude").commit();
+                                preferences.edit().clear().apply();
 
                                 finish();
                             }
@@ -593,6 +628,21 @@ public class CulvertFormActivity extends AppCompatActivity implements AdapterVie
         String no_span = noOfSpanEdtTxt.getText().toString();
         String culvet_len = culvertLengthEdtTxt.getText().toString();
         String description = "culvert description";
+
+        SharedPreferences culvertPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        SharedPreferences.Editor editor = culvertPreferences.edit();
+
+        editor.putString("culvert_chainage", chainage);
+        editor.putString("culvert_no", culvert_no);
+        editor.putString("year", year);
+        editor.putString("no_rows", no_rows);
+        editor.putString("pipes_dia", chainage);
+        editor.putString("vent_width", vent_width);
+        editor.putString("vent_height", vent_height);
+        editor.putString("no_span", no_span);
+        editor.putString("culvet_len", culvet_len);
+
+        editor.apply();
 
 
         String  closed_date = "test", work_flow = "test", session_id = "236", cuvert_id = "13345";
@@ -726,6 +776,11 @@ public class CulvertFormActivity extends AppCompatActivity implements AdapterVie
 
         @Override
         protected void onPostExecute(String response_str) {
+
+            SharedPreferences preferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+            String condition_type_spinner = preferences.getString("condition_type_spinner", null);
+            String culvert_type_spinner = preferences.getString("culvert_type_spinner", null);
+
             try {
 
 
@@ -737,23 +792,34 @@ public class CulvertFormActivity extends AppCompatActivity implements AdapterVie
                 adapter_culType.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 culvertTypSpnr.setAdapter(adapter_culType);
 
-                int position = Integer.parseInt(dataItem.getCULVERTTYPE());
-
-                if (position>=0 && position<10)
+                if (preset)
                 {
-                    culvertTypSpnr.setSelection(position);
+                    int position = Integer.parseInt(dataItem.getCULVERTTYPE());
+
+                    if (position>=0 && position<10)
+                    {
+                        culvertTypSpnr.setSelection(position);
+                    }
                 }
+
+
 
                 final ArrayAdapter<String> adapter_condition = new ArrayAdapter<String>(CulvertFormActivity.this,R.layout.custom_spinner, conditionSpinnerArr);
                 adapter_condition.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 conditionSpnr.setAdapter(adapter_condition);
 
-                int position1 = Integer.parseInt(dataItem.getCULVERTCONDITION());
-
-                if (position1>=0 && position1<10)
+                if (preset)
                 {
-                    culvertTypSpnr.setSelection(position1);
+                    int position1 = Integer.parseInt(dataItem.getCULVERTCONDITION());
+
+                    if (position1>=0 && position1<10)
+                    {
+                        conditionSpnr.setSelection(position1);
+                    }
+
                 }
+
+
 
             } catch (Exception e) {
 
